@@ -8,9 +8,11 @@
 namespace akarithm
 {
 
+template <
+    typename StringType = std::string>
 static constexpr auto
 removePalindromeSub(
-    const std::string &s)
+    const StringType &s)
     -> int
 {
     if (s.empty())
