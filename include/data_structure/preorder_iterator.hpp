@@ -7,14 +7,16 @@
 namespace akarithm
 {
 
-template <typename T>
+template <
+    typename TreeType,
+    typename ValueType = typename TreeType::value_type>
 class PreorderIterator
 {
 private:
-    std::stack<const TreeNode<T> *> stack;
+    std::stack<const TreeType *> stack;
 
     constexpr void
-    parse_node(const TreeNode<T> *input)
+    parse_left_of(const TreeType *input)
     {
         while (input)
         {
@@ -24,25 +26,31 @@ private:
     }
 
 public:
-    constexpr PreorderIterator(const TreeNode<T> *root)
+    constexpr PreorderIterator(const TreeType *root)
     {
-        parse_node(root);
+        parse_left_of(root);
     }
 
-    constexpr const TreeNode<T> *next()
+    constexpr auto
+    next()
+        -> const TreeType *
     {
-        const TreeNode<T> *result = stack.top();
+        const TreeType *result = stack.top();
         stack.pop();
-        parse_node(result->right);
+        parse_left_of(result->right);
         return result;
     }
 
-    constexpr const TreeNode<T> *peek() const
+    constexpr auto
+    peek() const
+        -> const TreeType *
     {
         return stack.top();
     }
 
-    constexpr bool hasNext() const
+    constexpr auto
+    hasNext() const
+        -> bool
     {
         return !stack.empty();
     }

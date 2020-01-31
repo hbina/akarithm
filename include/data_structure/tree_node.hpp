@@ -5,6 +5,7 @@
 template <typename T = int>
 struct TreeNode
 {
+  using value_type = T;
   T val;
   TreeNode<T> *left;
   TreeNode<T> *right;
