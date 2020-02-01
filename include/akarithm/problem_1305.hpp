@@ -22,10 +22,10 @@ getAllElements_If(
 {
     std::vector<T> result;
 
-    akarithm::BSTIterator<T> lhs_iterator =
-        akarithm::BSTIterator<T>(lhs);
-    akarithm::BSTIterator<T> rhs_iterator =
-        akarithm::BSTIterator<T>(rhs);
+    akarithm::BSTIterator lhs_iterator =
+        akarithm::BSTIterator(lhs);
+    akarithm::BSTIterator rhs_iterator =
+        akarithm::BSTIterator(rhs);
 
     while (lhs_iterator.hasNext() && rhs_iterator.hasNext())
     {

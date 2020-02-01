@@ -1,7 +1,5 @@
 #pragma once
 
-#include "data_structure/tree_node.hpp"
-
 #include <stack>
 
 namespace akarithm

@@ -29,6 +29,7 @@ add_executable(
     src/util/generic/is_palindrome.cpp
     src/util/generic/zip_accumulate.cpp
     src/util/generic/preorder_iterator.cpp
+    src/util/generic/inorder_iterator.cpp
     src/util/generic/reverse_if.cpp
     src/util/generic/is_number.cpp
     src/util/generic/find_range.cpp

@@ -1,9 +1,6 @@
 #pragma once
 
-#include "tree_node.hpp"
-
 #include <stack>
-#include <optional>
 
 namespace akarithm
 {
@@ -11,25 +8,25 @@ namespace akarithm
 template <
     typename TreeType,
     typename ValueType = typename TreeType::value_type>
-class BSTIterator
+class PostorderIterator
 {
 private:
     std::stack<const TreeType *> stack;
 
     constexpr void
-    parse_node(const TreeType *input)
+    parse_right_of(const TreeType *input)
     {
         while (input)
         {
             stack.push(input);
-            input = input->left;
+            input = input->right;
         }
     }
 
 public:
-    constexpr BSTIterator(const TreeType *root)
+    constexpr PostorderIterator(const TreeType *root)
     {
-        parse_node(root);
+        parse_right_of(root);
     }
 
     constexpr auto
@@ -38,7 +35,7 @@ public:
     {
         const TreeType *result = stack.top();
         stack.pop();
-        parse_node(result->right);
+        parse_right_of(result->left);
         return result;
     }
 

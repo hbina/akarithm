@@ -10,8 +10,8 @@ TEST_CASE("problem_173")
                        new TreeNode<>(15,
                                       new TreeNode<>(9),
                                       new TreeNode<>(20)));
-    akarithm::BSTIterator<int> iterator =
-        akarithm::BSTIterator<int>(input);
+    akarithm::BSTIterator iterator =
+        akarithm::BSTIterator(input);
     CHECK(3 == iterator.next()->val);
     CHECK(7 == iterator.next()->val);
     CHECK(true == iterator.hasNext());
