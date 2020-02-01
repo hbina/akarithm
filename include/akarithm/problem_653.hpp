@@ -16,9 +16,19 @@ findTarget(const TreeNode<T> *root, int k)
     akarithm::PostorderIterator post_order = akarithm::PostorderIterator(root);
     while (pre_order.hasNext() && post_order.hasNext())
     {
-        if (pre_order.next()->val + post_order.next()->val == k)
-        {
+        auto lhs = pre_order.peek();
+        auto rhs = post_order.peek();
+
+        if (lhs == rhs)
+            return false;
+        else if (lhs->val + rhs->val == k)
             return true;
+        else
+        {
+            if (lhs->val + rhs->val > k)
+                rhs = post_order.next();
+            else
+                lhs = pre_order.next();
         }
     }
     return false;
