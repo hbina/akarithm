@@ -81,6 +81,7 @@ add_executable(
     src/akarithm/problem_557.cpp
     src/akarithm/problem_589.cpp
     src/akarithm/problem_643.cpp
+    src/akarithm/problem_653.cpp
     src/akarithm/problem_700.cpp
     src/akarithm/problem_888.cpp
     src/akarithm/problem_905.cpp
