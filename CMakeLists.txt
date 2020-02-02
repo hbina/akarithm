@@ -39,6 +39,7 @@ add_executable(
     src/util/generic/split.cpp
     src/util/generic/zip.cpp
     
+    src/akarithm/problem_1.cpp
     src/akarithm/problem_4.cpp
     src/akarithm/problem_5.cpp
     src/akarithm/problem_14.cpp
