@@ -35,6 +35,7 @@ add_executable(
     src/util/generic/find_range.cpp
     src/util/generic/set_equality.cpp
     src/util/generic/group_by.cpp
+    src/util/generic/group_by_minify.cpp
     src/util/generic/split.cpp
     src/util/generic/zip.cpp
     
