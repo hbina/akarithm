@@ -104,6 +104,7 @@ add_executable(
     src/akarithm/problem_1305.cpp
     src/akarithm/problem_5319.cpp
     src/akarithm/problem_5328.cpp
+    src/akarithm/problem_5329.cpp
 )
 
 target_include_directories(akarithm PRIVATE ${CMAKE_SOURCE_DIR}/doctest)
