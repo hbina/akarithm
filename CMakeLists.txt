@@ -38,6 +38,7 @@ add_executable(
     src/util/generic/group_by_minify.cpp
     src/util/generic/split.cpp
     src/util/generic/zip.cpp
+    src/util/generic/sliding_window.cpp
     
     src/akarithm/problem_1.cpp
     src/akarithm/problem_4.cpp

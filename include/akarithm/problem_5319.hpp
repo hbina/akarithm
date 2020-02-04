@@ -23,4 +23,4 @@ removePalindromeSub(
         return 2;
 }
 
-}; // namespace akarithm
+} // namespace akarithm
