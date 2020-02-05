@@ -16,6 +16,7 @@ TEST_CASE("problem 653 1")
     const bool expected = true;
     const bool result = akarithm::findTarget(input_1, input_2);
     CHECK(expected == result);
+    delete input_1;
 }
 
 TEST_CASE("problem 653 2")
@@ -28,6 +29,7 @@ TEST_CASE("problem 653 2")
     const bool expected = true;
     const bool result = akarithm::findTarget(input_1, input_2);
     CHECK(expected == result);
+    delete input_1;
 }
 
 TEST_CASE("problem 653 3")
@@ -40,6 +42,7 @@ TEST_CASE("problem 653 3")
     const bool expected = true;
     const bool result = akarithm::findTarget(input_1, input_2);
     CHECK(expected == result);
+    delete input_1;
 }
 
 TEST_CASE("problem 653 4")
@@ -52,6 +55,7 @@ TEST_CASE("problem 653 4")
     const bool expected = true;
     const bool result = akarithm::findTarget(input_1, input_2);
     CHECK(expected == result);
+    delete input_1;
 }
 
 TEST_CASE("problem 653 5")
@@ -61,6 +65,7 @@ TEST_CASE("problem 653 5")
     const bool expected = false;
     const bool result = akarithm::findTarget(input_1, input_2);
     CHECK(expected == result);
+    delete input_1;
 }
 
 TEST_CASE("problem 653 6")
@@ -71,6 +76,7 @@ TEST_CASE("problem 653 6")
     const bool expected = false;
     const bool result = akarithm::findTarget(input_1, input_2);
     CHECK(expected == result);
+    delete input_1;
 }
 
 TEST_CASE("problem 653 7")
@@ -87,6 +93,7 @@ TEST_CASE("problem 653 7")
     const bool expected = true;
     const bool result = akarithm::findTarget(input_1, input_2);
     CHECK(expected == result);
+    delete input_1;
 }
 
 TEST_CASE("problem 653 8")
@@ -97,4 +104,5 @@ TEST_CASE("problem 653 8")
     const bool expected = false;
     const bool result = akarithm::findTarget(input_1, input_2);
     CHECK(expected == result);
+    delete input_1;
 }
