@@ -8,21 +8,22 @@
 namespace akarithm
 {
 
-static auto
+template <typename T>
+static constexpr auto
 kWeakestRows(
-    const std::vector<std::vector<int>> &mat,
-    const int k)
-    -> std::vector<int>
+    const std::vector<std::vector<T>> &mat,
+    const T &k)
+    -> std::vector<T>
 {
-    std::vector<int> result;
+    std::vector<T> result;
     result.resize(mat.size());
     std::iota(
         std::begin(result),
         std::end(result),
         0);
     auto count_soldier =
-        [](const std::vector<std::vector<int>> &mat,
-           const std::size_t &index) -> int {
+        [](const std::vector<std::vector<T>> &mat,
+           const std::size_t &index) -> std::size_t {
         return std::distance(
             std::cbegin(mat[index]),
             std::find(
@@ -33,8 +34,8 @@ kWeakestRows(
     std::stable_sort(
         std::begin(result),
         std::end(result),
-        [&](const int &lhs, const int &rhs) -> bool {
-            return count_soldier(mat, lhs) < count_soldier(mat, rhs) ;
+        [&](const T &lhs, const T &rhs) -> bool {
+            return count_soldier(mat, lhs) < count_soldier(mat, rhs);
         });
     result.resize(k);
     return result;

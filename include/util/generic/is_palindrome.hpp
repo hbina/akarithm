@@ -31,9 +31,9 @@ is_palindrome_UnCheckedEven(
     Iterator iter_end)
     -> bool
 {
-    while (iter_begin != std::next(--iter_end))
+    while (iter_begin != iter_end)
     {
-        if (*(iter_begin++) != *(iter_end))
+        if (*(iter_begin++) != *(--iter_end))
             return false;
     }
     return true;
