@@ -1,8 +1,8 @@
 #include "doctest/doctest.h"
 
-#include "akarithm/problem_1340.hpp"
+#include "akarithm/problem_1335.hpp"
 
-TEST_CASE("problem 1340 1")
+TEST_CASE("problem_1335 1")
 {
     const std::vector<int> input_1 = {6, 5, 4, 3, 2, 1};
     const int input_2 = 2;
@@ -11,7 +11,7 @@ TEST_CASE("problem 1340 1")
     CHECK(expected == result);
 }
 
-TEST_CASE("problem 1340 2")
+TEST_CASE("problem_1335 2")
 {
     const std::vector<int> input_1 = {9, 9, 9};
     const int input_2 = 4;
@@ -20,7 +20,7 @@ TEST_CASE("problem 1340 2")
     CHECK(expected == result);
 }
 
-TEST_CASE("problem 1340 3")
+TEST_CASE("problem_1335 3")
 {
     const std::vector<int> input_1 = {1, 1, 1};
     const int input_2 = 3;
@@ -29,7 +29,7 @@ TEST_CASE("problem 1340 3")
     CHECK(expected == result);
 }
 
-TEST_CASE("problem 1340 4")
+TEST_CASE("problem_1335 4")
 {
     const std::vector<int> input_1 = {7, 1, 7, 1, 7, 1};
     const int input_2 = 3;
@@ -38,7 +38,7 @@ TEST_CASE("problem 1340 4")
     CHECK(expected == result);
 }
 
-TEST_CASE("problem 1340 5")
+TEST_CASE("problem_1335 5")
 {
     const std::vector<int> input_1 = {11, 111, 22, 222, 33, 333, 44, 444};
     const int input_2 = 6;
@@ -47,7 +47,7 @@ TEST_CASE("problem 1340 5")
     CHECK(expected == result);
 }
 
-TEST_CASE("problem 1340 6")
+TEST_CASE("problem_1335 6")
 {
     const std::vector<int> input_1 = {186, 398, 479, 206, 885, 423, 805, 112, 925, 656, 16, 932, 740, 292, 671, 360};
     const int input_2 = 4;
