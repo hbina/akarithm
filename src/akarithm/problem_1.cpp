@@ -29,3 +29,16 @@ TEST_CASE("problem 1 2")
         std::cbegin(result),
         std::cend(result)));
 }
+
+TEST_CASE("problem 1 3")
+{
+    const std::vector<int> input_1 = {3, 3};
+    const int input_2 = 6;
+    const std::vector<int> expected = {0, 1};
+    const std::vector<int> result = akarithm::twoSum(input_1, input_2);
+    CHECK(util::generic::set_equality(
+        std::cbegin(expected),
+        std::cend(expected),
+        std::cbegin(result),
+        std::cend(result)));
+}
