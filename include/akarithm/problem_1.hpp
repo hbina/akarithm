@@ -10,6 +10,7 @@
 // TODO ::  Once group_minify is merged, consider using it instead.
 namespace akarithm
 {
+
 static auto
 twoSum(
     const std::vector<int> &nums,
