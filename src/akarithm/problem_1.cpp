@@ -14,5 +14,5 @@ TEST_CASE("problem 1")
         std::cbegin(expected),
         std::cend(expected),
         std::cbegin(result),
-        std::cbegin(result)));
+        std::cend(result)));
 }
