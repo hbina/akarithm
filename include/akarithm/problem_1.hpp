@@ -11,32 +11,27 @@
 namespace akarithm
 {
 
-static auto
+template <
+    typename Iterable,
+    typename ValueType = typename std::iterator_traits<
+        typename Iterable::iterator>::value_type,
+    typename IndexType =
+        typename std::iterator_traits<
+            typename Iterable::iterator>::difference_type>
+static constexpr auto
 twoSum(
-    const std::vector<int> &nums,
-    const int target)
-    -> std::vector<int>
+    const Iterable &nums,
+    const ValueType &target)
+    -> Iterable
 {
-    using IndexType =
-        typename std::iterator_traits<std::vector<int>::iterator>::difference_type;
-    using PairType = std::pair<int, IndexType>;
-    // Group up equivalent elements
-    const auto tmp =
-        util::generic::group_by_minify<std::vector<PairType>>(
-            std::cbegin(nums),
-            std::cend(nums),
-            [](const int &lhs, const int &rhs)
-                -> bool {
-                return lhs == rhs;
-            });
     // Get the indices and sort based on the value its pointing to
     std::vector<IndexType> indices;
-    indices.resize(tmp.size());
+    indices.resize(nums.size());
     std::iota(std::begin(indices), std::end(indices), 0);
     std::sort(std::begin(indices), std::end(indices),
               [&](const IndexType &lhs, const IndexType &rhs)
                   -> bool {
-                  return tmp[lhs].first < tmp[rhs].first;
+                  return nums[lhs] < nums[rhs];
               });
     // Find the sum pair using sliding window
     auto [left, right] =
@@ -45,24 +40,13 @@ twoSum(
             std::cend(indices),
             [&](const IndexType &lhs, const IndexType &rhs)
                 -> bool {
-                return tmp[lhs].first + tmp[rhs].first < target;
+                return nums[lhs] + nums[rhs] < target;
             },
             [&](const IndexType &lhs, const IndexType &rhs)
                 -> bool {
-                return tmp[lhs].first + tmp[rhs].first == target;
+                return nums[lhs] + nums[rhs] == target;
             });
-    // Accumulate to find the true indices
-    auto left_i = 0;
-    for (IndexType iter = 0; iter != *left; iter++)
-    {
-        left_i += tmp[iter].second;
-    }
-    auto right_i = 0;
-    for (IndexType iter = 0; iter != *right; iter++)
-    {
-        right_i += tmp[iter].second;
-    }
-    return {left_i, right_i};
+    return {static_cast<ValueType>(*left), static_cast<ValueType>(*right)};
 }
 
 } // namespace akarithm
