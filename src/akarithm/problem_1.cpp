@@ -20,7 +20,7 @@ TEST_CASE("problem 1 1")
 TEST_CASE("problem 1 2")
 {
     const std::vector<int> input_1 = {3, 2, 4};
-    const int input_2 = 7;
+    const int input_2 = 6;
     const std::vector<int> expected = {1, 2};
     const std::vector<int> result = akarithm::twoSum(input_1, input_2);
     CHECK(util::generic::set_equality(
