@@ -8,6 +8,7 @@ struct ListNode
 {
   T val;
   ListNode *next;
+
   constexpr ListNode(const T &x)
       : val(x),
         next(nullptr) {}
@@ -20,6 +21,19 @@ struct ListNode
   {
     if (next)
       delete next;
+  }
+
+  constexpr auto
+  size()
+      -> std::size_t
+  {
+    std::size_t size = 1;
+    while (next)
+    {
+      size++;
+      next = next->next;
+    }
+    return size;
   }
 
   template <typename T2>
