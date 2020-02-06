@@ -21,11 +21,11 @@ countAndSay(const NumType &n)
     for (auto a = 1; a < n; a++)
     {
         const auto grouped =
-            util::generic::group_by<std::vector<std::string>>(
+            util::generic::group_by<OutputType>(
                 result.cbegin(),
                 result.cend(),
-                [](const std::string &lhs, const auto &rhs) 
-                -> bool {
+                [](const OutputType &lhs, const auto &rhs)
+                    -> bool {
                     return lhs.back() == rhs;
                 });
         const auto transformed = std::accumulate(
