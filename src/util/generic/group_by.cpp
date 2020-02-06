@@ -14,8 +14,9 @@ TEST_CASE("util::generic::group_by 1")
         util::generic::group_by<std::vector<std::vector<int>>>(
             input.cbegin(),
             input.cend(),
-            [](const int &lhs, const int &rhs) -> bool {
-                return (lhs % 2) == (rhs % 2);
+            [](const std::vector<int> &lhs, const int &rhs)
+                -> bool {
+                return (lhs.back() % 2) == (rhs % 2);
             });
     CHECK(expected == result);
 }
@@ -28,8 +29,9 @@ TEST_CASE("util::generic::group_by 1 as list")
         util::generic::group_by<std::list<std::list<int>>>(
             input.cbegin(),
             input.cend(),
-            [](const int &lhs, const int &rhs) -> bool {
-                return (lhs % 2) == (rhs % 2);
+            [](const std::list<int> &lhs, const int &rhs)
+                -> bool {
+                return (lhs.back() % 2) == (rhs % 2);
             });
     CHECK(expected == result);
 }
@@ -42,8 +44,9 @@ TEST_CASE("util::generic::group_by 2")
         util::generic::group_by<std::list<std::list<int>>>(
             input.cbegin(),
             input.cend(),
-            [](const int &lhs, const int &rhs) -> bool {
-                return (lhs % 2) == (rhs % 2);
+            [](const std::list<int> &lhs, const int &rhs)
+                -> bool {
+                return (lhs.back() % 2) == (rhs % 2);
             });
     CHECK(expected == result);
 }
@@ -56,8 +59,9 @@ TEST_CASE("util::generic::group_by 3")
         util::generic::group_by<std::vector<std::list<int>>>(
             input.cbegin(),
             input.cend(),
-            [](const int &lhs, const int &rhs) -> bool {
-                return (lhs % 2) == (rhs % 2);
+            [](const std::list<int> &lhs, const int &rhs)
+                -> bool {
+                return (lhs.back() % 2) == (rhs % 2);
             });
     CHECK(expected == result);
 }
@@ -70,8 +74,9 @@ TEST_CASE("util::generic::group_by 4")
         util::generic::group_by<std::vector<std::string>>(
             input.cbegin(),
             input.cend(),
-            [](const auto &lhs, const auto &rhs) -> bool {
-                return std::isalpha(lhs) == std::isalpha(rhs);
+            [](const std::string &lhs, const auto &rhs)
+                -> bool {
+                return std::isalpha(lhs.back()) == std::isalpha(rhs);
             });
     CHECK(expected == result);
 }
@@ -84,8 +89,9 @@ TEST_CASE("util::generic::group_by 5")
         util::generic::group_by<std::vector<std::string>>(
             input.cbegin(),
             input.cend(),
-            [](const auto &lhs, const auto &rhs) -> bool {
-                return std::isalpha(lhs) == std::isalpha(rhs);
+            [](const std::string &lhs, const auto &rhs)
+                -> bool {
+                return std::isalpha(lhs.back()) == std::isalpha(rhs);
             });
     CHECK(expected == result);
 }

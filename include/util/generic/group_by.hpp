@@ -28,7 +28,7 @@ group_by(
         [&](OutputIteratorType &acc,
             const T &rhs)
             -> OutputIteratorType {
-            if (pred(acc.back().back(), rhs))
+            if (pred(acc.back(), rhs))
             {
                 acc.back().push_back(rhs);
             }

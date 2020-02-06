@@ -24,8 +24,9 @@ countAndSay(const NumType &n)
             util::generic::group_by<std::vector<std::string>>(
                 result.cbegin(),
                 result.cend(),
-                [](const auto &lhs, const auto &rhs) -> bool {
-                    return lhs == rhs;
+                [](const std::string &lhs, const auto &rhs) 
+                -> bool {
+                    return lhs.back() == rhs;
                 });
         const auto transformed = std::accumulate(
             std::cbegin(grouped),

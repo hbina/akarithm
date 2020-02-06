@@ -18,9 +18,9 @@ int minSetSize(
         util::generic::group_by<std::vector<std::vector<int>>>(
             std::cbegin(arr),
             std::cend(arr),
-            [](const int &lhs,
-               const int &rhs) -> bool {
-                return lhs == rhs;
+            [](const std::vector<int> &lhs, const int &rhs)
+                -> bool {
+                return lhs.back() == rhs;
             });
     std::sort(
         std::begin(tmp),
