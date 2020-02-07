@@ -39,6 +39,7 @@ add_executable(
     src/util/generic/split.cpp
     src/util/generic/zip.cpp
     src/util/generic/sliding_window.cpp
+    src/util/generic/bst_search.cpp
     
     src/akarithm/problem_1.cpp
     src/akarithm/problem_4.cpp
