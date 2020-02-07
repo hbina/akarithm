@@ -37,6 +37,15 @@ nthUglyNumber(const IntTy &n)
         return static_cast<IntTy>(pow2 * pow3 * pow5);
     };
 
+    auto find_lowest = [](const DpTy &dp) {
+        return std::min_element(
+            std::begin(dp), std::end(dp),
+            [&](const auto &lhs, const auto &rhs)
+                -> bool {
+                return lhs.first < rhs.first;
+            });
+    };
+
     DpTy dp;
     dp.emplace(std::make_pair(
         evaluate_tuple({0, 0, 0}),
@@ -44,13 +53,7 @@ nthUglyNumber(const IntTy &n)
     for (DpIndexTy iter = 1; iter != static_cast<DpIndexTy>(n); iter++)
     {
         // Find the lowest evaluation
-        auto min =
-            std::min_element(
-                std::begin(dp), std::end(dp),
-                [&](const auto &lhs, const auto &rhs)
-                    -> bool {
-                    return lhs.first < rhs.first;
-                });
+        auto min = find_lowest(dp);
         auto [a, b, c] = min->second;
         // Create the next generation
         dp.emplace(std::make_pair(
@@ -62,18 +65,11 @@ nthUglyNumber(const IntTy &n)
         dp.emplace(std::make_pair(
             evaluate_tuple({a, b, c + 1}),
             TupleTy{a, b, c + 1}));
-
         // Remove the lowest one from the dp
         dp.erase(min);
     }
 
-    return std::min_element(
-               std::begin(dp), std::end(dp),
-               [&](const auto &lhs, const auto &rhs)
-                   -> bool {
-                   return lhs.first < rhs.first;
-               })
-        ->first;
+    return find_lowest(dp)->first;
 }
 
 } // namespace akarithm
