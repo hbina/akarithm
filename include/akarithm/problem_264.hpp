@@ -25,7 +25,6 @@ nthUglyNumber(const IntTy &n)
         return 0;
 
     using TupleTy = typename std::array<IntTy, 3>;
-    using TupleIndexTy = typename TupleTy::size_type;
     using DpTy = typename std::map<IntTy, TupleTy>;
     using DpIndexTy = typename DpTy::size_type;
 
