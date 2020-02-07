@@ -30,13 +30,13 @@ int minSetSize(
             return lhs.size() < rhs.size();
         });
     int acc = 0;
-    return std::count_if(
+    return static_cast<int>(std::count_if(
         std::cbegin(tmp),
         std::cend(tmp),
         [&](const std::vector<int> &value)
             -> bool {
-            acc += value.size();
+            acc += static_cast<int>(value.size());
             return acc > arr.size() / 2;
-        });
+        }));
 }
 } // namespace akarithm
