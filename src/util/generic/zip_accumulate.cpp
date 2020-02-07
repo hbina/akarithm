@@ -2,6 +2,7 @@
 
 #include "util/generic/zip_accumulate.hpp"
 
+#include <functional>
 #include <vector>
 #include <list>
 
@@ -16,12 +17,8 @@ TEST_CASE("zip accumulate 1")
         std::cbegin(input_2),
         std::cend(input_2),
         0,
-        [](const auto &lhs, const auto &rhs) -> int {
-            return lhs * rhs;
-        },
-        [](const auto &lhs, const auto &rhs) -> int {
-            return lhs + rhs;
-        });
+        std::multiplies{},
+        std::plus{});
     CHECK(expected == result);
 }
 
@@ -36,12 +33,8 @@ TEST_CASE("zip accumulate 2")
         std::cbegin(input_2),
         std::cend(input_2),
         true,
-        [](const auto &lhs, const auto &rhs) -> bool {
-            return lhs == rhs;
-        },
-        [](const auto &lhs, const auto &rhs) -> bool {
-            return lhs && rhs;
-        });
+        std::equal_to{},
+        std::logical_and{});
     CHECK(expected == result);
 }
 
@@ -56,11 +49,7 @@ TEST_CASE("zip accumulate 3")
         std::cbegin(input_2),
         std::cend(input_2),
         true,
-        [](const auto &lhs, const auto &rhs) -> bool {
-            return lhs == rhs;
-        },
-        [](const auto &lhs, const auto &rhs) -> bool {
-            return lhs && rhs;
-        });
+        std::equal_to{},
+        std::logical_and{});
     CHECK(expected == result);
 }

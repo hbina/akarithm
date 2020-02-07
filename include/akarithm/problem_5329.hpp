@@ -36,7 +36,7 @@ int minSetSize(
         [&](const std::vector<int> &value)
             -> bool {
             acc += static_cast<int>(value.size());
-            return acc > arr.size() / 2;
+            return acc > static_cast<int>(arr.size() / 2);
         }));
 }
 } // namespace akarithm

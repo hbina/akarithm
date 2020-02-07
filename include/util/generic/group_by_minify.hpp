@@ -19,6 +19,8 @@ group_by_minify(
     const BinaryPredicate &pred)
 {
     using T = typename std::iterator_traits<Iterator>::value_type;
+    if (iter_begin == iter_end)
+        return {};
     return std::accumulate(
         std::next(iter_begin),
         iter_end,
