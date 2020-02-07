@@ -16,9 +16,9 @@ searchBST(
         return nullptr;
     else if (root->val == val)
         return root;
-    else if (root->val < val && root->right)
+    else if (root->val < val)
         return searchBST(root->right, val);
-    else if (root->val > val && root->left)
+    else if (root->val > val)
         return searchBST(root->left, val);
     else
         return nullptr;
