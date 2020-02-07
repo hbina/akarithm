@@ -6,54 +6,22 @@ namespace akarithm
 {
 
 template <typename T>
-static constexpr TreeNode<T> *searchBST(const TreeNode<T> *root, const T &val)
+static constexpr auto
+searchBST(
+    const TreeNode<T> *root,
+    const T &val)
+    -> const TreeNode<T> *
 {
-    if (root->val == val)
-    {
+    if (!root)
+        return nullptr;
+    else if (root->val == val)
         return root;
-    }
+    else if (root->val < val && root->right)
+        return searchBST(root->right, val);
+    else if (root->val > val && root->left)
+        return searchBST(root->left, val);
     else
-    {
-        TreeNode<T> *left = nullptr, *right = nullptr;
-
-        // Begin search on left branch if it exists
-        if (root->left != nullptr)
-        {
-            left = searchBST(root->left, val);
-        }
-        // Begin search on right branch if it exists and left branch failed...
-        if (root->right != nullptr && left == nullptr)
-        {
-            right = searchBST(root->right, val);
-        }
-
-        // If left failed, then the only option is right.
-        // Right could be nullptr, but that's perfectly fine.
-        if (left == nullptr)
-        {
-            return right;
-        }
-        else
-        {
-            return left;
-        }
-    }
-}
-
-template <typename T>
-TreeNode<T> *searchBST_2(const TreeNode<T> *root, const T &val)
-{
-    TreeNode<T> *tree = root;
-    while (tree)
-    {
-        if (tree->val == val) // found the solution
-            return tree;
-        else if (tree->val < val) // current is smaller, then go right
-            tree = tree->right;
-        else // current is larger, then go left
-            tree = tree->left;
-    }
-    return nullptr;
+        return nullptr;
 }
 
 } // namespace akarithm
