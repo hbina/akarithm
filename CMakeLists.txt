@@ -107,8 +107,8 @@ add_executable(
     src/akarithm/problem_1290.cpp
     src/akarithm/problem_1304.cpp
     src/akarithm/problem_1305.cpp
-    src/akarithm/problem_5319.cpp
-    src/akarithm/problem_5328.cpp
+    src/akarithm/problem_1332.cpp
+    src/akarithm/problem_1337.cpp
     src/akarithm/problem_5329.cpp
 )
 

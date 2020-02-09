@@ -1,6 +1,6 @@
 #include "doctest/doctest.h"
 
-#include "akarithm/problem_5319.hpp"
+#include "akarithm/problem_1332.hpp"
 
 TEST_CASE("problem 5319 1")
 {
