@@ -7,16 +7,16 @@
 namespace akarithm
 {
 
-template <typename T>
+template <typename ValueTy>
 static constexpr std::size_t numPairsDivisibleBy60(
-    const std::vector<T> &time)
+    const std::vector<ValueTy> &time)
 {
-    std::vector<T> map(60, 0);
+    std::vector<ValueTy> map(60, 0);
     std::size_t counter = 0;
     for (std::size_t iter = 0; iter < time.size(); ++iter)
     {
-        T val = time[iter] % 60;
-        T diff = 60 - val;
+        ValueTy val = time[iter] % 60;
+        ValueTy diff = 60 - val;
         if (diff == 60)
             diff = 0;
         counter += map[diff];
@@ -26,7 +26,7 @@ static constexpr std::size_t numPairsDivisibleBy60(
 }
 
 // NOTE :: This is a pretty bad algorithm that is O(n^2)
-template <typename T>
+template <typename ValueTy>
 static constexpr std::size_t numPairsDivisibleBy60_O2(
     const std::vector<int> &time)
 {

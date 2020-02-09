@@ -10,7 +10,7 @@ TEST_CASE("zip accumulate 1")
     const std::vector<int> input_1 = {1, 2, 3, 4, 5};
     const std::vector<int> input_2 = {1, 2, 3, 4, 5};
     const int expected = 55;
-    const int result = util::generic::zip_accumulate(
+    const int result = akarithm::zip_accumulate(
         std::cbegin(input_1),
         std::cend(input_1),
         std::cbegin(input_2),
@@ -30,7 +30,7 @@ TEST_CASE("zip accumulate 2")
     const std::vector<int> input_1 = {1, 2, 3, 4, 5};
     const std::vector<int> input_2 = {1, 2, 3, 4, 5};
     const bool expected = true;
-    const bool result = util::generic::zip_accumulate(
+    const bool result = akarithm::zip_accumulate(
         std::cbegin(input_1),
         std::cend(input_1),
         std::cbegin(input_2),
@@ -50,7 +50,7 @@ TEST_CASE("zip accumulate 3")
     const std::list<int> input_1 = {1, 2, 3, 4, 5};
     const std::list<int> input_2 = {1, 2, 3, 4, 5};
     const bool expected = true;
-    const bool result = util::generic::zip_accumulate(
+    const bool result = akarithm::zip_accumulate(
         std::cbegin(input_1),
         std::cend(input_1),
         std::cbegin(input_2),

@@ -5,25 +5,25 @@
 #include <vector>
 #include <cctype>
 
-TEST_CASE("util::generic::split test -- vector<int> --> vector<vector<int>> delimited by value 2")
+TEST_CASE("akarithm::split test -- vector<int> --> vector<vector<int>> delimited by value 2")
 {
     const std::vector<int> input = {1, 2, 2, 3, 2, 4, 5};
     const std::vector<std::vector<int>> expected = {{1}, {3}, {4, 5}};
     const int delimiter = 2;
     const auto result =
-        util::generic::split<int>(
+        akarithm::split<int>(
             std::cbegin(input),
             std::cend(input),
             delimiter);
     CHECK(expected == result);
 }
 
-TEST_CASE("util::generic::split test -- vector<int> --> vector<vector<int>> delimited by some functor")
+TEST_CASE("akarithm::split test -- vector<int> --> vector<vector<int>> delimited by some functor")
 {
     const std::vector<int> input = {1, 2, 3, 4, 5};
     const std::vector<std::vector<int>> expected = {{1}, {3}, {5}};
     const auto result =
-        util::generic::split_if<int>(
+        akarithm::split_if<int>(
             std::cbegin(input),
             std::cend(input),
             [](const int &elem) -> bool {
@@ -32,12 +32,12 @@ TEST_CASE("util::generic::split test -- vector<int> --> vector<vector<int>> deli
     CHECK(expected == result);
 }
 
-TEST_CASE("util::generic::split test -- vector<int> --> vector<vector<int>> delimited by some functor")
+TEST_CASE("akarithm::split test -- vector<int> --> vector<vector<int>> delimited by some functor")
 {
     const std::vector<int> input = {1, 3, 5};
     const std::vector<std::vector<int>> expected = {{1, 3, 5}};
     const auto result =
-        util::generic::split_if<int>(
+        akarithm::split_if<int>(
             std::cbegin(input),
             std::cend(input),
             [](const int &elem) -> bool {
@@ -46,12 +46,12 @@ TEST_CASE("util::generic::split test -- vector<int> --> vector<vector<int>> deli
     CHECK(expected == result);
 }
 
-TEST_CASE("util::generic::split test -- vector<int> --> vector<vector<int>> delimited by some functor")
+TEST_CASE("akarithm::split test -- vector<int> --> vector<vector<int>> delimited by some functor")
 {
     const std::vector<int> input = {2, 1, 2, 3, 4, 5, 6};
     const std::vector<std::vector<int>> expected = {{1}, {3}, {5}};
     const auto result =
-        util::generic::split_if<int>(
+        akarithm::split_if<int>(
             std::cbegin(input),
             std::cend(input),
             [](const int &elem) -> bool {
@@ -60,12 +60,12 @@ TEST_CASE("util::generic::split test -- vector<int> --> vector<vector<int>> deli
     CHECK(expected == result);
 }
 
-TEST_CASE("util::generic::split test -- vector<int> --> vector<vector<int>> delimited by some functor")
+TEST_CASE("akarithm::split test -- vector<int> --> vector<vector<int>> delimited by some functor")
 {
     const std::vector<int> input = {2, 2, 1, 2, 4, 3, 4, 8, 10, 5, 6};
     const std::vector<std::vector<int>> expected = {{1}, {3}, {5}};
     const auto result =
-        util::generic::split_if<int>(
+        akarithm::split_if<int>(
             std::cbegin(input),
             std::cend(input),
             [](const int &elem) -> bool {
@@ -79,7 +79,7 @@ TEST_CASE("util::string::split test -- vector<int> --> vector<vector<int>> delim
     const std::string input = "hello43world233good333bye123world";
     const std::vector<std::string> expected = {"hello", "world", "good", "bye", "world"};
     const std::vector<std::string> result =
-        util::generic::split_if<
+        akarithm::split_if<
             std::string::value_type,
             std::string>(
             std::cbegin(input),

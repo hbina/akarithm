@@ -7,20 +7,20 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr std::pair<T, T> full_adder(const T &a, const T &b, const T &c)
+template <typename ValueTy>
+static constexpr std::pair<ValueTy, ValueTy> full_adder(const ValueTy &a, const ValueTy &b, const ValueTy &c)
 {
     return {(a ^ b) ^ c, ((a ^ b) & c) | (a & b)};
 }
 
-template <typename T>
-T getSum(const T &x_input, const T &y_input)
+template <typename ValueTy>
+ValueTy getSum(const ValueTy &x_input, const ValueTy &y_input)
 {
-    T x = x_input;
-    T y = y_input;
+    ValueTy x = x_input;
+    ValueTy y = y_input;
     while (y != 0)
     {
-        T carry = x & y;
+        ValueTy carry = x & y;
         x = x ^ y;
         y = carry << 1;
     }

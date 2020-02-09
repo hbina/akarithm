@@ -7,19 +7,19 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr T subtractProductAndSum(const T &input)
+template <typename ValueTy>
+static constexpr ValueTy subtractProductAndSum(const ValueTy &input)
 {
-    T n = input;
-    std::vector<T> collection;
+    ValueTy n = input;
+    std::vector<ValueTy> collection;
     while (n)
     {
-        T tmp = n % 10;
+        ValueTy tmp = n % 10;
         collection.push_back(tmp);
         n /= 10;
     }
 
-    return std::accumulate(collection.begin(), collection.end(), 1, std::multiplies<T>()) -
+    return std::accumulate(collection.begin(), collection.end(), 1, std::multiplies<ValueTy>()) -
            std::accumulate(collection.begin(), collection.end(), 0);
 }
 

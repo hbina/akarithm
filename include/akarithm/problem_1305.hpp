@@ -12,15 +12,15 @@ namespace akarithm
 {
 
 template <
-    typename T,
+    typename ValueTy,
     typename BinaryPredicate>
-static std::vector<T>
+static std::vector<ValueTy>
 getAllElements_If(
-    const TreeNode<T> *lhs,
-    const TreeNode<T> *rhs,
+    const TreeNode<ValueTy> *lhs,
+    const TreeNode<ValueTy> *rhs,
     const BinaryPredicate &pred)
 {
-    std::vector<T> result;
+    std::vector<ValueTy> result;
 
     akarithm::BSTIterator lhs_iterator =
         akarithm::BSTIterator(lhs);
@@ -44,11 +44,11 @@ getAllElements_If(
 }
 
 template <
-    typename T>
-static std::vector<T>
+    typename ValueTy>
+static std::vector<ValueTy>
 getAllElements(
-    const TreeNode<T> *lhs,
-    const TreeNode<T> *rhs)
+    const TreeNode<ValueTy> *lhs,
+    const TreeNode<ValueTy> *rhs)
 {
     return getAllElements_If(lhs, rhs, std::less{});
 }

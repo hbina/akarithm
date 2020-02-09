@@ -13,40 +13,40 @@ namespace akarithm
 
 template <
     typename Iterable,
-    typename ValueType = typename std::iterator_traits<
+    typename ValueTy = typename std::iterator_traits<
         typename Iterable::iterator>::value_type,
-    typename IndexType =
+    typename IndexTy =
         typename std::iterator_traits<
             typename Iterable::iterator>::difference_type>
 static constexpr auto
 twoSum(
     const Iterable &nums,
-    const ValueType &target)
+    const ValueTy &target)
     -> Iterable
 {
     // Get the indices and sort based on the value its pointing to
-    std::vector<IndexType> indices;
+    std::vector<IndexTy> indices;
     indices.resize(nums.size());
     std::iota(std::begin(indices), std::end(indices), 0);
     std::sort(std::begin(indices), std::end(indices),
-              [&](const IndexType &lhs, const IndexType &rhs)
+              [&](const IndexTy &lhs, const IndexTy &rhs)
                   -> bool {
                   return nums[lhs] < nums[rhs];
               });
     // Find the sum pair using sliding window
     auto [left, right] =
-        util::generic::sliding_window(
+        akarithm::sliding_window(
             std::cbegin(indices),
             std::cend(indices),
-            [&](const IndexType &lhs, const IndexType &rhs)
+            [&](const IndexTy &lhs, const IndexTy &rhs)
                 -> bool {
                 return nums[lhs] + nums[rhs] < target;
             },
-            [&](const IndexType &lhs, const IndexType &rhs)
+            [&](const IndexTy &lhs, const IndexTy &rhs)
                 -> bool {
                 return nums[lhs] + nums[rhs] == target;
             });
-    return {static_cast<ValueType>(*left), static_cast<ValueType>(*right)};
+    return {static_cast<ValueTy>(*left), static_cast<ValueTy>(*right)};
 }
 
 } // namespace akarithm

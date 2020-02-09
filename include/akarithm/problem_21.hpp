@@ -8,12 +8,12 @@ namespace akarithm
 {
 
 // Can be generalized further
-template <typename T>
+template <typename ValueTy>
 static constexpr std::tuple<
-    ListNode<T> *,
-    ListNode<T> *,
-    ListNode<T> *>
-advanceZip(ListNode<T> *lhs, ListNode<T> *rhs)
+    ListNode<ValueTy> *,
+    ListNode<ValueTy> *,
+    ListNode<ValueTy> *>
+advanceZip(ListNode<ValueTy> *lhs, ListNode<ValueTy> *rhs)
 {
     if (lhs && rhs)
     {
@@ -40,14 +40,14 @@ advanceZip(ListNode<T> *lhs, ListNode<T> *rhs)
     }
 }
 
-template <typename T>
-static constexpr ListNode<T> *
-mergeTwoLists(ListNode<T> *lhs, ListNode<T> *rhs)
+template <typename ValueTy>
+static constexpr ListNode<ValueTy> *
+mergeTwoLists(ListNode<ValueTy> *lhs, ListNode<ValueTy> *rhs)
 {
     if (lhs && rhs)
     {
         auto [root, lhs_iter, rhs_iter] = advanceZip(lhs, rhs);
-        ListNode<T> *iter = root;
+        ListNode<ValueTy> *iter = root;
         while (lhs_iter || rhs_iter)
         {
             auto [iter_next, lhs_next, rhs_next] = advanceZip(lhs_iter, rhs_iter);

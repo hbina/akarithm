@@ -5,8 +5,8 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr bool isUnivalTree(TreeNode<T> *root)
+template <typename ValueTy>
+static constexpr bool isUnivalTree(TreeNode<ValueTy> *root)
 {
     if (root == nullptr)
     {

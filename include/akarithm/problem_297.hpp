@@ -18,18 +18,18 @@ namespace akarithm
 //  FIXME   ::  Must verify the size of data because we know the relationship
 //              between the depth and the number of nodes that must be in it.
 //              This is counting the NULL too.
-template <typename T>
+template <typename ValueTy>
 class Codec
 {
 
 private:
-    static TreeNode<T> *
+    static TreeNode<ValueTy> *
     parse_data(
         const std::string &iter)
     {
-        if (util::generic::is_number(iter))
+        if (akarithm::is_number(iter))
         {
-            return new TreeNode<T>(std::stoi(iter));
+            return new TreeNode<ValueTy>(std::stoi(iter));
         }
         else
         {
@@ -41,18 +41,18 @@ public:
     //  Encodes a tree to a single string.
     //  TODO    ::  Rework this mess...
     static std::string
-    serialize(const TreeNode<T> *root)
+    serialize(const TreeNode<ValueTy> *root)
     {
         if (!root)
         {
             return "[]";
         }
         std::string result = "[";
-        std::vector<const TreeNode<T> *> layers = {root};
+        std::vector<const TreeNode<ValueTy> *> layers = {root};
         while (!layers.empty())
         {
-            std::vector<const TreeNode<T> *> next_layers;
-            for (const TreeNode<T> *node : layers)
+            std::vector<const TreeNode<ValueTy> *> next_layers;
+            for (const TreeNode<ValueTy> *node : layers)
             {
                 result += std::to_string(node->val) + ",";
 
@@ -88,7 +88,7 @@ public:
     //                  1
     //          2               null
     //      3       4       null    null
-    static TreeNode<T> *
+    static TreeNode<ValueTy> *
     deserialize(const std::string &data)
     {
         std::string skip_bracket = data.substr(1, data.length() - 2);
@@ -97,12 +97,12 @@ public:
             util::string::split<
                 std::vector<std::string>>(skip_bracket,
                                           delimiter);
-        std::vector<TreeNode<T> *> nodes;
+        std::vector<TreeNode<ValueTy> *> nodes;
         std::transform(
             deflatten_data.cbegin(),
             deflatten_data.cend(),
             std::back_inserter(nodes),
-            [&](const std::string &data) -> TreeNode<T> * {
+            [&](const std::string &data) -> TreeNode<ValueTy> * {
                 return Codec::parse_data(data);
             });
         std::size_t counter = 0;

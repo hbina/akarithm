@@ -5,8 +5,8 @@
 namespace akarithm
 {
 
-template <typename T>
-std::size_t getDecimalValue(const ListNode<T> *head)
+template <typename ValueTy>
+std::size_t getDecimalValue(const ListNode<ValueTy> *head)
 {
     std::size_t result = 0;
     while (head)

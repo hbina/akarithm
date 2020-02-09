@@ -23,12 +23,13 @@ static constexpr auto
 generateParenthesis(const NumType &n)
     -> ReturnType
 {
-    using SizeType = typename ReturnType::size_type;
+    using SizeTy =
+        typename ReturnType::size_type;
     auto result = ReturnType{"()"};
     for (NumType outer = 1; outer != n; outer++)
     {
-        SizeType saved_size = result.size();
-        for (SizeType inner = 0; inner != saved_size; inner++)
+        SizeTy saved_size = result.size();
+        for (SizeTy inner = 0; inner != saved_size; inner++)
         {
             result.emplace_back("()" + result[inner]);
             result.emplace_back(result[inner] + "()");

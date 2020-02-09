@@ -8,12 +8,13 @@ namespace akarithm
 
 template <
     typename Iterable,
-    typename T = typename std::iterator_traits<
+    typename ValueTy =
+        typename std::iterator_traits<
         typename Iterable::iterator>::value_type>
-static constexpr T
+static constexpr ValueTy
 maxProfit_Sum(const Iterable &prices)
 {
-    T acc = T{};
+    ValueTy acc = ValueTy{};
     auto range = std::cbegin(prices);
     do
     {

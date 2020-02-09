@@ -10,12 +10,13 @@
 namespace akarithm
 {
 
-template <typename Iterator,
-          typename T = typename std::iterator_traits<Iterator>::value_type>
+template <typename IterTy,
+          typename ValueTy =
+        typename std::iterator_traits<IterTy>::value_type>
 static constexpr std::size_t findTargetSumWays_bruteForce_Iterator(
-    Iterator iter_begin,
-    Iterator iter_end,
-    const T &goal_value)
+    IterTy iter_begin,
+    IterTy iter_end,
+    const ValueTy &goal_value)
 {
     if (iter_begin == iter_end)
     {
@@ -44,11 +45,12 @@ static constexpr std::size_t findTargetSumWays_bruteForce_Iterator(
 }
 
 template <typename Iterable,
-          typename T = typename std::iterator_traits<
+          typename ValueTy =
+        typename std::iterator_traits<
               typename Iterable::iterator>::value_type>
 static constexpr std::size_t findTargetSumWays_bruteForce(
     const Iterable &nums,
-    const T &goal_value)
+    const ValueTy &goal_value)
 {
     return findTargetSumWays_bruteForce_Iterator(
         nums.cbegin(),
@@ -57,18 +59,19 @@ static constexpr std::size_t findTargetSumWays_bruteForce(
 }
 
 template <typename Iterable,
-          typename T = typename std::iterator_traits<
+          typename ValueTy =
+        typename std::iterator_traits<
               typename Iterable::iterator>::value_type>
 static constexpr std::size_t findTargetSumWays_memoization(
     const Iterable &nums,
-    const T &goal_value)
+    const ValueTy &goal_value)
 {
-    std::unordered_map<T, std::size_t> dp;
+    std::unordered_map<ValueTy, std::size_t> dp;
     dp.emplace(0, 1);
 
-    for (const T &num : nums)
+    for (const ValueTy &num : nums)
     {
-        std::unordered_map<T, std::size_t> local_dp;
+        std::unordered_map<ValueTy, std::size_t> local_dp;
         for (const auto &v : dp)
         {
             local_dp[v.first + num] = local_dp[v.first + num] + dp[v.first];

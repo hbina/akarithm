@@ -13,5 +13,5 @@ TEST_CASE("problem_30")
     const std::vector<std::string> input_2 = {"foo", "bar"};
     const std::vector<diff_type> expected = {0, 9};
     const std::vector<diff_type> result = akarithm::findSubstring(input_1, input_2);
-    // CHECK(util::generic::set_equality(expected, result));
+    // CHECK(akarithm::set_equality(expected, result));
 }

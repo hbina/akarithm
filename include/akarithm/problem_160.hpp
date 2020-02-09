@@ -7,15 +7,15 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr ListNode<T> *getIntersectionNode(ListNode<T> *headA, ListNode<T> *headB)
+template <typename ValueTy>
+static constexpr ListNode<ValueTy> *getIntersectionNode(ListNode<ValueTy> *headA, ListNode<ValueTy> *headB)
 {
     if (!headA || !headB)
     {
         return nullptr;
     }
-    ListNode<T> *pointerA = headA;
-    ListNode<T> *pointerB = headB;
+    ListNode<ValueTy> *pointerA = headA;
+    ListNode<ValueTy> *pointerB = headB;
 
     // Recalibrate pointers
     int both_reverted = 2;

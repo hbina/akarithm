@@ -4,7 +4,7 @@
 
 #include <string>
 
-TEST_CASE("util::generic::bst_search")
+TEST_CASE("akarithm::bst_search")
 {
     TreeNode<std::string> *expected =
         new TreeNode<std::string>("hell",
@@ -16,7 +16,7 @@ TEST_CASE("util::generic::bst_search")
                                   new TreeNode<std::string>("hello world"));
     const int input_2 = 4;
     const auto result =
-        util::generic::bst_search<std::string>(
+        akarithm::bst_search<std::string>(
             input_1,
             [&](const std::string &lhs)
                 -> bool {

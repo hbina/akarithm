@@ -6,21 +6,25 @@
 namespace akarithm
 {
 
-auto tree_accumulator =
-    [](const TreeNode<int> *root,
-       int acc)
-    -> int {
-    akarithm::PreorderIterator iter = akarithm::PreorderIterator(root);
-    while (iter.hasNext())
-    {
-        acc += iter.next()->val;
-    }
-    return acc;
-};
-
-int maxProduct(const TreeNode<int> *root)
+template <typename IntTy = int>
+static constexpr auto
+maxProduct(
+    const TreeNode<IntTy> *root)
+    -> IntTy
 {
-    int sum = tree_accumulator(root, 0);
+    constexpr auto tree_accumulator =
+        [](const TreeNode<IntTy> *root,
+           IntTy acc)
+        -> IntTy {
+        akarithm::PreorderIterator iter = akarithm::PreorderIterator(root);
+        while (iter.hasNext())
+        {
+            acc += iter.next()->val;
+        }
+        return acc;
+    };
+
+    IntTy sum = tree_accumulator(root, 0);
     akarithm::PreorderIterator iter = akarithm::PreorderIterator(root);
     while (iter.hasNext())
     {

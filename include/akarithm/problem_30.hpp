@@ -11,26 +11,27 @@ namespace akarithm
 {
 
 template <
-    typename StringType,
-    typename MatchType = std::vector<StringType>,
-    typename DifferenceType = typename StringType::difference_type,
-    typename CharType = typename StringType::value_type>
+    typename StringTy,
+    typename MatchTy = std::vector<StringTy>,
+    typename DifferenceTy =
+        typename StringTy::difference_type,
+    typename CharTy =
+        typename StringTy::value_type>
 static constexpr auto findSubstring(
-    const StringType &string,
-    const MatchType &matches)
-    -> std::vector<DifferenceType>
+    const StringTy &string,
+    const MatchTy &matches)
+    -> std::vector<DifferenceTy>
 {
     //  NOTE    ::  This is actually a 2 part problem.
     //              1. The first part is finding the occurences of these elements
     //              2. Next is finding the parts that contains all of the matches
     //              We can also optimize a lot of stuff with matches. In particular,
     //              we can removes duplicates when one match is a subset of another match.
-
     return std::accumulate(
         std::cbegin(string),
         std::cend(string),
-        std::vector<DifferenceType>{},
-        [](auto &acc, const CharType &value) {
+        std::vector<DifferenceTy>{},
+        [](auto &acc, const CharTy &value) {
             return acc;
         });
 }

@@ -2,18 +2,16 @@
 
 #include <algorithm>
 
-namespace util
-{
-namespace generic
+namespace akarithm
 {
 
 template <
-    typename Iterator,
+    typename IterTy,
     typename UnaryPredicate>
 static constexpr void
 reverse_if(
-    Iterator iter_begin,
-    Iterator iter_end,
+    IterTy iter_begin,
+    IterTy iter_end,
     const UnaryPredicate &pred)
 {
     auto length = std::distance(iter_begin, iter_end);
@@ -37,5 +35,4 @@ reverse_if(
     }
 }
 
-} // namespace generic
-} // namespace util
+} // namespace akarithm

@@ -5,14 +5,12 @@
 #include <vector>
 #include <iterator>
 
-namespace util
-{
-namespace generic
+namespace akarithm
 {
 
 template <
-    typename T,
-    typename OutputIteratorInner = std::vector<T>,
+    typename ValueTy,
+    typename OutputIteratorInner = std::vector<ValueTy>,
     typename OutputIteratorOuter = std::vector<OutputIteratorInner>,
     typename InputIterator,
     typename = std::enable_if<
@@ -23,12 +21,12 @@ template <
     typename = std::enable_if<
         std::is_same_v<
             typename std::iterator_traits<InputIterator>::value_type,
-            T>>>
+            ValueTy>>>
 static constexpr auto
 split(
     InputIterator iter_begin,
     InputIterator iter_end,
-    const T &delimiter)
+    const ValueTy &delimiter)
     -> OutputIteratorOuter
 {
     OutputIteratorOuter result;
@@ -48,8 +46,8 @@ split(
 }
 
 template <
-    typename T,
-    typename OutputIteratorInner = std::vector<T>,
+    typename ValueTy,
+    typename OutputIteratorInner = std::vector<ValueTy>,
     typename OutputIteratorOuter = std::vector<OutputIteratorInner>,
     typename InputIterator,
     typename UnaryPredicate,
@@ -80,5 +78,4 @@ split_if(
     return result;
 }
 
-} // namespace generic
-} // namespace util
+} // namespace akarithm

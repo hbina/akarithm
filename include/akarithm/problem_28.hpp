@@ -15,8 +15,9 @@ strStr(
     {
         return 0;
     }
-    using IteratorType = typename Iterable::const_iterator;
-    const IteratorType result = util::generic::find_range(
+    using IteratorType =
+        typename Iterable::const_iterator;
+    const IteratorType result = akarithm::find_range(
         std::cbegin(haystack),
         std::cend(haystack),
         std::cbegin(needle),

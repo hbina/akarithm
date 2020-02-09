@@ -8,14 +8,14 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr NodeNext<T> *
-connect(NodeNext<T> *root)
+template <typename ValueTy>
+static constexpr NodeNext<ValueTy> *
+connect(NodeNext<ValueTy> *root)
 {
     if (!root)
         return nullptr;
 
-    NodeNext<T> *nextmost = root->next;
+    NodeNext<ValueTy> *nextmost = root->next;
     while (
         nextmost &&
         (!nextmost->left && !nextmost->right) &&

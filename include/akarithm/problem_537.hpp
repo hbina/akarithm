@@ -5,8 +5,8 @@
 namespace akarithm
 {
 
-template <typename T>
-bool hasPathSum(const TreeNode<T> *root, int sum)
+template <typename ValueTy>
+bool hasPathSum(const TreeNode<ValueTy> *root, int sum)
 {
     if (root == nullptr)
     {

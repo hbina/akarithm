@@ -15,7 +15,7 @@ int minSetSize(
     std::vector<int> arr = arr_input;
     std::sort(std::begin(arr), std::end(arr));
     auto tmp =
-        util::generic::group_by<std::vector<int>>(
+        akarithm::group_by<std::vector<int>>(
             std::cbegin(arr),
             std::cend(arr),
             [](const std::vector<int> &lhs, const int &rhs)

@@ -2,45 +2,43 @@
 #include <type_traits>
 
 //  TODO    ::  Implement set_equality_If
-namespace util
-{
-namespace generic
+namespace akarithm
 {
 
 template <
-    typename IteratorLhs,
-    typename IteratorRhs,
+    typename IterTyLhs,
+    typename IterTyRhs,
     typename = std::enable_if<
         std::is_same_v<
-            typename std::iterator_traits<IteratorLhs>::value_type,
-            typename std::iterator_traits<IteratorRhs>::value_type>>>
+            typename std::iterator_traits<IterTyLhs>::value_type,
+            typename std::iterator_traits<IterTyRhs>::value_type>>>
 static constexpr auto
 set_equality(
-    IteratorLhs lhs_begin,
-    IteratorLhs lhs_end,
-    IteratorRhs rhs_begin,
-    IteratorRhs rhs_end)
+    IterTyLhs lhs_begin,
+    IterTyLhs lhs_end,
+    IterTyRhs rhs_begin,
+    IterTyRhs rhs_end)
     -> bool
 {
-    using T = std::common_type_t<
-        typename std::iterator_traits<IteratorLhs>::value_type,
-        typename std::iterator_traits<IteratorRhs>::value_type>;
-    const auto lhs = std::unordered_set<T>(lhs_begin, lhs_end);
-    const auto rhs = std::unordered_set<T>(rhs_begin, rhs_end);
+    using ValueTy = std::common_type_t<
+        typename std::iterator_traits<IterTyLhs>::value_type,
+        typename std::iterator_traits<IterTyRhs>::value_type>;
+    const auto lhs = std::unordered_set<ValueTy>(lhs_begin, lhs_end);
+    const auto rhs = std::unordered_set<ValueTy>(rhs_begin, rhs_end);
     return lhs == rhs;
 }
 
 template <
-    typename IteratorLhs,
-    typename IteratorRhs,
+    typename IterTyLhs,
+    typename IterTyRhs,
     typename = std::enable_if<
         std::is_same_v<
-            typename IteratorLhs::value_type,
-            typename IteratorRhs::value_type>>>
+            typename IterTyLhs::value_type,
+            typename IterTyRhs::value_type>>>
 static constexpr bool
 set_equality(
-    IteratorLhs lhs,
-    IteratorRhs rhs)
+    IterTyLhs lhs,
+    IterTyRhs rhs)
 {
     return set_equality(
         std::cbegin(lhs),
@@ -49,5 +47,4 @@ set_equality(
         std::cend(rhs));
 }
 
-} // namespace generic
-} // namespace util
+} // namespace akarithm

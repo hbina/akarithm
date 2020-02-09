@@ -12,31 +12,32 @@
 namespace akarithm
 {
 
-template <typename Iterator>
-static constexpr TreeNode<
-    typename std::iterator_traits<Iterator>::value_type> *
+template <
+    typename IterTy,
+    typename ValueTy =
+        typename std::iterator_traits<IterTy>::value_type>
+static constexpr auto
 constructFromPrePostTemplate(
-    const Iterator &preorder_begin,
-    const Iterator &preorder_end,
-    const Iterator &postorder_begin,
-    const Iterator &postorder_end)
+    const IterTy &preorder_begin,
+    const IterTy &preorder_end,
+    const IterTy &postorder_begin,
+    const IterTy &postorder_end)
+    -> TreeNode<ValueTy> *
 {
-    using T = typename std::iterator_traits<Iterator>::value_type;
-
     if (preorder_begin == preorder_end && postorder_begin == postorder_end)
         return nullptr;
     else if (
         std::distance(preorder_begin, preorder_end) == 1 &&
         std::distance(postorder_begin, postorder_end) == 1)
     {
-        return new TreeNode<T>(*preorder_begin);
+        return new TreeNode<ValueTy>(*preorder_begin);
     }
     else
     {
-        TreeNode<T> *root = new TreeNode<T>(*preorder_begin);
+        TreeNode<ValueTy> *root = new TreeNode<ValueTy>(*preorder_begin);
 
         // Figure out the next element in preorder
-        T next_preorder_element = *(preorder_begin + 1);
+        ValueTy next_preorder_element = *(preorder_begin + 1);
         std::size_t size_of_partition_B =
             std::distance(
                 postorder_begin,
@@ -64,10 +65,12 @@ constructFromPrePostTemplate(
     }
 }
 
-template <typename T>
-static constexpr TreeNode<T> *constructFromPrePost(
-    const std::vector<T> &preorder,
-    const std::vector<T> &postorder)
+template <typename ValueTy>
+static constexpr auto
+constructFromPrePost(
+    const std::vector<ValueTy> &preorder,
+    const std::vector<ValueTy> &postorder)
+    -> TreeNode<ValueTy> *
 {
     return constructFromPrePostTemplate(
         preorder.cbegin(),

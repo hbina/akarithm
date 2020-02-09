@@ -8,12 +8,13 @@ namespace akarithm
 
 template <
     typename Iterable,
-    typename T = typename std::iterator_traits<
+    typename ValueTy =
+        typename std::iterator_traits<
         typename Iterable::iterator>::value_type>
-static constexpr T
+static constexpr ValueTy
 maxProfit_One(const Iterable &prices)
 {
-    T global_profit = T{};
+    ValueTy global_profit = ValueTy{};
 
     // Find the first profit that we can make.
     // We also finds our first global_min as a result.

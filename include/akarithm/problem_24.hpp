@@ -5,8 +5,8 @@
 namespace akarithm
 {
 
-template <typename T>
-ListNode<T> *swapPairs(ListNode<T> *head)
+template <typename ValueTy>
+ListNode<ValueTy> *swapPairs(ListNode<ValueTy> *head)
 {
     if (!head)
     {
@@ -18,7 +18,7 @@ ListNode<T> *swapPairs(ListNode<T> *head)
     }
     else
     {
-        ListNode<T> *result = head->next;
+        ListNode<ValueTy> *result = head->next;
         head->next = swapPairs(result->next);
         result->next = head;
         return result;

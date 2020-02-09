@@ -1,27 +1,27 @@
 #pragma once
 
 #include <iostream>
-template <typename T = int>
+template <typename ValueTy = int>
 class NodeNext
 {
 public:
-  T val;
+  ValueTy val;
   NodeNext *left;
   NodeNext *right;
   NodeNext *next;
 
   constexpr NodeNext() = delete;
 
-  constexpr NodeNext(const T &val)
+  constexpr NodeNext(const ValueTy &val)
       : val(val),
         left(nullptr),
         right(nullptr),
         next(nullptr) {}
 
-  constexpr NodeNext(const T &val,
-                     NodeNext<T> *left,
-                     NodeNext<T> *right,
-                     NodeNext<T> *next)
+  constexpr NodeNext(const ValueTy &val,
+                     NodeNext<ValueTy> *left,
+                     NodeNext<ValueTy> *right,
+                     NodeNext<ValueTy> *next)
       : val(val),
         left(left),
         right(right),
@@ -39,8 +39,8 @@ public:
   constexpr friend bool operator==(const NodeNext<T2> &lhs, const NodeNext<T2> &rhs);
 };
 
-template <typename T>
-constexpr bool operator==(const NodeNext<T> &lhs, const NodeNext<T> &rhs)
+template <typename ValueTy>
+constexpr bool operator==(const NodeNext<ValueTy> &lhs, const NodeNext<ValueTy> &rhs)
 {
   bool value_equal = lhs.val == rhs.val;
   bool left_equal = false;
@@ -76,8 +76,8 @@ constexpr bool operator==(const NodeNext<T> &lhs, const NodeNext<T> &rhs)
   return value_equal && left_equal && right_equal && next_equal;
 }
 
-template <typename T>
-std::ostream &operator<<(std::ostream &os, const NodeNext<T> &rhs)
+template <typename ValueTy>
+std::ostream &operator<<(std::ostream &os, const NodeNext<ValueTy> &rhs)
 {
   os << rhs.val << " ";
   if (rhs.left)

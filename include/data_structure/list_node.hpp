@@ -3,15 +3,16 @@
 #include <string>
 #include <iostream>
 
-template <typename T = int>
+template <typename ValueTy = int>
 struct ListNode
 {
-  T val;
+  ValueTy val;
   ListNode *next;
-  constexpr ListNode(const T &x)
+
+  constexpr ListNode(const ValueTy &x)
       : val(x),
         next(nullptr) {}
-  constexpr ListNode(const T &x,
+  constexpr ListNode(const ValueTy &x,
                      ListNode *next)
       : val(x),
         next(next) {}
@@ -28,15 +29,15 @@ struct ListNode
   constexpr friend bool operator==(const ListNode<T2> &lhs, const ListNode<T2> &rhs);
 };
 
-template <typename T>
-std::ostream &operator<<(std::ostream &os, const ListNode<T> &rhs)
+template <typename ValueTy>
+std::ostream &operator<<(std::ostream &os, const ListNode<ValueTy> &rhs)
 {
   os << "ListNode val:" << rhs.val;
   return os;
 }
 
-template <typename T>
-constexpr bool operator==(const ListNode<T> &lhs, const ListNode<T> &rhs)
+template <typename ValueTy>
+constexpr bool operator==(const ListNode<ValueTy> &lhs, const ListNode<ValueTy> &rhs)
 {
   bool value_equal = (lhs.val == rhs.val);
   if (lhs.next && rhs.next)

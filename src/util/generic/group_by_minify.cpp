@@ -8,7 +8,7 @@
 
 using CharType = typename std::string::value_type;
 
-TEST_CASE("util::generic::group_by_minify")
+TEST_CASE("akarithm::group_by_minify")
 {
     const std::vector<int> input = {1, 1, 2, 4, 6, 5, 7};
     const std::vector<std::pair<int, std::size_t>> expected =
@@ -16,7 +16,7 @@ TEST_CASE("util::generic::group_by_minify")
          {2, 3},
          {5, 2}};
     const auto result =
-        util::generic::group_by_minify<std::vector<std::pair<int, std::size_t>>>(
+        akarithm::group_by_minify<std::vector<std::pair<int, std::size_t>>>(
             input.cbegin(),
             input.cend(),
             [](const int &lhs, const int &rhs) -> bool {
@@ -25,7 +25,7 @@ TEST_CASE("util::generic::group_by_minify")
     CHECK(expected == result);
 }
 
-TEST_CASE("util::generic::group_by_minify")
+TEST_CASE("akarithm::group_by_minify")
 {
     const std::list<int> input = {1, 1, 2, 4, 6, 5, 7};
     const std::list<std::pair<int, std::size_t>> expected =
@@ -33,7 +33,7 @@ TEST_CASE("util::generic::group_by_minify")
          {2, 3},
          {5, 2}};
     const auto result =
-        util::generic::group_by_minify<std::list<std::pair<int, std::size_t>>>(
+        akarithm::group_by_minify<std::list<std::pair<int, std::size_t>>>(
             input.cbegin(),
             input.cend(),
             [](const int &lhs, const int &rhs) -> bool {
@@ -42,7 +42,7 @@ TEST_CASE("util::generic::group_by_minify")
     CHECK(expected == result);
 }
 
-TEST_CASE("util::generic::group_by_minify")
+TEST_CASE("akarithm::group_by_minify")
 {
     const std::list<int> input = {1, 1, 2, 4, 6, 5, 7};
     const std::vector<std::pair<int, std::size_t>> expected =
@@ -50,7 +50,7 @@ TEST_CASE("util::generic::group_by_minify")
          {2, 3},
          {5, 2}};
     const auto result =
-        util::generic::group_by_minify<std::vector<std::pair<int, std::size_t>>>(
+        akarithm::group_by_minify<std::vector<std::pair<int, std::size_t>>>(
             input.cbegin(),
             input.cend(),
             [](const int &lhs, const int &rhs) -> bool {
@@ -59,7 +59,7 @@ TEST_CASE("util::generic::group_by_minify")
     CHECK(expected == result);
 }
 
-TEST_CASE("util::generic::group_by_minify")
+TEST_CASE("akarithm::group_by_minify")
 {
     const std::string input = "123123hello3213213world";
     const std::vector<std::pair<CharType, std::size_t>> expected =
@@ -68,7 +68,7 @@ TEST_CASE("util::generic::group_by_minify")
          {'3', 7},
          {'w', 5}};
     const auto result =
-        util::generic::group_by_minify<std::vector<std::pair<CharType, std::size_t>>>(
+        akarithm::group_by_minify<std::vector<std::pair<CharType, std::size_t>>>(
             input.cbegin(),
             input.cend(),
             [](const CharType &lhs, const CharType &rhs) -> bool {
@@ -77,7 +77,7 @@ TEST_CASE("util::generic::group_by_minify")
     CHECK(expected == result);
 }
 
-TEST_CASE("util::generic::group_by_minify")
+TEST_CASE("akarithm::group_by_minify")
 {
     const std::string input = "hh123123hello3213213world33";
     const std::vector<std::pair<CharType, std::size_t>> expected = {
@@ -88,7 +88,7 @@ TEST_CASE("util::generic::group_by_minify")
         {'w', 5},
         {'3', 2}};
     const auto result =
-        util::generic::group_by_minify<std::vector<std::pair<CharType, std::size_t>>>(
+        akarithm::group_by_minify<std::vector<std::pair<CharType, std::size_t>>>(
             input.cbegin(),
             input.cend(),
             [](const CharType &lhs, const CharType &rhs) -> bool {

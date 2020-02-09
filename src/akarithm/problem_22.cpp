@@ -24,7 +24,7 @@ TEST_CASE("problem_22")
         "()()(())",
         "()()()()"};
     const std::vector<std::string> result = akarithm::generateParenthesis(input);
-    // CHECK(util::generic::set_equality(expected, result));
+    // CHECK(akarithm::set_equality(expected, result));
 }
 
 TEST_CASE("problem_22")
@@ -37,7 +37,7 @@ TEST_CASE("problem_22")
         "()(())",
         "()()()"};
     const std::vector<std::string> result = akarithm::generateParenthesis(input);
-    CHECK(util::generic::set_equality(expected, result));
+    CHECK(akarithm::set_equality(expected, result));
 }
 
 TEST_CASE("problem_22")
@@ -47,7 +47,7 @@ TEST_CASE("problem_22")
         "()()",
         "(())"};
     const std::vector<std::string> result = akarithm::generateParenthesis(input);
-    CHECK(util::generic::set_equality(expected, result));
+    CHECK(akarithm::set_equality(expected, result));
 }
 
 TEST_CASE("problem_22")
@@ -56,5 +56,5 @@ TEST_CASE("problem_22")
     const std::vector<std::string> expected = {
         "()"};
     const std::vector<std::string> result = akarithm::generateParenthesis(input);
-    CHECK(util::generic::set_equality(expected, result));
+    CHECK(akarithm::set_equality(expected, result));
 }

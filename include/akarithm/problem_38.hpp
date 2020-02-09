@@ -21,7 +21,7 @@ countAndSay(const NumType &n)
     for (auto a = 1; a < n; a++)
     {
         const auto grouped =
-            util::generic::group_by<OutputType>(
+            akarithm::group_by<OutputType>(
                 result.cbegin(),
                 result.cend(),
                 [](const OutputType &lhs, const auto &rhs)

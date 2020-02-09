@@ -3,26 +3,24 @@
 #include <tuple>
 #include <iterator>
 
-namespace util
-{
-namespace generic
+namespace akarithm
 {
 
 template <
-    typename Iterator,
+    typename IterTy,
     typename DecisionFunction,
     typename FoundFunction,
-    typename ValueType =
-        typename std::iterator_traits<Iterator>::value_type>
+    typename ValueTy =
+        typename std::iterator_traits<IterTy>::value_type>
 static constexpr auto
 sliding_window(
-    Iterator begin,
-    Iterator end,
+    IterTy begin,
+    IterTy end,
     const DecisionFunction &decision,
     const FoundFunction &found)
-    -> std::pair<Iterator, Iterator>
+    -> std::pair<IterTy, IterTy>
 {
-    Iterator end_c = end;
+    IterTy end_c = end;
     --end;
     while (begin != end)
     {
@@ -39,5 +37,4 @@ sliding_window(
     return {end_c, end_c};
 }
 
-} // namespace generic
-} // namespace util
+} // namespace akarithm

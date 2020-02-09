@@ -8,17 +8,20 @@
 #include <type_traits>
 #include <iterator>
 
-template <typename Iterator,
-          typename T,
+template <typename IterTy,
+          typename ValueTy,
+          typename DifferenceTy =
+              typename std::iterator_traits<IterTy>::difference_type,
           typename = std::enable_if_t<
               std::is_same_v<
-                  typename std::iterator_traits<Iterator>::value_type,
-                  T>>>
-static constexpr std::size_t
+                  typename std::iterator_traits<IterTy>::value_type,
+                  ValueTy>>>
+static constexpr auto
 get_dividing_index(
-    const Iterator &inorder_begin,
-    const Iterator &inorder_end,
-    const T &postorder_end)
+    const IterTy &inorder_begin,
+    const IterTy &inorder_end,
+    const ValueTy &postorder_end)
+    -> DifferenceTy
 {
     return std::distance(
         inorder_begin,
@@ -28,16 +31,18 @@ get_dividing_index(
             postorder_end));
 }
 
-template <typename Iterator>
-static constexpr TreeNode<
-    typename std::iterator_traits<Iterator>::value_type> *
+template <typename IterTy>
+static constexpr auto
 buildTreeTemplateInPost(
-    const Iterator &inorder_begin,
-    const Iterator &inorder_end,
-    const Iterator &postorder_begin,
-    const Iterator &postorder_end)
+    const IterTy &inorder_begin,
+    const IterTy &inorder_end,
+    const IterTy &postorder_begin,
+    const IterTy &postorder_end)
+    -> TreeNode<
+        typename std::iterator_traits<IterTy>::value_type> *
 {
-    using T = typename std::iterator_traits<Iterator>::value_type;
+    using ValueTy =
+        typename std::iterator_traits<IterTy>::value_type;
 
     if (inorder_begin == inorder_end && postorder_begin == postorder_end)
         return nullptr;
@@ -47,7 +52,7 @@ buildTreeTemplateInPost(
         inorder_end,
         *(postorder_end - 1));
 
-    TreeNode<T> *root = new TreeNode<T>(*(inorder_begin + dividing_index));
+    TreeNode<ValueTy> *root = new TreeNode<ValueTy>(*(inorder_begin + dividing_index));
 
     root->left = buildTreeTemplateInPost(
         inorder_begin,
@@ -65,11 +70,12 @@ buildTreeTemplateInPost(
 namespace akarithm
 {
 
-template <typename T>
-static constexpr TreeNode<T> *
+template <typename ValueTy>
+static constexpr auto
 buildTreeInPost(
-    const std::vector<T> &inorder,
-    const std::vector<T> &postorder)
+    const std::vector<ValueTy> &inorder,
+    const std::vector<ValueTy> &postorder)
+    ->TreeNode<ValueTy> *
 {
     return buildTreeTemplateInPost(
         inorder.cbegin(),

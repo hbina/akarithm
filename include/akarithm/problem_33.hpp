@@ -7,12 +7,13 @@ namespace akarithm
 {
 
 template <typename Iterable,
-          typename T = typename std::iterator_traits<
-              typename Iterable::iterator>::value_type>
+          typename ValueTy =
+              typename std::iterator_traits<
+                  typename Iterable::iterator>::value_type>
 static constexpr auto
 search_TypeOne(
     const Iterable &nums,
-    const T &target)
+    const ValueTy &target)
     -> int
 {
     if (nums.empty())

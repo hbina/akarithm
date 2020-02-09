@@ -10,7 +10,7 @@ TEST_CASE("problem 1 1")
     const int input_2 = 9;
     const std::vector<int> expected = {0, 1};
     const std::vector<int> result = akarithm::twoSum(input_1, input_2);
-    CHECK(util::generic::set_equality(
+    CHECK(akarithm::set_equality(
         std::cbegin(expected),
         std::cend(expected),
         std::cbegin(result),
@@ -23,7 +23,7 @@ TEST_CASE("problem 1 2")
     const int input_2 = 6;
     const std::vector<int> expected = {1, 2};
     const std::vector<int> result = akarithm::twoSum(input_1, input_2);
-    CHECK(util::generic::set_equality(
+    CHECK(akarithm::set_equality(
         std::cbegin(expected),
         std::cend(expected),
         std::cbegin(result),
@@ -36,7 +36,7 @@ TEST_CASE("problem 1 3")
     const int input_2 = 6;
     const std::vector<int> expected = {0, 1};
     const std::vector<int> result = akarithm::twoSum(input_1, input_2);
-    CHECK(util::generic::set_equality(
+    CHECK(akarithm::set_equality(
         std::cbegin(expected),
         std::cend(expected),
         std::cbegin(result),

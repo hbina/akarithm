@@ -2,22 +2,22 @@
 
 #include <iostream>
 
-template <typename T = int>
+template <typename ValueTy = int>
 struct TreeNode
 {
-  using value_type = T;
-  T val;
-  TreeNode<T> *left;
-  TreeNode<T> *right;
+  using value_type = ValueTy;
+  ValueTy val;
+  TreeNode<ValueTy> *left;
+  TreeNode<ValueTy> *right;
 
   constexpr TreeNode() = delete;
 
-  constexpr TreeNode(const T &x)
+  constexpr TreeNode(const ValueTy &x)
       : val(x),
         left(nullptr),
         right(nullptr) {}
 
-  constexpr TreeNode(const T &val,
+  constexpr TreeNode(const ValueTy &val,
                      TreeNode *left,
                      TreeNode *right)
       : val(val),
@@ -38,8 +38,8 @@ struct TreeNode
   constexpr friend bool operator==(const TreeNode<T2> &lhs, const TreeNode<T2> &rhs);
 };
 
-template <typename T>
-constexpr bool operator==(const TreeNode<T> &lhs, const TreeNode<T> &rhs)
+template <typename ValueTy>
+constexpr bool operator==(const TreeNode<ValueTy> &lhs, const TreeNode<ValueTy> &rhs)
 {
   bool value_equal = (lhs.val == rhs.val);
   bool left_equal = false;
@@ -63,8 +63,8 @@ constexpr bool operator==(const TreeNode<T> &lhs, const TreeNode<T> &rhs)
   return value_equal && left_equal && right_equal;
 }
 
-template <typename T>
-std::ostream &operator<<(std::ostream &os, const TreeNode<T> &rhs)
+template <typename ValueTy>
+std::ostream &operator<<(std::ostream &os, const TreeNode<ValueTy> &rhs)
 {
   os << " " << rhs.val;
   if (rhs.left)

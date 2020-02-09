@@ -12,7 +12,7 @@ TEST_CASE("sliding window 1 -- sum pair")
     const int input_2 = 11;
     std::sort(std::begin(input_1), std::end(input_1));
     const auto [left, right] =
-        util::generic::sliding_window(
+        akarithm::sliding_window(
             std::cbegin(input_1),
             std::cend(input_1),
             [&](const int &lhs, const int &rhs)

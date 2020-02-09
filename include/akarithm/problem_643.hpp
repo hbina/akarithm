@@ -7,8 +7,8 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr double findMaxAverage(const std::vector<T> &nums, const std::size_t &k)
+template <typename ValueTy>
+static constexpr double findMaxAverage(const std::vector<ValueTy> &nums, const std::size_t &k)
 {
     double sum_cache = 0.0;
 
@@ -19,7 +19,7 @@ static constexpr double findMaxAverage(const std::vector<T> &nums, const std::si
 
     if (nums.size() < k)
     {
-        T sum = 0;
+        ValueTy sum = 0;
         for (const auto &a : nums)
         {
             sum += a;

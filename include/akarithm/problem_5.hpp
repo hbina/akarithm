@@ -5,16 +5,17 @@
 #include <algorithm>
 
 template <
-    typename StringType,
-    typename SizeType = typename StringType::size_type>
+    typename StringTy,
+    typename SizeTy =
+        typename StringTy::size_type>
 static constexpr auto
 expand_around_center(
-    const StringType &s,
-    const SizeType &left,
-    const SizeType &right)
-    -> SizeType
+    const StringTy &s,
+    const SizeTy &left,
+    const SizeTy &right)
+    -> SizeTy
 {
-    SizeType L = left + 1, R = right;
+    SizeTy L = left + 1, R = right;
     while (L > 0u && R < s.size() && s[L - 1] == s[R])
     {
         L--;
@@ -27,20 +28,21 @@ namespace akarithm
 {
 
 template <
-    typename StringType,
-    typename SizeType = typename StringType::size_type>
+    typename StringTy,
+    typename SizeTy =
+        typename StringTy::size_type>
 static constexpr auto
-longestPalindrome(const StringType &s)
-    -> StringType
+longestPalindrome(const StringTy &s)
+    -> StringTy
 {
     if (s.size() < 1)
         return {};
-    SizeType start = 0, end = 0;
-    for (SizeType i = 0; i < s.size(); i++)
+    SizeTy start = 0, end = 0;
+    for (SizeTy i = 0; i < s.size(); i++)
     {
-        SizeType len1 = expand_around_center(s, i, i);
-        SizeType len2 = expand_around_center(s, i, i + 1);
-        SizeType len = std::max(len1, len2);
+        SizeTy len1 = expand_around_center(s, i, i);
+        SizeTy len2 = expand_around_center(s, i, i + 1);
+        SizeTy len = std::max(len1, len2);
         if (len > end - start)
         {
             start = i - (len - 1) / 2;

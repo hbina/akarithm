@@ -4,23 +4,22 @@
 #include <numeric>
 #include <vector>
 
-namespace util
-{
-namespace generic
+namespace akarithm
 {
 
 template <
     typename GroupType,
-    typename Iterator,
+    typename IterTy,
     typename BinaryPredicate,
-    typename T = typename std::iterator_traits<Iterator>::value_type,
+    typename ValueTy =
+        typename std::iterator_traits<IterTy>::value_type,
     typename = std::enable_if_t<
-        std::is_same_v<T,
+        std::is_same_v<ValueTy,
                        typename GroupType::value_type>>>
 static constexpr auto
 group_by(
-    Iterator iter_begin,
-    Iterator iter_end,
+    IterTy iter_begin,
+    IterTy iter_end,
     const BinaryPredicate &pred)
     -> std::vector<GroupType>
 {
@@ -31,7 +30,7 @@ group_by(
         iter_end,
         result,
         [&](std::vector<GroupType> &acc,
-            const T &rhs)
+            const ValueTy &rhs)
             -> std::vector<GroupType> {
             if (pred(acc.back(), rhs))
             {
@@ -45,5 +44,4 @@ group_by(
         }));
 }
 
-} // namespace generic
-} // namespace util
+} // namespace akarithm

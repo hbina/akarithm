@@ -4,21 +4,19 @@
 
 #include <functional>
 
-namespace util
-{
-namespace generic
+namespace akarithm
 {
 
 template <
-    typename T,
+    typename ValueTy,
     typename EqualFunction,
     typename SearchFunction = std::less<>>
 static constexpr auto
 bst_search(
-    const TreeNode<T> *root,
+    const TreeNode<ValueTy> *root,
     const EqualFunction &equal,
     const SearchFunction &search)
-    -> const TreeNode<T> *
+    -> const TreeNode<ValueTy> *
 {
     if (!root)
         return nullptr;
@@ -30,5 +28,4 @@ bst_search(
         return bst_search(root->left, equal, search);
 }
 
-} // namespace generic
-} // namespace util
+} // namespace akarithm

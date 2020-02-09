@@ -5,9 +5,9 @@
 namespace akarithm
 {
 
-template <typename T>
+template <typename ValueTy>
 static constexpr int rangeSumBST_recursion(
-    const TreeNode<T> *root, const T &L, const T &R)
+    const TreeNode<ValueTy> *root, const ValueTy &L, const ValueTy &R)
 {
     if (root == nullptr)
     {

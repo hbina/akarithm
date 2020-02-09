@@ -6,11 +6,11 @@
 #include <list>
 #include <iostream>
 
-TEST_CASE("util::generic::zip test")
+TEST_CASE("akarithm::zip test")
 {
     const std::vector<int> input_1 = {0, 1, 2, 3, 4};
     const std::vector<int> input_2 = {0, 1, 2, 3, 4};
-    util::generic::zip(
+    akarithm::zip(
         std::cbegin(input_1),
         std::cend(input_1),
         std::cbegin(input_2),
@@ -20,11 +20,11 @@ TEST_CASE("util::generic::zip test")
         });
 }
 
-TEST_CASE("util::generic::zip test")
+TEST_CASE("akarithm::zip test")
 {
     const std::list<int> input_1 = {0, 1, 2, 3, 4};
     const std::list<int> input_2 = {0, 1, 2, 3, 4};
-    util::generic::zip(
+    akarithm::zip(
         std::cbegin(input_1),
         std::cend(input_1),
         std::cbegin(input_2),

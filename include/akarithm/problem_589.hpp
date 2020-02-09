@@ -9,11 +9,11 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr std::vector<T> preorder_iterative(const Node<T> *root)
+template <typename ValueTy>
+static constexpr std::vector<ValueTy> preorder_iterative(const Node<ValueTy> *root)
 {
-    std::vector<T> result = {};
-    std::deque<const Node<T> *> s = {nullptr};
+    std::vector<ValueTy> result = {};
+    std::deque<const Node<ValueTy> *> s = {nullptr};
 
     while (root)
     {
@@ -28,14 +28,14 @@ static constexpr std::vector<T> preorder_iterative(const Node<T> *root)
     return result;
 }
 
-template <typename T>
-std::vector<T> preorder_recursive(const Node<T> *root)
+template <typename ValueTy>
+std::vector<ValueTy> preorder_recursive(const Node<ValueTy> *root)
 {
-    std::vector<T> result = {};
+    std::vector<ValueTy> result = {};
     if (root)
     {
         result.push_back(root->val);
-        for (const Node<T> *child : root->children)
+        for (const Node<ValueTy> *child : root->children)
         {
             std::vector<int> tmp = preorder_recursive(child);
             result.insert(result.end(), tmp.begin(), tmp.end());

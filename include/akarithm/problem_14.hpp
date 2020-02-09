@@ -9,13 +9,13 @@
 namespace akarithm
 {
 
-template <typename Iterator,
+template <typename IterTy,
           typename ReturnType =
-              typename std::iterator_traits<Iterator>::value_type>
+              typename std::iterator_traits<IterTy>::value_type>
 static constexpr ReturnType
 longestCommonPrefix_Iterator(
-    Iterator iter_begin,
-    Iterator iter_end)
+    IterTy iter_begin,
+    IterTy iter_end)
 {
     return std::accumulate(
         iter_begin + 1,

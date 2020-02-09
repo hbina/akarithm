@@ -9,13 +9,13 @@
 namespace akarithm
 {
 
-template <typename T>
-int numUniqueEmails(const std::vector<T> &emails)
+template <typename ValueTy>
+int numUniqueEmails(const std::vector<ValueTy> &emails)
 {
-    std::unordered_map<T, std::size_t> map;
-    for (const T &email : emails)
+    std::unordered_map<ValueTy, std::size_t> map;
+    for (const ValueTy &email : emails)
     {
-        T temp;
+        ValueTy temp;
         bool skipping_plus = false;
         bool skipping_dot = true;
         for (const char &a : email)

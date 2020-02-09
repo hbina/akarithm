@@ -8,17 +8,17 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr std::vector<std::vector<T>>
-levelOrderBottom(const TreeNode<T> *root)
+template <typename ValueTy>
+static constexpr std::vector<std::vector<ValueTy>>
+levelOrderBottom(const TreeNode<ValueTy> *root)
 {
-    std::vector<std::vector<T>> result = {};
-    std::vector<const TreeNode<T> *> layers = {root};
+    std::vector<std::vector<ValueTy>> result = {};
+    std::vector<const TreeNode<ValueTy> *> layers = {root};
     while (!layers.empty())
     {
-        std::vector<T> tmp;
-        std::vector<const TreeNode<T> *> next_layers;
-        for (const TreeNode<T> *x : layers)
+        std::vector<ValueTy> tmp;
+        std::vector<const TreeNode<ValueTy> *> next_layers;
+        for (const TreeNode<ValueTy> *x : layers)
         {
             tmp.push_back(x->val);
             if (x->left)

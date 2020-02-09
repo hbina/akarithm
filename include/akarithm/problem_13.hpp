@@ -7,12 +7,12 @@ namespace akarithm
 
 template <
     typename Iterable,
-    typename T = int>
-static constexpr T
+    typename ValueTy = int>
+static constexpr ValueTy
 romanToInt(const Iterable &s)
 {
-    T sum = 0;
-    std::map<char, T> nums;
+    ValueTy sum = 0;
+    std::map<char, ValueTy> nums;
 
     nums['I'] = 1;
     nums['V'] = 5;

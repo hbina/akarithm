@@ -6,12 +6,12 @@
 
 namespace akarithm
 {
-template <typename T>
+template <typename ValueTy>
 static constexpr double findMedianSortedArrays_basic(
-    const std::vector<T> &nums1,
-    const std::vector<T> &nums2)
+    const std::vector<ValueTy> &nums1,
+    const std::vector<ValueTy> &nums2)
 {
-    std::vector<T> collection;
+    std::vector<ValueTy> collection;
     collection.reserve(nums1.size() + nums2.size());
     collection.insert(collection.end(), nums1.begin(), nums1.end());
     collection.insert(collection.end(), nums2.begin(), nums2.end());
@@ -28,10 +28,10 @@ static constexpr double findMedianSortedArrays_basic(
     }
 }
 
-template <typename T>
+template <typename ValueTy>
 static constexpr double findMedianSortedArrays_search(
-    const std::vector<T> &nums1,
-    const std::vector<T> &nums2)
+    const std::vector<ValueTy> &nums1,
+    const std::vector<ValueTy> &nums2)
 {
     //  TODO    ::  There are better ways to do this than to make a heap allocation
     //              of 2 possibly large vectors. Most of the allocations are wasted anyway,

@@ -1,9 +1,9 @@
 #include "data_structure/tree_node.hpp"
 
-template <typename T>
+template <typename ValueTy>
 static constexpr auto
-increasingBST(TreeNode<T> *root)
-    -> TreeNode<T> *
+increasingBST(TreeNode<ValueTy> *root)
+    -> TreeNode<ValueTy> *
 {
     return nullptr;
 }

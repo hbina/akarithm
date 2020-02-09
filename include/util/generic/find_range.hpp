@@ -4,26 +4,23 @@
 #include <iterator>
 #include <type_traits>
 
-namespace util
-{
-
-namespace generic
+namespace akarithm
 {
 
 //  TODO    ::  Verify templates
 //  TODO    ::  Rewrite using std::find_if, where the predicate
 //              is string matching over the range
 template <
-    typename IteratorLhs,
-    typename IteratorRhs,
+    typename IterTyLhs,
+    typename IterTyRhs,
     typename = std::enable_if<
         std::is_same_v<
-            typename std::iterator_traits<IteratorLhs>::value_type,
-            typename std::iterator_traits<IteratorRhs>::value_type>>>
-static constexpr IteratorLhs
+            typename std::iterator_traits<IterTyLhs>::value_type,
+            typename std::iterator_traits<IterTyRhs>::value_type>>>
+static constexpr IterTyLhs
 find_range(
-    IteratorLhs lhs_begin, IteratorLhs lhs_end,
-    IteratorRhs rhs_begin, IteratorRhs rhs_end)
+    IterTyLhs lhs_begin, IterTyLhs lhs_end,
+    IterTyRhs rhs_begin, IterTyRhs rhs_end)
 {
     std::size_t lhs_length = std::distance(lhs_begin, lhs_end);
     std::size_t rhs_length = std::distance(rhs_begin, rhs_end);
@@ -56,5 +53,4 @@ find_range(
     }
 }
 
-} // namespace generic
-} // namespace util
+} // namespace akarithm

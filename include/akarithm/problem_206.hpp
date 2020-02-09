@@ -5,18 +5,18 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr ListNode<T> *reverseList_iterative(
-    ListNode<T> *head)
+template <typename ValueTy>
+static constexpr ListNode<ValueTy> *reverseList_iterative(
+    ListNode<ValueTy> *head)
 {
     if (!head)
     {
         return nullptr;
     }
 
-    ListNode<T> *pointer_before = nullptr;
-    ListNode<T> *pointer_current = head;
-    ListNode<T> *pointer_after = head->next;
+    ListNode<ValueTy> *pointer_before = nullptr;
+    ListNode<ValueTy> *pointer_current = head;
+    ListNode<ValueTy> *pointer_after = head->next;
 
     while (pointer_after)
     {
@@ -31,10 +31,10 @@ static constexpr ListNode<T> *reverseList_iterative(
     return pointer_current;
 }
 
-template <typename T>
-static constexpr ListNode<T> *reverseList_recursive_helper(
-    ListNode<T> *head,
-    ListNode<T> *next)
+template <typename ValueTy>
+static constexpr ListNode<ValueTy> *reverseList_recursive_helper(
+    ListNode<ValueTy> *head,
+    ListNode<ValueTy> *next)
 {
     // Means that we are at the end.
     if (!next)
@@ -43,18 +43,18 @@ static constexpr ListNode<T> *reverseList_recursive_helper(
     }
     else
     {
-        ListNode<T> *tmp = next->next;
+        ListNode<ValueTy> *tmp = next->next;
         next->next = head;
         return reverseList_recursive_helper(next, tmp);
     }
 }
 
-template <typename T>
-static constexpr ListNode<T> *reverseList_recursive(ListNode<T> *head)
+template <typename ValueTy>
+static constexpr ListNode<ValueTy> *reverseList_recursive(ListNode<ValueTy> *head)
 {
     if (head)
     {
-        ListNode<T> *tmp = head->next;
+        ListNode<ValueTy> *tmp = head->next;
         head->next = nullptr;
         return reverseList_recursive_helper(head, tmp);
     }

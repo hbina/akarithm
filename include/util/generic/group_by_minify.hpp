@@ -3,28 +3,27 @@
 #include <iterator>
 #include <numeric>
 
-namespace util
-{
-namespace generic
+namespace akarithm
 {
 
 template <
     typename OutputIteratorType,
-    typename Iterator,
+    typename IterTy,
     typename BinaryPredicate>
 static constexpr OutputIteratorType
 group_by_minify(
-    Iterator iter_begin,
-    Iterator iter_end,
+    IterTy iter_begin,
+    IterTy iter_end,
     const BinaryPredicate &pred)
 {
-    using T = typename std::iterator_traits<Iterator>::value_type;
+    using ValueTy =
+        typename std::iterator_traits<IterTy>::value_type;
     return std::accumulate(
         std::next(iter_begin),
         iter_end,
         OutputIteratorType{std::make_pair(*iter_begin, 1)},
         [&](OutputIteratorType &acc,
-            const T &rhs)
+            const ValueTy &rhs)
             -> OutputIteratorType {
             if (pred(acc.back().first, rhs))
             {
@@ -38,5 +37,4 @@ group_by_minify(
         });
 }
 
-} // namespace generic
-} // namespace util
+} // namespace akarithm

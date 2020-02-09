@@ -6,11 +6,19 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr std::size_t
+template <
+    typename Iterable,
+    typename ValueTy =
+        typename std::iterator_traits<
+            typename Iterable::iterator>::value_type,
+    typename DifferenceTy =
+        typename std::iterator_traits<
+            typename Iterable::iterator>::difference_type>
+static constexpr auto
 removeElement(
-    std::vector<T> &nums,
-    const T &val)
+    Iterable &nums,
+    const ValueTy &val)
+    -> DifferenceTy
 {
     return std::distance(
         std::begin(nums),

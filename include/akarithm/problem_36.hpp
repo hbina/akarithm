@@ -4,23 +4,22 @@
 #include <vector>
 #include <set>
 
-//  TODO    ::  Implement a dispatcher tag for std::array<T,N> which can definitely be made
+//  TODO    ::  Implement a dispatcher tag for std::array<ValueTy,N> which can definitely be made
 //              constexpr-able.
-
 template <
-    typename CharType = char,
-    typename IndexTypeY =
-        typename std::vector<std::vector<CharType>>::difference_type,
-    typename IndexTypeX =
-        typename std::vector<CharType>::difference_type>
+    typename CharTy = char,
+    typename IndexTyY =
+        typename std::vector<std::vector<CharTy>>::difference_type,
+    typename IndexTyX =
+        typename std::vector<CharTy>::difference_type>
 static constexpr auto
 row_is_valid(
-    const std::vector<std::vector<CharType>> &sudoku,
-    const IndexTypeY &row_index)
+    const std::vector<std::vector<CharTy>> &sudoku,
+    const IndexTyY &row_index)
     -> bool
 {
-    std::set<CharType> set;
-    for (IndexTypeX x = 0; x < 9; x++)
+    std::set<CharTy> set;
+    for (IndexTyX x = 0; x < 9; x++)
     {
         if (sudoku[row_index][x] == '.')
             continue;
@@ -33,19 +32,19 @@ row_is_valid(
 }
 
 template <
-    typename CharType = char,
-    typename IndexTypeY =
-        typename std::vector<std::vector<CharType>>::difference_type,
-    typename IndexTypeX =
-        typename std::vector<CharType>::difference_type>
+    typename CharTy = char,
+    typename IndexTyY =
+        typename std::vector<std::vector<CharTy>>::difference_type,
+    typename IndexTyX =
+        typename std::vector<CharTy>::difference_type>
 static constexpr auto
 col_is_valid(
-    const std::vector<std::vector<CharType>> &sudoku,
-    const IndexTypeX &col_index)
+    const std::vector<std::vector<CharTy>> &sudoku,
+    const IndexTyX &col_index)
     -> bool
 {
-    std::set<CharType> set;
-    for (IndexTypeX y = 0; y < 9; y++)
+    std::set<CharTy> set;
+    for (IndexTyX y = 0; y < 9; y++)
     {
         if (sudoku[y][col_index] == '.')
             continue;
@@ -58,24 +57,24 @@ col_is_valid(
 }
 
 template <
-    typename CharType = char,
-    typename IndexTypeY =
-        typename std::vector<std::vector<CharType>>::difference_type,
-    typename IndexTypeX =
-        typename std::vector<CharType>::difference_type>
+    typename CharTy = char,
+    typename IndexTyY =
+        typename std::vector<std::vector<CharTy>>::difference_type,
+    typename IndexTyX =
+        typename std::vector<CharTy>::difference_type>
 static constexpr auto
 box_is_valid(
-    const std::vector<std::vector<CharType>> &sudoku,
-    const IndexTypeX &x_begin,
-    const IndexTypeX &x_end,
-    const IndexTypeY &y_begin,
-    const IndexTypeY &y_end)
+    const std::vector<std::vector<CharTy>> &sudoku,
+    const IndexTyX &x_begin,
+    const IndexTyX &x_end,
+    const IndexTyY &y_begin,
+    const IndexTyY &y_end)
     -> bool
 {
-    std::set<CharType> set;
-    for (IndexTypeY y_iter = y_begin; y_iter < y_end; ++y_iter)
+    std::set<CharTy> set;
+    for (IndexTyY y_iter = y_begin; y_iter < y_end; ++y_iter)
     {
-        for (IndexTypeX x_iter = x_begin; x_iter < x_end; ++x_iter)
+        for (IndexTyX x_iter = x_begin; x_iter < x_end; ++x_iter)
         {
             if (sudoku[y_iter][x_iter] == '.')
                 continue;
@@ -91,21 +90,21 @@ box_is_valid(
 namespace akarithm
 {
 
-//  This should really be std::array<CharType, N>
+//  This should really be std::array<CharTy, N>
 template <
-    typename CharType = char,
-    typename IndexTypeY =
-        typename std::vector<std::vector<CharType>>::difference_type,
-    typename IndexTypeX =
-        typename std::vector<CharType>::difference_type>
+    typename CharTy = char,
+    typename IndexTyY =
+        typename std::vector<std::vector<CharTy>>::difference_type,
+    typename IndexTyX =
+        typename std::vector<CharTy>::difference_type>
 static constexpr auto
 isValidSudoku(
-    const std::vector<std::vector<CharType>> &board)
+    const std::vector<std::vector<CharTy>> &board)
     -> bool
 {
-    for (IndexTypeY y = 0; y < 9; y += 3)
+    for (IndexTyY y = 0; y < 9; y += 3)
     {
-        for (IndexTypeX x = 0; x < 9; x += 3)
+        for (IndexTyX x = 0; x < 9; x += 3)
         {
             if (!box_is_valid(board, x, x + 3, y, y + 3))
                 return false;
@@ -113,14 +112,14 @@ isValidSudoku(
     }
 
     // Row unique
-    for (IndexTypeY y = 0; y < 9; y++)
+    for (IndexTyY y = 0; y < 9; y++)
     {
         if (!row_is_valid(board, y))
             return false;
     }
 
     // Column unique
-    for (IndexTypeX x = 0; x < 9; x++)
+    for (IndexTyX x = 0; x < 9; x++)
     {
         if (!col_is_valid(board, x))
             return false;

@@ -8,17 +8,17 @@
 #include <iterator>
 #include <memory>
 
-template <typename Iterator,
-          typename T,
+template <typename IterTy,
+          typename ValueTy,
           typename = std::enable_if_t<
               std::is_same_v<
-                  typename std::iterator_traits<Iterator>::value_type,
-                  T>>>
+                  typename std::iterator_traits<IterTy>::value_type,
+                  ValueTy>>>
 static constexpr std::size_t
 get_dividing_index(
-    const Iterator &preorder_begin,
-    const Iterator &preorder_end,
-    const T &inorder_end)
+    const IterTy &preorder_begin,
+    const IterTy &preorder_end,
+    const ValueTy &inorder_end)
 {
     return std::distance(
         preorder_begin,
@@ -28,16 +28,17 @@ get_dividing_index(
             inorder_end));
 }
 
-template <typename Iterator>
+template <typename IterTy>
 static constexpr TreeNode<
-    typename std::iterator_traits<Iterator>::value_type> *
+    typename std::iterator_traits<IterTy>::value_type> *
 buildTreeTemplatePreIn(
-    const Iterator &preorder_begin,
-    const Iterator &preorder_end,
-    const Iterator &inorder_begin,
-    const Iterator &inorder_end)
+    const IterTy &preorder_begin,
+    const IterTy &preorder_end,
+    const IterTy &inorder_begin,
+    const IterTy &inorder_end)
 {
-    using T = typename std::iterator_traits<Iterator>::value_type;
+    using ValueTy =
+        typename std::iterator_traits<IterTy>::value_type;
 
     if (preorder_begin == preorder_end && inorder_begin == inorder_end)
         return nullptr;
@@ -47,7 +48,7 @@ buildTreeTemplatePreIn(
         inorder_end,
         *(preorder_begin));
 
-    TreeNode<T> *root = new TreeNode<T>(*preorder_begin);
+    TreeNode<ValueTy> *root = new TreeNode<ValueTy>(*preorder_begin);
 
     root->left = buildTreeTemplatePreIn(
         preorder_begin + 1,
@@ -65,11 +66,11 @@ buildTreeTemplatePreIn(
 namespace akarithm
 {
 
-template <typename T>
-static constexpr TreeNode<T> *
+template <typename ValueTy>
+static constexpr TreeNode<ValueTy> *
 buildTreePreIn(
-    const std::vector<T> &preorder,
-    const std::vector<T> &inorder)
+    const std::vector<ValueTy> &preorder,
+    const std::vector<ValueTy> &inorder)
 {
     return buildTreeTemplatePreIn(
         preorder.cbegin(),

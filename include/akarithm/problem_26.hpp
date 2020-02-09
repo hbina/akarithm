@@ -6,10 +6,14 @@
 namespace akarithm
 {
 
-//  TODO    ::  There is a more general algorithm that can be extracted here...
-template <typename Iterable>
-static constexpr std::size_t
+template <
+    typename Iterable,
+    typename DifferenceTy =
+        typename std::iterator_traits<
+            typename Iterable::const_iterator>::difference_type>
+static constexpr auto
 removeDuplicates(Iterable &nums)
+    -> DifferenceTy
 {
     return std::distance(
         std::begin(nums),

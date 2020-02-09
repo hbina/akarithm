@@ -7,11 +7,11 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr T specialDivision(const T &value, const T &divisor)
+template <typename ValueTy>
+static constexpr ValueTy specialDivision(const ValueTy &value, const ValueTy &divisor)
 {
-    const T remainder = value % divisor;
-    const T division = (value - remainder) / divisor;
+    const ValueTy remainder = value % divisor;
+    const ValueTy division = (value - remainder) / divisor;
     if (remainder == 0)
     {
         return division;
@@ -22,19 +22,19 @@ static constexpr T specialDivision(const T &value, const T &divisor)
     }
 }
 
-template <typename T>
-static constexpr T accumulateResult(const std::vector<T> &nums, const T &divisor)
+template <typename ValueTy>
+static constexpr ValueTy accumulateResult(const std::vector<ValueTy> &nums, const ValueTy &divisor)
 {
-    return std::accumulate(nums.cbegin(), nums.cend(), 0, [&](T sum, const T &x) -> T {
+    return std::accumulate(nums.cbegin(), nums.cend(), 0, [&](ValueTy sum, const ValueTy &x) -> ValueTy {
         return std::move(sum) + specialDivision(x, divisor);
     });
 }
 
-template <typename T>
-static constexpr T smallestDivisor_naive(const std::vector<T> &nums, T threshold)
+template <typename ValueTy>
+static constexpr ValueTy smallestDivisor_naive(const std::vector<ValueTy> &nums, ValueTy threshold)
 {
-    T divisor = 1;
-    T result = accumulateResult(nums, divisor);
+    ValueTy divisor = 1;
+    ValueTy result = accumulateResult(nums, divisor);
     while (result > threshold)
     {
         divisor++;
@@ -43,16 +43,16 @@ static constexpr T smallestDivisor_naive(const std::vector<T> &nums, T threshold
     return divisor;
 }
 
-template <typename T>
-static constexpr T smallestDivisor_guessFirst(const std::vector<T> &nums, T threshold)
+template <typename ValueTy>
+static constexpr ValueTy smallestDivisor_guessFirst(const std::vector<ValueTy> &nums, ValueTy threshold)
 {
-    T sum = accumulateResult(nums, 1);
-    T guess_divisor = sum / threshold;
+    ValueTy sum = accumulateResult(nums, 1);
+    ValueTy guess_divisor = sum / threshold;
     if (guess_divisor == 0)
     {
         return 1;
     }
-    T result = accumulateResult(nums, guess_divisor);
+    ValueTy result = accumulateResult(nums, guess_divisor);
     while (result > threshold)
     {
         guess_divisor++;

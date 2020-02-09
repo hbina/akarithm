@@ -5,9 +5,9 @@
 namespace akarithm
 {
 
-template <typename T>
+template <typename ValueTy>
 static constexpr void
-bstToGst_Recursive(TreeNode<T> *root, T &accumulator)
+bstToGst_Recursive(TreeNode<ValueTy> *root, ValueTy &accumulator)
 {
     if (root->right)
         bstToGst_Recursive(root->right, accumulator);
@@ -17,11 +17,11 @@ bstToGst_Recursive(TreeNode<T> *root, T &accumulator)
         bstToGst_Recursive(root->left, accumulator);
 }
 
-template <typename T>
-static constexpr TreeNode<T> *
-bstToGst(TreeNode<T> *root)
+template <typename ValueTy>
+static constexpr TreeNode<ValueTy> *
+bstToGst(TreeNode<ValueTy> *root)
 {
-    T init = 0;
+    ValueTy init = 0;
     bstToGst_Recursive(root, init);
     return root;
 }

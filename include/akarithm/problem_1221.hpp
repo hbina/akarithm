@@ -9,10 +9,14 @@ namespace akarithm
 {
 
 //  TODO    ::  Narrow down this template to only accept types that implements std::char_traits
-std::size_t balancedStringSplit(const std::string &s)
+template <
+    typename CounterTy = std::size_t,
+    typename StringTy = std::string>
+static constexpr auto
+balancedStringSplit(const StringTy &s)
+    -> CounterTy
 {
-    //  TODO    ::  Impelement this algorithm...it should be simple enough
-    std::size_t global_counter = 0;
+    CounterTy global_counter{};
     int counter = 0;
     for (const auto &x : s)
     {

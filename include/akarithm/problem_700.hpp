@@ -7,20 +7,20 @@
 namespace akarithm
 {
 
-template <typename T>
+template <typename ValueTy>
 static constexpr auto
 searchBST(
-    const TreeNode<T> *root,
-    const T &val)
-    -> const TreeNode<T> *
+    const TreeNode<ValueTy> *root,
+    const ValueTy &val)
+    -> const TreeNode<ValueTy> *
 {
-    return util::generic::bst_search(
+    return akarithm::bst_search(
         root,
-        [&](const T &node)
+        [&](const ValueTy &node)
             -> bool {
             return node == val;
         },
-        [&](const T &node)
+        [&](const ValueTy &node)
             -> bool {
             return node < val;
         });

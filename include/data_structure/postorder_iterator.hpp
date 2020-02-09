@@ -7,7 +7,8 @@ namespace akarithm
 
 template <
     typename TreeType,
-    typename ValueType = typename TreeType::value_type>
+    typename ValueTy =
+        typename TreeType::value_type>
 class PostorderIterator
 {
 private:

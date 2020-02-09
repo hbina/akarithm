@@ -6,9 +6,9 @@
 namespace akarithm
 {
 
-template <typename T>
-static constexpr std::vector<T> sortedSquares(
-    std::vector<T> &A)
+template <typename ValueTy>
+static constexpr std::vector<ValueTy> sortedSquares(
+    std::vector<ValueTy> &A)
 {
     std::for_each(A.begin(), A.end(), [](auto &x) -> void {
         x *= x;

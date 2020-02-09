@@ -6,21 +6,21 @@
 namespace akarithm
 {
 
-template <typename T>
-std::vector<std::vector<T>> groupThePeople(const std::vector<T> &groupSizes)
+template <typename ValueTy>
+std::vector<std::vector<ValueTy>> groupThePeople(const std::vector<ValueTy> &groupSizes)
 {
-    std::map<T, std::size_t> mapper;
-    std::vector<std::vector<T>> result;
+    std::map<ValueTy, std::size_t> mapper;
+    std::vector<std::vector<ValueTy>> result;
 
     for (std::size_t id = 0; id < groupSizes.size(); id++)
     {
-        T x = static_cast<T>(groupSizes[id]);
+        ValueTy x = static_cast<ValueTy>(groupSizes[id]);
         if (mapper.find(x) == mapper.end())
         {
             mapper[x] = result.size();
             result.push_back({});
         }
-        result[static_cast<T>(mapper[x])].push_back(static_cast<T>(id));
+        result[static_cast<ValueTy>(mapper[x])].push_back(static_cast<ValueTy>(id));
         if (result[mapper[x]].size() == static_cast<std::size_t>(x))
         {
             mapper.erase(x);

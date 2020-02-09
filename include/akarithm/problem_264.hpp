@@ -24,9 +24,12 @@ nthUglyNumber(const IntTy &n)
     if (n == 0)
         return 0;
 
-    using TupleTy = typename std::array<IntTy, 3>;
-    using DpTy = typename std::map<IntTy, TupleTy>;
-    using DpIndexTy = typename DpTy::size_type;
+    using TupleTy =
+        typename std::array<IntTy, 3>;
+    using DpTy =
+        typename std::map<IntTy, TupleTy>;
+    using DpIndexTy =
+        typename DpTy::size_type;
 
     auto evaluate_tuple = [](const TupleTy &tuple)
         -> IntTy {

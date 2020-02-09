@@ -9,15 +9,15 @@ namespace akarithm
 {
 
 template <
-    typename StringType = std::string>
+    typename StringTy = std::string>
 static constexpr auto
 removePalindromeSub(
-    const StringType &s)
+    const StringTy &s)
     -> int
 {
     if (s.empty())
         return 0;
-    else if (util::generic::is_palindrome(std::cbegin(s), std::cend(s)))
+    else if (akarithm::is_palindrome(std::cbegin(s), std::cend(s)))
         return 1;
     else
         return 2;
