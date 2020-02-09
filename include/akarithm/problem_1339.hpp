@@ -14,7 +14,7 @@ maxProduct(
 {
     constexpr auto tree_accumulator =
         [](const TreeNode<IntTy> *root,
-           IntTy acc)
+           IntTy acc = {})
         -> IntTy {
         akarithm::PreorderIterator iter = akarithm::PreorderIterator(root);
         while (iter.hasNext())
