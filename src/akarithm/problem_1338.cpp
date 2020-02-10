@@ -52,7 +52,7 @@ TEST_CASE("problem 5329 5")
     CHECK(expected == result);
 }
 
-#define CHECKING_TIMEOUT 1
+#define CHECKING_TIMEOUT 0
 
 #ifdef CHECKING_TIMEOUT
 TEST_CASE("problem 5329 6")
