@@ -4,14 +4,14 @@
 
 TEST_CASE("problem_536")
 {
-    const TreeNode<> *input =
-        new TreeNode<>(1,
-                       new TreeNode<>(2,
-                                      new TreeNode<>(3),
-                                      new TreeNode<>(4)),
-                       new TreeNode<>(2,
-                                      new TreeNode<>(4),
-                                      new TreeNode<>(3)));
+    const akarithm::TreeNode<> *input =
+        new akarithm::TreeNode<>(1,
+                       new akarithm::TreeNode<>(2,
+                                      new akarithm::TreeNode<>(3),
+                                      new akarithm::TreeNode<>(4)),
+                       new akarithm::TreeNode<>(2,
+                                      new akarithm::TreeNode<>(4),
+                                      new akarithm::TreeNode<>(3)));
     bool expected = true;
     bool result = akarithm::isSymmetric(input);
     CHECK(expected == result);
@@ -20,14 +20,14 @@ TEST_CASE("problem_536")
 
 TEST_CASE("problem_536")
 {
-    const TreeNode<> *input =
-        new TreeNode<>(1,
-                       new TreeNode<>(2,
-                                      new TreeNode<>(3),
-                                      new TreeNode<>(2)),
-                       new TreeNode<>(2,
-                                      new TreeNode<>(4),
-                                      new TreeNode<>(3)));
+    const akarithm::TreeNode<> *input =
+        new akarithm::TreeNode<>(1,
+                       new akarithm::TreeNode<>(2,
+                                      new akarithm::TreeNode<>(3),
+                                      new akarithm::TreeNode<>(2)),
+                       new akarithm::TreeNode<>(2,
+                                      new akarithm::TreeNode<>(4),
+                                      new akarithm::TreeNode<>(3)));
     const bool expected = false;
     bool result = akarithm::isSymmetric(input);
     CHECK(expected == result);
@@ -36,7 +36,7 @@ TEST_CASE("problem_536")
 
 TEST_CASE("problem_536")
 {
-    const TreeNode<> *input = new TreeNode<>(1);
+    const akarithm::TreeNode<> *input = new akarithm::TreeNode<>(1);
     const bool expected = true;
     bool result = akarithm::isSymmetric(input);
     CHECK(expected == result);
@@ -45,7 +45,7 @@ TEST_CASE("problem_536")
 
 TEST_CASE("problem_536")
 {
-    const TreeNode<> *input = nullptr;
+    const akarithm::TreeNode<> *input = nullptr;
     const bool expected = true;
     bool result = akarithm::isSymmetric(input);
     CHECK(expected == result);

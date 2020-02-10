@@ -5,22 +5,22 @@
 
 TEST_CASE("preorder iterator")
 {
-    const TreeNode<> *input =
-        new TreeNode<>(1,
-                       new TreeNode<>(2,
-                                      new TreeNode<>(4,
-                                                     new TreeNode<>(8),
-                                                     new TreeNode<>(9)),
-                                      new TreeNode<>(5,
-                                                     new TreeNode<>(10),
-                                                     new TreeNode<>(11))),
-                       new TreeNode<>(3,
-                                      new TreeNode<>(6,
-                                                     new TreeNode<>(12),
-                                                     new TreeNode<>(13)),
-                                      new TreeNode<>(7,
-                                                     new TreeNode<>(14),
-                                                     new TreeNode<>(15))));
+    const akarithm::TreeNode<> *input =
+        new akarithm::TreeNode<>(1,
+                       new akarithm::TreeNode<>(2,
+                                      new akarithm::TreeNode<>(4,
+                                                     new akarithm::TreeNode<>(8),
+                                                     new akarithm::TreeNode<>(9)),
+                                      new akarithm::TreeNode<>(5,
+                                                     new akarithm::TreeNode<>(10),
+                                                     new akarithm::TreeNode<>(11))),
+                       new akarithm::TreeNode<>(3,
+                                      new akarithm::TreeNode<>(6,
+                                                     new akarithm::TreeNode<>(12),
+                                                     new akarithm::TreeNode<>(13)),
+                                      new akarithm::TreeNode<>(7,
+                                                     new akarithm::TreeNode<>(14),
+                                                     new akarithm::TreeNode<>(15))));
     akarithm::PreorderIterator iterator =
         akarithm::PreorderIterator(input);
     CHECK(8 == iterator.next()->val);

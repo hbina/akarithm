@@ -38,7 +38,7 @@ buildTreeTemplateInPost(
     const IterTy &inorder_end,
     const IterTy &postorder_begin,
     const IterTy &postorder_end)
-    -> TreeNode<
+    -> akarithm::TreeNode<
         typename std::iterator_traits<IterTy>::value_type> *
 {
     using ValueTy =
@@ -52,7 +52,7 @@ buildTreeTemplateInPost(
         inorder_end,
         *(postorder_end - 1));
 
-    TreeNode<ValueTy> *root = new TreeNode<ValueTy>(*(inorder_begin + dividing_index));
+    akarithm::TreeNode<ValueTy> *root = new akarithm::TreeNode<ValueTy>(*(inorder_begin + dividing_index));
 
     root->left = buildTreeTemplateInPost(
         inorder_begin,

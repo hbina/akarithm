@@ -16,8 +16,8 @@ template <
     typename BinaryPredicate>
 static std::vector<ValueTy>
 getAllElements_If(
-    const TreeNode<ValueTy> *lhs,
-    const TreeNode<ValueTy> *rhs,
+    const akarithm::TreeNode<ValueTy> *lhs,
+    const akarithm::TreeNode<ValueTy> *rhs,
     const BinaryPredicate &pred)
 {
     std::vector<ValueTy> result;
@@ -47,8 +47,8 @@ template <
     typename ValueTy>
 static std::vector<ValueTy>
 getAllElements(
-    const TreeNode<ValueTy> *lhs,
-    const TreeNode<ValueTy> *rhs)
+    const akarithm::TreeNode<ValueTy> *lhs,
+    const akarithm::TreeNode<ValueTy> *rhs)
 {
     return getAllElements_If(lhs, rhs, std::less{});
 }

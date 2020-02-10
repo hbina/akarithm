@@ -4,14 +4,14 @@
 
 TEST_CASE("problem_700")
 {
-    TreeNode<> *expected =
-        new TreeNode<>(2,
-                       new TreeNode<>(1),
-                       new TreeNode<>(3));
-    const TreeNode<> *input =
-        new TreeNode<>(4,
+    akarithm::TreeNode<> *expected =
+        new akarithm::TreeNode<>(2,
+                       new akarithm::TreeNode<>(1),
+                       new akarithm::TreeNode<>(3));
+    const akarithm::TreeNode<> *input =
+        new akarithm::TreeNode<>(4,
                        expected,
-                       new TreeNode<>(7));
+                       new akarithm::TreeNode<>(7));
     const auto result = akarithm::searchBST(input, 2);
     CHECK(expected == result);
     delete input;

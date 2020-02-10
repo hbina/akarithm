@@ -10,7 +10,7 @@ namespace akarithm
 {
 
 template <typename ValueTy>
-static constexpr std::vector<ValueTy> postorderTraversal(const TreeNode<ValueTy> *root)
+static constexpr std::vector<ValueTy> postorderTraversal(const akarithm::TreeNode<ValueTy> *root)
 {
     std::vector<ValueTy> AB, A, B;
     if (root)

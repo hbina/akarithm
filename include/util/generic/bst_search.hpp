@@ -13,10 +13,10 @@ template <
     typename SearchFunction = std::less<>>
 static constexpr auto
 bst_search(
-    const TreeNode<ValueTy> *root,
+    const akarithm::TreeNode<ValueTy> *root,
     const EqualFunction &equal,
     const SearchFunction &search)
-    -> const TreeNode<ValueTy> *
+    -> const akarithm::TreeNode<ValueTy> *
 {
     if (!root)
         return nullptr;

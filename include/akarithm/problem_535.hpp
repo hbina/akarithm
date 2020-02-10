@@ -6,7 +6,7 @@ namespace akarithm
 {
 
 template <typename ValueTy>
-std::size_t maxDepth(const TreeNode<ValueTy> *root)
+std::size_t maxDepth(const akarithm::TreeNode<ValueTy> *root)
 {
     if (!root)
     {

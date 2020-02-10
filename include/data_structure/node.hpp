@@ -2,7 +2,9 @@
 
 #include <vector>
 
-// Use template and std::array
+namespace akarithm
+{
+
 template <typename ValueTy = int>
 class Node
 {
@@ -28,3 +30,5 @@ public:
     }
   }
 };
+
+} // namespace akarithm

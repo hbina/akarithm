@@ -4,17 +4,17 @@
 
 TEST_CASE("problem_24")
 {
-    ListNode<> *input =
-        new ListNode<>(1,
-                       new ListNode<>(2,
-                                      new ListNode<>(3,
-                                                     new ListNode<>(4))));
-    const ListNode<> *expected =
-        new ListNode<>(2,
-                       new ListNode<>(1,
-                                      new ListNode<>(4,
-                                                     new ListNode<>(3))));
-    ListNode<> *result = akarithm::swapPairs(input);
+    akarithm::ListNode<> *input =
+        new akarithm::ListNode<>(1,
+                       new akarithm::ListNode<>(2,
+                                      new akarithm::ListNode<>(3,
+                                                     new akarithm::ListNode<>(4))));
+    const akarithm::ListNode<> *expected =
+        new akarithm::ListNode<>(2,
+                       new akarithm::ListNode<>(1,
+                                      new akarithm::ListNode<>(4,
+                                                     new akarithm::ListNode<>(3))));
+    akarithm::ListNode<> *result = akarithm::swapPairs(input);
     CHECK(*expected == *result);
     delete expected;
     delete result;
@@ -22,13 +22,13 @@ TEST_CASE("problem_24")
 
 TEST_CASE("problem_24")
 {
-    ListNode<> *input =
-        new ListNode<>(1,
-                       new ListNode<>(2));
-    const ListNode<> *expected =
-        new ListNode<>(2,
-                       new ListNode<>(1));
-    ListNode<> *result = akarithm::swapPairs(input);
+    akarithm::ListNode<> *input =
+        new akarithm::ListNode<>(1,
+                       new akarithm::ListNode<>(2));
+    const akarithm::ListNode<> *expected =
+        new akarithm::ListNode<>(2,
+                       new akarithm::ListNode<>(1));
+    akarithm::ListNode<> *result = akarithm::swapPairs(input);
     CHECK(*expected == *result);
     delete expected;
     delete result;
@@ -36,11 +36,11 @@ TEST_CASE("problem_24")
 
 TEST_CASE("problem_24")
 {
-    ListNode<> *input =
-        new ListNode<>(1);
-    const ListNode<> *expected =
-        new ListNode<>(1);
-    ListNode<> *result = akarithm::swapPairs(input);
+    akarithm::ListNode<> *input =
+        new akarithm::ListNode<>(1);
+    const akarithm::ListNode<> *expected =
+        new akarithm::ListNode<>(1);
+    akarithm::ListNode<> *result = akarithm::swapPairs(input);
     CHECK(*expected == *result);
     delete expected;
     delete result;
@@ -48,9 +48,9 @@ TEST_CASE("problem_24")
 
 TEST_CASE("problem_24")
 {
-    ListNode<> *input = nullptr;
-    const ListNode<> *expected = nullptr;
-    ListNode<> *result = akarithm::swapPairs(input);
+    akarithm::ListNode<> *input = nullptr;
+    const akarithm::ListNode<> *expected = nullptr;
+    akarithm::ListNode<> *result = akarithm::swapPairs(input);
     CHECK(expected == result);
     delete expected;
     delete result;

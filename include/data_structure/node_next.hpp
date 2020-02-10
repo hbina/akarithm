@@ -1,6 +1,10 @@
 #pragma once
 
 #include <iostream>
+
+namespace akarithm
+{
+
 template <typename ValueTy = int>
 class NodeNext
 {
@@ -33,64 +37,59 @@ public:
     delete right;
   }
 
-  template <typename T2>
-  friend std::ostream &operator<<(std::ostream &os, const NodeNext<T2> &rhs);
-  template <typename T2>
-  constexpr friend bool operator==(const NodeNext<T2> &lhs, const NodeNext<T2> &rhs);
+  friend std::ostream &operator<<(std::ostream &os, const NodeNext<ValueTy> &rhs)
+  {
+    os << rhs.val << " ";
+    if (rhs.left)
+      os << *rhs.left << " ";
+    else
+      os << "null ";
+    if (rhs.right)
+      os << *rhs.right << " ";
+    else
+      os << "null ";
+    if (rhs.next)
+      os << *rhs.next << " ";
+    else
+      os << "null ";
+    return os;
+  };
+
+  constexpr friend bool operator==(const NodeNext<ValueTy> &lhs, const NodeNext<ValueTy> &rhs)
+  {
+    bool value_equal = lhs.val == rhs.val;
+    bool left_equal = false;
+    if (lhs.left && rhs.left)
+    {
+      left_equal = (*lhs.left == *rhs.left);
+    }
+    else if (!lhs.left && !rhs.left)
+    {
+      left_equal = true;
+    }
+
+    bool right_equal = false;
+    if (lhs.right && rhs.right)
+    {
+      right_equal = (*lhs.right == *rhs.right);
+    }
+    else if (!lhs.right && !rhs.right)
+    {
+      right_equal = true;
+    }
+
+    bool next_equal = false;
+    if (lhs.next && rhs.next)
+    {
+      next_equal = (*lhs.next == *rhs.next);
+    }
+    else if (!lhs.next && !rhs.next)
+    {
+      next_equal = true;
+    }
+
+    return value_equal && left_equal && right_equal && next_equal;
+  };
 };
 
-template <typename ValueTy>
-constexpr bool operator==(const NodeNext<ValueTy> &lhs, const NodeNext<ValueTy> &rhs)
-{
-  bool value_equal = lhs.val == rhs.val;
-  bool left_equal = false;
-  if (lhs.left && rhs.left)
-  {
-    left_equal = (*lhs.left == *rhs.left);
-  }
-  else if (!lhs.left && !rhs.left)
-  {
-    left_equal = true;
-  }
-
-  bool right_equal = false;
-  if (lhs.right && rhs.right)
-  {
-    right_equal = (*lhs.right == *rhs.right);
-  }
-  else if (!lhs.right && !rhs.right)
-  {
-    right_equal = true;
-  }
-
-  bool next_equal = false;
-  if (lhs.next && rhs.next)
-  {
-    next_equal = (*lhs.next == *rhs.next);
-  }
-  else if (!lhs.next && !rhs.next)
-  {
-    next_equal = true;
-  }
-
-  return value_equal && left_equal && right_equal && next_equal;
-}
-
-template <typename ValueTy>
-std::ostream &operator<<(std::ostream &os, const NodeNext<ValueTy> &rhs)
-{
-  os << rhs.val << " ";
-  if (rhs.left)
-    os << *rhs.left << " ";
-  else
-    os << "null ";
-  if (rhs.right)
-    os << *rhs.right << " ";
-  else
-    os << "null ";
-  if (rhs.next)
-    os << *rhs.next << " ";
-  else
-    os << "null ";
-  return os;
-}
+} // namespace akarithm

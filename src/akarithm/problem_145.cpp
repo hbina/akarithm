@@ -4,12 +4,12 @@
 
 TEST_CASE("problem_145")
 {
-    const TreeNode<> *input =
-        new TreeNode<>(1,
+    const akarithm::TreeNode<> *input =
+        new akarithm::TreeNode<>(1,
                        nullptr,
-                       new TreeNode<>(
+                       new akarithm::TreeNode<>(
                            2,
-                           new TreeNode<>(
+                           new akarithm::TreeNode<>(
                                3,
                                nullptr,
                                nullptr),

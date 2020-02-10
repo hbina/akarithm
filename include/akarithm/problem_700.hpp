@@ -10,9 +10,9 @@ namespace akarithm
 template <typename ValueTy>
 static constexpr auto
 searchBST(
-    const TreeNode<ValueTy> *root,
+    const akarithm::TreeNode<ValueTy> *root,
     const ValueTy &val)
-    -> const TreeNode<ValueTy> *
+    -> const akarithm::TreeNode<ValueTy> *
 {
     return akarithm::bst_search(
         root,

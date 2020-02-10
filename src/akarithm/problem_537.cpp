@@ -4,18 +4,18 @@
 
 TEST_CASE("problem_537")
 {
-    const TreeNode<> *input_1 =
-        new TreeNode<>(5,
-                       new TreeNode<>(4,
-                                      new TreeNode<>(11,
-                                                     new TreeNode<>(7),
-                                                     new TreeNode<>(2)),
+    const akarithm::TreeNode<> *input_1 =
+        new akarithm::TreeNode<>(5,
+                       new akarithm::TreeNode<>(4,
+                                      new akarithm::TreeNode<>(11,
+                                                     new akarithm::TreeNode<>(7),
+                                                     new akarithm::TreeNode<>(2)),
                                       nullptr),
-                       new TreeNode<>(8,
-                                      new TreeNode<>(13),
-                                      new TreeNode<>(4,
+                       new akarithm::TreeNode<>(8,
+                                      new akarithm::TreeNode<>(13),
+                                      new akarithm::TreeNode<>(4,
                                                      nullptr,
-                                                     new TreeNode<>(1))));
+                                                     new akarithm::TreeNode<>(1))));
     const int input_2 = 22;
     const bool expected = true;
     const bool result = akarithm::hasPathSum(input_1, input_2);
@@ -25,7 +25,7 @@ TEST_CASE("problem_537")
 
 TEST_CASE("problem_537")
 {
-    const TreeNode<> *input_1 = nullptr;
+    const akarithm::TreeNode<> *input_1 = nullptr;
     const int input_2 = 1;
     const bool expected = false;
     const bool result = akarithm::hasPathSum(input_1, input_2);
@@ -34,7 +34,7 @@ TEST_CASE("problem_537")
 
 TEST_CASE("problem_537 -- [1], 0 ==> false")
 {
-    const TreeNode<> *input_1 = new TreeNode<>(1);
+    const akarithm::TreeNode<> *input_1 = new akarithm::TreeNode<>(1);
     const int input_2 = 0;
     const bool expected = false;
     const bool result = akarithm::hasPathSum(input_1, input_2);
@@ -44,9 +44,9 @@ TEST_CASE("problem_537 -- [1], 0 ==> false")
 
 TEST_CASE("problem_537 -- [1,2], 1 ==> true")
 {
-    const TreeNode<> *input_1 =
-        new TreeNode<>(1,
-                       new TreeNode<>(2),
+    const akarithm::TreeNode<> *input_1 =
+        new akarithm::TreeNode<>(1,
+                       new akarithm::TreeNode<>(2),
                        nullptr);
     const int input_2 = 1;
     const bool expected = false;
@@ -57,10 +57,10 @@ TEST_CASE("problem_537 -- [1,2], 1 ==> true")
 
 TEST_CASE("problem_537 -- [-2,null, -3], -5 ==> true")
 {
-    const TreeNode<> *input_1 =
-        new TreeNode<>(-2,
+    const akarithm::TreeNode<> *input_1 =
+        new akarithm::TreeNode<>(-2,
                        nullptr,
-                       new TreeNode<>(-3));
+                       new akarithm::TreeNode<>(-3));
     const int input_2 = -5;
     const bool expected = true;
     const bool result = akarithm::hasPathSum(input_1, input_2);

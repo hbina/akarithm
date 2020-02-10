@@ -6,17 +6,17 @@ namespace akarithm
 {
 
 template <typename ValueTy>
-static constexpr ListNode<ValueTy> *reverseList_iterative(
-    ListNode<ValueTy> *head)
+static constexpr akarithm::ListNode<ValueTy> *reverseList_iterative(
+    akarithm::ListNode<ValueTy> *head)
 {
     if (!head)
     {
         return nullptr;
     }
 
-    ListNode<ValueTy> *pointer_before = nullptr;
-    ListNode<ValueTy> *pointer_current = head;
-    ListNode<ValueTy> *pointer_after = head->next;
+    akarithm::ListNode<ValueTy> *pointer_before = nullptr;
+    akarithm::ListNode<ValueTy> *pointer_current = head;
+    akarithm::ListNode<ValueTy> *pointer_after = head->next;
 
     while (pointer_after)
     {
@@ -32,9 +32,9 @@ static constexpr ListNode<ValueTy> *reverseList_iterative(
 }
 
 template <typename ValueTy>
-static constexpr ListNode<ValueTy> *reverseList_recursive_helper(
-    ListNode<ValueTy> *head,
-    ListNode<ValueTy> *next)
+static constexpr akarithm::ListNode<ValueTy> *reverseList_recursive_helper(
+    akarithm::ListNode<ValueTy> *head,
+    akarithm::ListNode<ValueTy> *next)
 {
     // Means that we are at the end.
     if (!next)
@@ -43,18 +43,18 @@ static constexpr ListNode<ValueTy> *reverseList_recursive_helper(
     }
     else
     {
-        ListNode<ValueTy> *tmp = next->next;
+        akarithm::ListNode<ValueTy> *tmp = next->next;
         next->next = head;
         return reverseList_recursive_helper(next, tmp);
     }
 }
 
 template <typename ValueTy>
-static constexpr ListNode<ValueTy> *reverseList_recursive(ListNode<ValueTy> *head)
+static constexpr akarithm::ListNode<ValueTy> *reverseList_recursive(ListNode<ValueTy> *head)
 {
     if (head)
     {
-        ListNode<ValueTy> *tmp = head->next;
+        akarithm::ListNode<ValueTy> *tmp = head->next;
         head->next = nullptr;
         return reverseList_recursive_helper(head, tmp);
     }

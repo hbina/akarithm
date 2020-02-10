@@ -10,15 +10,15 @@ namespace akarithm
 
 template <typename ValueTy>
 static constexpr std::vector<std::vector<ValueTy>>
-levelOrderBottom(const TreeNode<ValueTy> *root)
+levelOrderBottom(const akarithm::TreeNode<ValueTy> *root)
 {
     std::vector<std::vector<ValueTy>> result = {};
-    std::vector<const TreeNode<ValueTy> *> layers = {root};
+    std::vector<const akarithm::TreeNode<ValueTy> *> layers = {root};
     while (!layers.empty())
     {
         std::vector<ValueTy> tmp;
-        std::vector<const TreeNode<ValueTy> *> next_layers;
-        for (const TreeNode<ValueTy> *x : layers)
+        std::vector<const akarithm::TreeNode<ValueTy> *> next_layers;
+        for (const akarithm::TreeNode<ValueTy> *x : layers)
         {
             tmp.push_back(x->val);
             if (x->left)

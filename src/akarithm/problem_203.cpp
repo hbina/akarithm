@@ -4,21 +4,21 @@
 
 TEST_CASE("problem_203")
 {
-    ListNode<> *input =
-        new ListNode<>(1,
-                       new ListNode<>(2,
-                                      new ListNode<>(6,
-                                                     new ListNode<>(3,
-                                                                    new ListNode<>(4,
-                                                                                   new ListNode<>(5,
-                                                                                                  new ListNode<>(6)))))));
+    akarithm::ListNode<> *input =
+        new akarithm::ListNode<>(1,
+                       new akarithm::ListNode<>(2,
+                                      new akarithm::ListNode<>(6,
+                                                     new akarithm::ListNode<>(3,
+                                                                    new akarithm::ListNode<>(4,
+                                                                                   new akarithm::ListNode<>(5,
+                                                                                                  new akarithm::ListNode<>(6)))))));
     const int input_2 = 6;
-    const ListNode<> *expected = new ListNode<>(1,
-                                                new ListNode<>(2,
-                                                               new ListNode<>(3,
-                                                                              new ListNode<>(4,
-                                                                                             new ListNode<>(5)))));
-    ListNode<> *result = akarithm::removeElements(input, input_2);
+    const akarithm::ListNode<> *expected = new akarithm::ListNode<>(1,
+                                                new akarithm::ListNode<>(2,
+                                                               new akarithm::ListNode<>(3,
+                                                                              new akarithm::ListNode<>(4,
+                                                                                             new akarithm::ListNode<>(5)))));
+    akarithm::ListNode<> *result = akarithm::removeElements(input, input_2);
     CHECK(*expected == *result);
     delete result;
     delete expected;
@@ -26,24 +26,24 @@ TEST_CASE("problem_203")
 
 TEST_CASE("problem_203")
 {
-    ListNode<> *input =
-        new ListNode<>(1,
-                       new ListNode<>(2,
-                                      new ListNode<>(6,
-                                                     new ListNode<>(3,
-                                                                    new ListNode<>(4,
-                                                                                   new ListNode<>(5,
-                                                                                                  new ListNode<>(6)))))));
+    akarithm::ListNode<> *input =
+        new akarithm::ListNode<>(1,
+                       new akarithm::ListNode<>(2,
+                                      new akarithm::ListNode<>(6,
+                                                     new akarithm::ListNode<>(3,
+                                                                    new akarithm::ListNode<>(4,
+                                                                                   new akarithm::ListNode<>(5,
+                                                                                                  new akarithm::ListNode<>(6)))))));
     const int input_2 = 32;
-    const ListNode<> *expected =
-        new ListNode<>(1,
-                       new ListNode<>(2,
-                                      new ListNode<>(6,
-                                                     new ListNode<>(3,
-                                                                    new ListNode<>(4,
-                                                                                   new ListNode<>(5,
-                                                                                                  new ListNode<>(6)))))));
-    ListNode<> *result = akarithm::removeElements(input, input_2);
+    const akarithm::ListNode<> *expected =
+        new akarithm::ListNode<>(1,
+                       new akarithm::ListNode<>(2,
+                                      new akarithm::ListNode<>(6,
+                                                     new akarithm::ListNode<>(3,
+                                                                    new akarithm::ListNode<>(4,
+                                                                                   new akarithm::ListNode<>(5,
+                                                                                                  new akarithm::ListNode<>(6)))))));
+    akarithm::ListNode<> *result = akarithm::removeElements(input, input_2);
     CHECK(*expected == *result);
     delete result;
     delete expected;
@@ -51,10 +51,10 @@ TEST_CASE("problem_203")
 
 TEST_CASE("problem_203")
 {
-    ListNode<> *input = new ListNode<>(1);
+    akarithm::ListNode<> *input = new akarithm::ListNode<>(1);
     const int input_2 = 1;
-    const ListNode<> *expected = nullptr;
-    ListNode<> *result = akarithm::removeElements(input, input_2);
+    const akarithm::ListNode<> *expected = nullptr;
+    akarithm::ListNode<> *result = akarithm::removeElements(input, input_2);
     CHECK(expected == result);
     delete result;
     delete expected;
@@ -62,10 +62,10 @@ TEST_CASE("problem_203")
 
 TEST_CASE("problem_203")
 {
-    ListNode<> *input = nullptr;
+    akarithm::ListNode<> *input = nullptr;
     const int input_2 = 1;
-    const ListNode<> *expected = nullptr;
-    ListNode<> *result = akarithm::removeElements(input, input_2);
+    const akarithm::ListNode<> *expected = nullptr;
+    akarithm::ListNode<> *result = akarithm::removeElements(input, input_2);
     CHECK(expected == result);
     delete result;
     delete expected;
@@ -73,13 +73,13 @@ TEST_CASE("problem_203")
 
 TEST_CASE("problem_203")
 {
-    ListNode<> *input =
-        new ListNode<>(1,
-                       new ListNode<>(1,
-                                      new ListNode<>(1)));
+    akarithm::ListNode<> *input =
+        new akarithm::ListNode<>(1,
+                       new akarithm::ListNode<>(1,
+                                      new akarithm::ListNode<>(1)));
     const int input_2 = 1;
-    const ListNode<> *expected = nullptr;
-    ListNode<> *result = akarithm::removeElements(input, input_2);
+    const akarithm::ListNode<> *expected = nullptr;
+    akarithm::ListNode<> *result = akarithm::removeElements(input, input_2);
     CHECK(expected == result);
     delete result;
     delete expected;
@@ -87,15 +87,15 @@ TEST_CASE("problem_203")
 
 TEST_CASE("problem_203")
 {
-    ListNode<> *input =
-        new ListNode<>(3,
-                       new ListNode<>(2,
-                                      new ListNode<>(1)));
+    akarithm::ListNode<> *input =
+        new akarithm::ListNode<>(3,
+                       new akarithm::ListNode<>(2,
+                                      new akarithm::ListNode<>(1)));
     const int input_2 = 1;
-    const ListNode<> *expected =
-        new ListNode<>(3,
-                       new ListNode<>(2));
-    ListNode<> *result = akarithm::removeElements(input, input_2);
+    const akarithm::ListNode<> *expected =
+        new akarithm::ListNode<>(3,
+                       new akarithm::ListNode<>(2));
+    akarithm::ListNode<> *result = akarithm::removeElements(input, input_2);
     CHECK(*expected == *result);
     delete result;
     delete expected;
@@ -103,21 +103,21 @@ TEST_CASE("problem_203")
 
 TEST_CASE("problem_203")
 {
-    ListNode<> *input =
-        new ListNode<>(1,
-                       new ListNode<>(2,
-                                      new ListNode<>(6,
-                                                     new ListNode<>(3,
-                                                                    new ListNode<>(4,
-                                                                                   new ListNode<>(5,
-                                                                                                  new ListNode<>(6)))))));
+    akarithm::ListNode<> *input =
+        new akarithm::ListNode<>(1,
+                       new akarithm::ListNode<>(2,
+                                      new akarithm::ListNode<>(6,
+                                                     new akarithm::ListNode<>(3,
+                                                                    new akarithm::ListNode<>(4,
+                                                                                   new akarithm::ListNode<>(5,
+                                                                                                  new akarithm::ListNode<>(6)))))));
     const int input_2 = 6;
-    const ListNode<> *expected = new ListNode<>(1,
-                                                new ListNode<>(2,
-                                                               new ListNode<>(3,
-                                                                              new ListNode<>(4,
-                                                                                             new ListNode<>(5)))));
-    ListNode<> *result = akarithm::removeElements(input, input_2);
+    const akarithm::ListNode<> *expected = new akarithm::ListNode<>(1,
+                                                new akarithm::ListNode<>(2,
+                                                               new akarithm::ListNode<>(3,
+                                                                              new akarithm::ListNode<>(4,
+                                                                                             new akarithm::ListNode<>(5)))));
+    akarithm::ListNode<> *result = akarithm::removeElements(input, input_2);
     CHECK(*expected == *result);
     delete result;
     delete expected;
@@ -125,19 +125,19 @@ TEST_CASE("problem_203")
 
 TEST_CASE("problem_203 -- If")
 {
-    ListNode<> *input =
-        new ListNode<>(1,
-                       new ListNode<>(2,
-                                      new ListNode<>(6,
-                                                     new ListNode<>(3,
-                                                                    new ListNode<>(4,
-                                                                                   new ListNode<>(5,
-                                                                                                  new ListNode<>(6)))))));
-    const ListNode<> *expected =
-        new ListNode<>(1,
-                       new ListNode<>(3,
-                                      new ListNode<>(5)));
-    ListNode<> *result = akarithm::removeElements_If(
+    akarithm::ListNode<> *input =
+        new akarithm::ListNode<>(1,
+                       new akarithm::ListNode<>(2,
+                                      new akarithm::ListNode<>(6,
+                                                     new akarithm::ListNode<>(3,
+                                                                    new akarithm::ListNode<>(4,
+                                                                                   new akarithm::ListNode<>(5,
+                                                                                                  new akarithm::ListNode<>(6)))))));
+    const akarithm::ListNode<> *expected =
+        new akarithm::ListNode<>(1,
+                       new akarithm::ListNode<>(3,
+                                      new akarithm::ListNode<>(5)));
+    akarithm::ListNode<> *result = akarithm::removeElements_If(
         input,
         [](const int &val) -> bool {
             return val % 2 == 0;

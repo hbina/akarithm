@@ -6,14 +6,14 @@
 
 TEST_CASE("akarithm::bst_search")
 {
-    TreeNode<std::string> *expected =
-        new TreeNode<std::string>("hell",
-                                  new TreeNode<std::string>("hel"),
-                                  new TreeNode<std::string>("hello o"));
-    const TreeNode<std::string> *input_1 =
-        new TreeNode<std::string>("hello",
+    akarithm::TreeNode<std::string> *expected =
+        new akarithm::TreeNode<std::string>("hell",
+                                  new akarithm::TreeNode<std::string>("hel"),
+                                  new akarithm::TreeNode<std::string>("hello o"));
+    const akarithm::TreeNode<std::string> *input_1 =
+        new akarithm::TreeNode<std::string>("hello",
                                   expected,
-                                  new TreeNode<std::string>("hello world"));
+                                  new akarithm::TreeNode<std::string>("hello world"));
     const int input_2 = 4;
     const auto result =
         akarithm::bst_search<std::string>(

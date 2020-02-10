@@ -18,7 +18,7 @@ ListNode<ValueTy> *swapPairs(ListNode<ValueTy> *head)
     }
     else
     {
-        ListNode<ValueTy> *result = head->next;
+        akarithm::ListNode<ValueTy> *result = head->next;
         head->next = swapPairs(result->next);
         result->next = head;
         return result;

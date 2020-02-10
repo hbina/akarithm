@@ -8,7 +8,7 @@ namespace akarithm
 {
 
 template <typename ValueTy>
-static constexpr TreeNode<ValueTy> *invertTree(TreeNode<ValueTy> *root)
+static constexpr akarithm::TreeNode<ValueTy> *invertTree(TreeNode<ValueTy> *root)
 {
     if (root == nullptr)
     {
@@ -16,8 +16,8 @@ static constexpr TreeNode<ValueTy> *invertTree(TreeNode<ValueTy> *root)
     }
     else
     {
-        TreeNode<ValueTy> *tmp_left = root->left;
-        TreeNode<ValueTy> *tmp_right = root->right;
+        akarithm::TreeNode<ValueTy> *tmp_left = root->left;
+        akarithm::TreeNode<ValueTy> *tmp_right = root->right;
         root->left = invertTree(tmp_right);
         root->right = invertTree(tmp_left);
         return root;

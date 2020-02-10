@@ -4,14 +4,14 @@
 
 TEST_CASE("problem_938")
 {
-    const TreeNode<> *input =
-        new TreeNode<>(10,
-                       new TreeNode<>(5,
-                                      new TreeNode<>(3),
-                                      new TreeNode<>(7)),
-                       new TreeNode<>(15,
+    const akarithm::TreeNode<> *input =
+        new akarithm::TreeNode<>(10,
+                       new akarithm::TreeNode<>(5,
+                                      new akarithm::TreeNode<>(3),
+                                      new akarithm::TreeNode<>(7)),
+                       new akarithm::TreeNode<>(15,
                                       nullptr,
-                                      new TreeNode<>(18)));
+                                      new akarithm::TreeNode<>(18)));
     const int expected = 32;
     const int result = akarithm::rangeSumBST_recursion(input, 7, 15);
     CHECK(expected == result);

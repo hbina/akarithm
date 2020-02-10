@@ -6,7 +6,7 @@ namespace akarithm
 {
 
 template <typename ValueTy>
-bool hasPathSum(const TreeNode<ValueTy> *root, int sum)
+bool hasPathSum(const akarithm::TreeNode<ValueTy> *root, int sum)
 {
     if (root == nullptr)
     {

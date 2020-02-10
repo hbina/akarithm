@@ -4,14 +4,14 @@
 
 TEST_CASE("problem_1290")
 {
-    ListNode<int> *input = new ListNode<>(0);
+    akarithm::ListNode<int> *input = new akarithm::ListNode<>(0);
     CHECK(0 == akarithm::getDecimalValue(input));
     delete input;
 }
 
 TEST_CASE("problem_1290")
 {
-    ListNode<int> *input = new ListNode<>(1);
+    akarithm::ListNode<int> *input = new akarithm::ListNode<>(1);
     CHECK(1 == akarithm::getDecimalValue(input));
     delete input;
 }
@@ -19,23 +19,23 @@ TEST_CASE("problem_1290")
 TEST_CASE("problem_1290")
 {
     // lmao
-    ListNode<int> *input =
-        new ListNode<>(
+    akarithm::ListNode<int> *input =
+        new akarithm::ListNode<>(
             1,
-            new ListNode<>(0,
-                           new ListNode<>(0,
-                                          new ListNode<>(1,
-                                                         new ListNode<>(0,
-                                                                        new ListNode<>(0,
-                                                                                       new ListNode<>(1,
-                                                                                                      new ListNode<>(1,
-                                                                                                                     new ListNode<>(1,
-                                                                                                                                    new ListNode<>(0,
-                                                                                                                                                   new ListNode<>(0,
-                                                                                                                                                                  new ListNode<>(0,
-                                                                                                                                                                                 new ListNode<>(0,
-                                                                                                                                                                                                new ListNode<>(0,
-                                                                                                                                                                                                               new ListNode<>(0)))))))))))))));
+            new akarithm::ListNode<>(0,
+                           new akarithm::ListNode<>(0,
+                                          new akarithm::ListNode<>(1,
+                                                         new akarithm::ListNode<>(0,
+                                                                        new akarithm::ListNode<>(0,
+                                                                                       new akarithm::ListNode<>(1,
+                                                                                                      new akarithm::ListNode<>(1,
+                                                                                                                     new akarithm::ListNode<>(1,
+                                                                                                                                    new akarithm::ListNode<>(0,
+                                                                                                                                                   new akarithm::ListNode<>(0,
+                                                                                                                                                                  new akarithm::ListNode<>(0,
+                                                                                                                                                                                 new akarithm::ListNode<>(0,
+                                                                                                                                                                                                new akarithm::ListNode<>(0,
+                                                                                                                                                                                                               new akarithm::ListNode<>(0)))))))))))))));
     CHECK(
         18880 ==
         akarithm::getDecimalValue(input));
@@ -44,22 +44,22 @@ TEST_CASE("problem_1290")
 
 TEST_CASE("problem_1290")
 {
-    ListNode<int> *input =
-        new ListNode<>(
+    akarithm::ListNode<int> *input =
+        new akarithm::ListNode<>(
             0,
-            new ListNode<>(0));
+            new akarithm::ListNode<>(0));
     CHECK(0 == akarithm::getDecimalValue(input));
     delete input;
 }
 
 TEST_CASE("problem_1290")
 {
-    ListNode<int> *input =
-        new ListNode<>(
+    akarithm::ListNode<int> *input =
+        new akarithm::ListNode<>(
             1,
-            new ListNode<>(
+            new akarithm::ListNode<>(
                 0,
-                new ListNode<>(1)));
+                new akarithm::ListNode<>(1)));
     CHECK(5 == akarithm::getDecimalValue(input));
     delete input;
 }

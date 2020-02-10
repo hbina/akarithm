@@ -10,10 +10,10 @@ namespace akarithm
 // Can be generalized further
 template <typename ValueTy>
 static constexpr std::tuple<
-    ListNode<ValueTy> *,
-    ListNode<ValueTy> *,
-    ListNode<ValueTy> *>
-advanceZip(ListNode<ValueTy> *lhs, ListNode<ValueTy> *rhs)
+    akarithm::ListNode<ValueTy> *,
+    akarithm::ListNode<ValueTy> *,
+    akarithm::ListNode<ValueTy> *>
+advanceZip(ListNode<ValueTy> *lhs, akarithm::ListNode<ValueTy> *rhs)
 {
     if (lhs && rhs)
     {
@@ -41,13 +41,13 @@ advanceZip(ListNode<ValueTy> *lhs, ListNode<ValueTy> *rhs)
 }
 
 template <typename ValueTy>
-static constexpr ListNode<ValueTy> *
-mergeTwoLists(ListNode<ValueTy> *lhs, ListNode<ValueTy> *rhs)
+static constexpr akarithm::ListNode<ValueTy> *
+mergeTwoLists(ListNode<ValueTy> *lhs, akarithm::ListNode<ValueTy> *rhs)
 {
     if (lhs && rhs)
     {
         auto [root, lhs_iter, rhs_iter] = advanceZip(lhs, rhs);
-        ListNode<ValueTy> *iter = root;
+        akarithm::ListNode<ValueTy> *iter = root;
         while (lhs_iter || rhs_iter)
         {
             auto [iter_next, lhs_next, rhs_next] = advanceZip(lhs_iter, rhs_iter);

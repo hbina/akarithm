@@ -29,7 +29,7 @@ get_dividing_index(
 }
 
 template <typename IterTy>
-static constexpr TreeNode<
+static constexpr akarithm::TreeNode<
     typename std::iterator_traits<IterTy>::value_type> *
 buildTreeTemplatePreIn(
     const IterTy &preorder_begin,
@@ -48,7 +48,7 @@ buildTreeTemplatePreIn(
         inorder_end,
         *(preorder_begin));
 
-    TreeNode<ValueTy> *root = new TreeNode<ValueTy>(*preorder_begin);
+    akarithm::TreeNode<ValueTy> *root = new akarithm::TreeNode<ValueTy>(*preorder_begin);
 
     root->left = buildTreeTemplatePreIn(
         preorder_begin + 1,
@@ -67,7 +67,7 @@ namespace akarithm
 {
 
 template <typename ValueTy>
-static constexpr TreeNode<ValueTy> *
+static constexpr akarithm::TreeNode<ValueTy> *
 buildTreePreIn(
     const std::vector<ValueTy> &preorder,
     const std::vector<ValueTy> &inorder)

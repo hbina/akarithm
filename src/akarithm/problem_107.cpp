@@ -4,12 +4,12 @@
 
 TEST_CASE("problem_107")
 {
-    const TreeNode<> *input =
-        new TreeNode<>(3,
-                       new TreeNode<>(9),
-                       new TreeNode<>(20,
-                                      new TreeNode<>(15),
-                                      new TreeNode<>(7)));
+    const akarithm::TreeNode<> *input =
+        new akarithm::TreeNode<>(3,
+                       new akarithm::TreeNode<>(9),
+                       new akarithm::TreeNode<>(20,
+                                      new akarithm::TreeNode<>(15),
+                                      new akarithm::TreeNode<>(7)));
     const std::vector<std::vector<int>> expected = {
         {3},
         {9, 20},

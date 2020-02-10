@@ -6,7 +6,7 @@ namespace akarithm
 {
 
 template <typename ValueTy>
-bool isMirror(const TreeNode<ValueTy> *lhs, const TreeNode<ValueTy> *rhs)
+bool isMirror(const akarithm::TreeNode<ValueTy> *lhs, const akarithm::TreeNode<ValueTy> *rhs)
 {
     if (lhs == nullptr && rhs == nullptr)
         return true;
@@ -18,7 +18,7 @@ bool isMirror(const TreeNode<ValueTy> *lhs, const TreeNode<ValueTy> *rhs)
 }
 
 template <typename ValueTy>
-bool isSymmetric(const TreeNode<ValueTy> *root)
+bool isSymmetric(const akarithm::TreeNode<ValueTy> *root)
 {
     return isMirror(root, root);
 }

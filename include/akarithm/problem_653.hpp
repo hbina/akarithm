@@ -9,7 +9,7 @@ namespace akarithm
 
 template <typename ValueTy>
 static constexpr auto
-findTarget(const TreeNode<ValueTy> *root, int k)
+findTarget(const akarithm::TreeNode<ValueTy> *root, int k)
     -> bool
 {
     akarithm::PreorderIterator pre_order = akarithm::PreorderIterator(root);

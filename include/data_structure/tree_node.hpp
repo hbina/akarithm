@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+namespace akarithm
+{
+
 template <typename ValueTy = int>
 struct TreeNode
 {
@@ -32,48 +35,43 @@ struct TreeNode
       delete right;
   }
 
-  template <typename T2>
-  friend std::ostream &operator<<(std::ostream &os, const TreeNode<T2> &rhs);
-  template <typename T2>
-  constexpr friend bool operator==(const TreeNode<T2> &lhs, const TreeNode<T2> &rhs);
+  friend std::ostream &operator<<(std::ostream &os, const TreeNode<ValueTy> &rhs)
+  {
+    os << " " << rhs.val;
+    if (rhs.left)
+    {
+      os << " " << *rhs.left;
+    }
+    if (rhs.right)
+    {
+      os << " " << *rhs.right;
+    }
+    return os;
+  }
+
+  constexpr friend bool operator==(const TreeNode<ValueTy> &lhs, const TreeNode<ValueTy> &rhs)
+  {
+    bool value_equal = (lhs.val == rhs.val);
+    bool left_equal = false;
+    if (lhs.left && rhs.left)
+    {
+      left_equal = (*lhs.left == *rhs.left);
+    }
+    else if (!lhs.left && !rhs.left)
+    {
+      left_equal = true;
+    }
+    bool right_equal = false;
+    if (lhs.right && rhs.right)
+    {
+      right_equal = (*lhs.right == *rhs.right);
+    }
+    else if (!lhs.right && !rhs.right)
+    {
+      right_equal = true;
+    }
+    return value_equal && left_equal && right_equal;
+  }
 };
 
-template <typename ValueTy>
-constexpr bool operator==(const TreeNode<ValueTy> &lhs, const TreeNode<ValueTy> &rhs)
-{
-  bool value_equal = (lhs.val == rhs.val);
-  bool left_equal = false;
-  if (lhs.left && rhs.left)
-  {
-    left_equal = (*lhs.left == *rhs.left);
-  }
-  else if (!lhs.left && !rhs.left)
-  {
-    left_equal = true;
-  }
-  bool right_equal = false;
-  if (lhs.right && rhs.right)
-  {
-    right_equal = (*lhs.right == *rhs.right);
-  }
-  else if (!lhs.right && !rhs.right)
-  {
-    right_equal = true;
-  }
-  return value_equal && left_equal && right_equal;
-}
-
-template <typename ValueTy>
-std::ostream &operator<<(std::ostream &os, const TreeNode<ValueTy> &rhs)
-{
-  os << " " << rhs.val;
-  if (rhs.left)
-  {
-    os << " " << *rhs.left;
-  }
-  if (rhs.right)
-  {
-    os << " " << *rhs.right;
-  }
-  return os;
-}
+} // namespace akarithm

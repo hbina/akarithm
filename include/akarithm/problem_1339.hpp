@@ -9,11 +9,11 @@ namespace akarithm
 template <typename IntTy = int>
 static constexpr auto
 maxProduct(
-    const TreeNode<IntTy> *root)
+    const akarithm::TreeNode<IntTy> *root)
     -> IntTy
 {
     constexpr auto tree_accumulator =
-        [](const TreeNode<IntTy> *root,
+        [](const akarithm::TreeNode<IntTy> *root,
            IntTy acc = {})
         -> IntTy {
         akarithm::PreorderIterator iter = akarithm::PreorderIterator(root);

@@ -3,6 +3,9 @@
 #include <string>
 #include <iostream>
 
+namespace akarithm
+{
+
 template <typename ValueTy = int>
 struct ListNode
 {
@@ -23,33 +26,29 @@ struct ListNode
       delete next;
   }
 
-  template <typename T2>
-  friend std::ostream &operator<<(std::ostream &os, const ListNode<T2> &rhs);
-  template <typename T2>
-  constexpr friend bool operator==(const ListNode<T2> &lhs, const ListNode<T2> &rhs);
+  friend std::ostream &operator<<(std::ostream &os, const ListNode<ValueTy> &rhs)
+  {
+    os << "ListNode val:" << rhs.val;
+    return os;
+  }
+
+  constexpr friend bool operator==(const akarithm::ListNode<ValueTy> &lhs, const akarithm::ListNode<ValueTy> &rhs)
+  {
+    bool value_equal = (lhs.val == rhs.val);
+    if (lhs.next && rhs.next)
+    {
+      return value_equal && (*lhs.next == *rhs.next);
+    }
+    else if (!lhs.next && !rhs.next)
+    {
+      return value_equal;
+    }
+    else
+    {
+      return false;
+    }
+  }
 };
 
-template <typename ValueTy>
-std::ostream &operator<<(std::ostream &os, const ListNode<ValueTy> &rhs)
-{
-  os << "ListNode val:" << rhs.val;
-  return os;
-}
+} // namespace akarithm
 
-template <typename ValueTy>
-constexpr bool operator==(const ListNode<ValueTy> &lhs, const ListNode<ValueTy> &rhs)
-{
-  bool value_equal = (lhs.val == rhs.val);
-  if (lhs.next && rhs.next)
-  {
-    return value_equal && (*lhs.next == *rhs.next);
-  }
-  else if (!lhs.next && !rhs.next)
-  {
-    return value_equal;
-  }
-  else
-  {
-    return false;
-  }
-}

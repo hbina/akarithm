@@ -9,13 +9,13 @@ namespace akarithm
 {
 
 template <typename ValueTy>
-static constexpr NodeNext<ValueTy> *
+static constexpr akarithm::NodeNext<ValueTy> *
 connect(NodeNext<ValueTy> *root)
 {
     if (!root)
         return nullptr;
 
-    NodeNext<ValueTy> *nextmost = root->next;
+    akarithm::NodeNext<ValueTy> *nextmost = root->next;
     while (
         nextmost &&
         (!nextmost->left && !nextmost->right) &&

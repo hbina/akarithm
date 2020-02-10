@@ -4,28 +4,28 @@
 
 TEST_CASE("problem_206")
 {
-    ListNode<> *input =
-        new ListNode<>(1,
-                       new ListNode<>(
+    akarithm::ListNode<> *input =
+        new akarithm::ListNode<>(1,
+                       new akarithm::ListNode<>(
                            2,
-                           new ListNode<>(
+                           new akarithm::ListNode<>(
                                3,
-                               new ListNode<>(
+                               new akarithm::ListNode<>(
                                    4,
-                                   new ListNode<>(
+                                   new akarithm::ListNode<>(
                                        5)))));
 
-    const ListNode<> *expected =
-        new ListNode<>(5,
-                       new ListNode<>(
+    const akarithm::ListNode<> *expected =
+        new akarithm::ListNode<>(5,
+                       new akarithm::ListNode<>(
                            4,
-                           new ListNode<>(
+                           new akarithm::ListNode<>(
                                3,
-                               new ListNode<>(
+                               new akarithm::ListNode<>(
                                    2,
-                                   new ListNode<>(
+                                   new akarithm::ListNode<>(
                                        1)))));
-    const ListNode<> *result = akarithm::reverseList_iterative(input);
+    const akarithm::ListNode<> *result = akarithm::reverseList_iterative(input);
     CHECK(*result == *expected);
     delete result;
     delete expected;
@@ -33,29 +33,29 @@ TEST_CASE("problem_206")
 
 TEST_CASE("problem_206")
 {
-    ListNode<> *input =
-        new ListNode<>(1,
-                       new ListNode<>(
+    akarithm::ListNode<> *input =
+        new akarithm::ListNode<>(1,
+                       new akarithm::ListNode<>(
                            2,
-                           new ListNode<>(
+                           new akarithm::ListNode<>(
                                3,
-                               new ListNode<>(
+                               new akarithm::ListNode<>(
                                    4,
-                                   new ListNode<>(
+                                   new akarithm::ListNode<>(
                                        5)))));
 
-    const ListNode<> *expected =
-        new ListNode<>(5,
-                       new ListNode<>(
+    const akarithm::ListNode<> *expected =
+        new akarithm::ListNode<>(5,
+                       new akarithm::ListNode<>(
                            4,
-                           new ListNode<>(
+                           new akarithm::ListNode<>(
                                3,
-                               new ListNode<>(
+                               new akarithm::ListNode<>(
                                    2,
-                                   new ListNode<>(
+                                   new akarithm::ListNode<>(
                                        1)))));
 
-    const ListNode<> *result = akarithm::reverseList_iterative(input);
+    const akarithm::ListNode<> *result = akarithm::reverseList_iterative(input);
     CHECK(*result == *expected);
     delete result;
     delete expected;
@@ -63,11 +63,11 @@ TEST_CASE("problem_206")
 
 TEST_CASE("problem_206 single")
 {
-    ListNode<> *input = new ListNode<>(5);
+    akarithm::ListNode<> *input = new akarithm::ListNode<>(5);
 
-    const ListNode<> *expected = new ListNode<>(5);
+    const akarithm::ListNode<> *expected = new akarithm::ListNode<>(5);
 
-    const ListNode<> *result = akarithm::reverseList_iterative(input);
+    const akarithm::ListNode<> *result = akarithm::reverseList_iterative(input);
 
     CHECK(*result == *expected);
     delete input;
@@ -76,9 +76,9 @@ TEST_CASE("problem_206 single")
 
 TEST_CASE("problem_206 single")
 {
-    ListNode<> *input = new ListNode<>(5);
-    const ListNode<> *expected = new ListNode<>(5);
-    const ListNode<> *result = akarithm::reverseList_recursive(input);
+    akarithm::ListNode<> *input = new akarithm::ListNode<>(5);
+    const akarithm::ListNode<> *expected = new akarithm::ListNode<>(5);
+    const akarithm::ListNode<> *result = akarithm::reverseList_recursive(input);
     CHECK(*result == *expected);
     delete input;
     delete expected;

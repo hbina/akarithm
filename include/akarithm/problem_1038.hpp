@@ -18,7 +18,7 @@ bstToGst_Recursive(TreeNode<ValueTy> *root, ValueTy &accumulator)
 }
 
 template <typename ValueTy>
-static constexpr TreeNode<ValueTy> *
+static constexpr akarithm::TreeNode<ValueTy> *
 bstToGst(TreeNode<ValueTy> *root)
 {
     ValueTy init = 0;

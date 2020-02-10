@@ -8,9 +8,9 @@ namespace akarithm
 template <
     typename ValueTy,
     typename UnaryPredicate>
-static constexpr ListNode<ValueTy> *
+static constexpr akarithm::ListNode<ValueTy> *
 removeElements_If(
-    ListNode<ValueTy> *head,
+    akarithm::ListNode<ValueTy> *head,
     const UnaryPredicate &pred)
 {
     if (!head)
@@ -19,7 +19,7 @@ removeElements_If(
     }
     else if (pred(head->val))
     {
-        ListNode<ValueTy> *result = removeElements_If(head->next, pred);
+        akarithm::ListNode<ValueTy> *result = removeElements_If(head->next, pred);
         head->next = nullptr;
         delete head;
         return result;
@@ -34,7 +34,7 @@ removeElements_If(
         {
             if (pred(head->next->val))
             {
-                ListNode<ValueTy> *tmp = head->next;
+                akarithm::ListNode<ValueTy> *tmp = head->next;
                 head->next = removeElements_If(head->next->next, pred);
                 tmp->next = nullptr;
                 delete tmp;
@@ -50,9 +50,9 @@ removeElements_If(
 }
 
 template <typename ValueTy>
-static constexpr ListNode<ValueTy> *
+static constexpr akarithm::ListNode<ValueTy> *
 removeElements(
-    ListNode<ValueTy> *head,
+    akarithm::ListNode<ValueTy> *head,
     const ValueTy &val)
 {
     if (!head)
@@ -61,7 +61,7 @@ removeElements(
     }
     else if (head->val == val)
     {
-        ListNode<ValueTy> *result = removeElements(head->next, val);
+        akarithm::ListNode<ValueTy> *result = removeElements(head->next, val);
         head->next = nullptr;
         delete head;
         return result;
@@ -76,7 +76,7 @@ removeElements(
         {
             if (head->next->val == val)
             {
-                ListNode<ValueTy> *tmp = head->next;
+                akarithm::ListNode<ValueTy> *tmp = head->next;
                 head->next = removeElements(head->next->next, val);
                 tmp->next = nullptr;
                 delete tmp;

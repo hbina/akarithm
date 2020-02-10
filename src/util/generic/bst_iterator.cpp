@@ -5,12 +5,12 @@
 
 TEST_CASE("bst iterator")
 {
-    const TreeNode<> *input =
-        new TreeNode<>(7,
-                       new TreeNode<>(3),
-                       new TreeNode<>(15,
-                                      new TreeNode<>(9),
-                                      new TreeNode<>(20)));
+    const akarithm::TreeNode<> *input =
+        new akarithm::TreeNode<>(7,
+                       new akarithm::TreeNode<>(3),
+                       new akarithm::TreeNode<>(15,
+                                      new akarithm::TreeNode<>(9),
+                                      new akarithm::TreeNode<>(20)));
     akarithm::BSTIterator iterator =
         akarithm::BSTIterator(input);
     CHECK(3 == iterator.next()->val);

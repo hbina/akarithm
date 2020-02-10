@@ -23,13 +23,13 @@ class Codec
 {
 
 private:
-    static TreeNode<ValueTy> *
+    static akarithm::TreeNode<ValueTy> *
     parse_data(
         const std::string &iter)
     {
         if (akarithm::is_number(iter))
         {
-            return new TreeNode<ValueTy>(std::stoi(iter));
+            return new akarithm::TreeNode<ValueTy>(std::stoi(iter));
         }
         else
         {
@@ -41,18 +41,18 @@ public:
     //  Encodes a tree to a single string.
     //  TODO    ::  Rework this mess...
     static std::string
-    serialize(const TreeNode<ValueTy> *root)
+    serialize(const akarithm::TreeNode<ValueTy> *root)
     {
         if (!root)
         {
             return "[]";
         }
         std::string result = "[";
-        std::vector<const TreeNode<ValueTy> *> layers = {root};
+        std::vector<const akarithm::TreeNode<ValueTy> *> layers = {root};
         while (!layers.empty())
         {
-            std::vector<const TreeNode<ValueTy> *> next_layers;
-            for (const TreeNode<ValueTy> *node : layers)
+            std::vector<const akarithm::TreeNode<ValueTy> *> next_layers;
+            for (const akarithm::TreeNode<ValueTy> *node : layers)
             {
                 result += std::to_string(node->val) + ",";
 
@@ -88,7 +88,7 @@ public:
     //                  1
     //          2               null
     //      3       4       null    null
-    static TreeNode<ValueTy> *
+    static akarithm::TreeNode<ValueTy> *
     deserialize(const std::string &data)
     {
         std::string skip_bracket = data.substr(1, data.length() - 2);
@@ -102,7 +102,7 @@ public:
             deflatten_data.cbegin(),
             deflatten_data.cend(),
             std::back_inserter(nodes),
-            [&](const std::string &data) -> TreeNode<ValueTy> * {
+            [&](const std::string &data) -> akarithm::TreeNode<ValueTy> * {
                 return Codec::parse_data(data);
             });
         std::size_t counter = 0;

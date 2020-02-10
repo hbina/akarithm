@@ -2,8 +2,8 @@
 
 template <typename ValueTy>
 static constexpr auto
-increasingBST(TreeNode<ValueTy> *root)
-    -> TreeNode<ValueTy> *
+increasingBST(akarithm::TreeNode<ValueTy> *root)
+    -> akarithm::TreeNode<ValueTy> *
 {
     return nullptr;
 }
