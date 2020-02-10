@@ -2,6 +2,7 @@
 
 #include "util/generic/group_by_minify.hpp"
 #include "util/generic/sliding_window.hpp"
+#include "util/generic/n_sum.hpp"
 
 #include <vector>
 #include <algorithm>
@@ -19,6 +20,7 @@ fourSum(
     const IntTy &target)
     -> ResultTy
 {
+<<<<<<< HEAD
     using PairTy = std::pair<IntTy, std::size_t>;
 
     auto arr = nums;
@@ -61,6 +63,9 @@ fourSum(
                 acc.push_back({value.first, value.first, value.first, value.first});
             return acc;
         });
+=======
+    return {};
+>>>>>>> Attempting to implement n_sum.hpp
 }
 
 } // namespace akarithm
