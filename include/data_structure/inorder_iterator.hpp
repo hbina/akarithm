@@ -13,10 +13,10 @@ template <
 class InorderIterator
 {
 private:
-    std::stack<const TreeType *> stack;
+    std::stack<TreeType *> stack;
 
     constexpr void
-    parse_node(const TreeType *input)
+    parse_node(TreeType *input)
     {
         if (!input)
             return;
@@ -28,16 +28,16 @@ private:
     }
 
 public:
-    constexpr InorderIterator(const TreeType *root)
+    constexpr InorderIterator(TreeType *root)
     {
         stack.push(root);
     }
 
     constexpr auto
     next()
-        -> const TreeType *
+        -> TreeType *
     {
-        const TreeType *result = stack.top();
+        TreeType *result = stack.top();
         stack.pop();
         parse_node(result);
         stack.pop();
@@ -46,7 +46,7 @@ public:
 
     constexpr auto
     peek() const
-        -> const TreeType *
+        -> TreeType *
     {
         return stack.top();
     }

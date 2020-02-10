@@ -12,10 +12,10 @@ template <
 class PostorderIterator
 {
 private:
-    std::stack<const TreeType *> stack;
+    std::stack<TreeType *> stack;
 
     constexpr void
-    parse_right_of(const TreeType *input)
+    parse_right_of(TreeType *input)
     {
         while (input)
         {
@@ -25,16 +25,16 @@ private:
     }
 
 public:
-    constexpr PostorderIterator(const TreeType *root)
+    constexpr PostorderIterator(TreeType *root)
     {
         parse_right_of(root);
     }
 
     constexpr auto
     next()
-        -> const TreeType *
+        -> TreeType *
     {
-        const TreeType *result = stack.top();
+        TreeType *result = stack.top();
         stack.pop();
         parse_right_of(result->left);
         return result;
@@ -42,7 +42,7 @@ public:
 
     constexpr auto
     peek() const
-        -> const TreeType *
+        -> TreeType *
     {
         return stack.top();
     }

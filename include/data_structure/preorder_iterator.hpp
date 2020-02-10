@@ -12,10 +12,10 @@ template <
 class PreorderIterator
 {
 private:
-    std::stack<const TreeType *> stack;
+    std::stack<TreeType *> stack;
 
     constexpr void
-    parse_left_of(const TreeType *input)
+    parse_left_of(TreeType *input)
     {
         while (input)
         {
@@ -25,16 +25,16 @@ private:
     }
 
 public:
-    constexpr PreorderIterator(const TreeType *root)
+    constexpr PreorderIterator(TreeType *root)
     {
         parse_left_of(root);
     }
 
     constexpr auto
     next()
-        -> const TreeType *
+        -> TreeType *
     {
-        const TreeType *result = stack.top();
+        TreeType *result = stack.top();
         stack.pop();
         parse_left_of(result->right);
         return result;
@@ -42,7 +42,7 @@ public:
 
     constexpr auto
     peek() const
-        -> const TreeType *
+        -> TreeType *
     {
         return stack.top();
     }
