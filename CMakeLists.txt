@@ -46,6 +46,7 @@ add_executable(
     src/akarithm/problem_5.cpp
     src/akarithm/problem_14.cpp
     src/akarithm/problem_13.cpp
+    src/akarithm/problem_18.cpp
     src/akarithm/problem_19.cpp
     src/akarithm/problem_21.cpp
     src/akarithm/problem_22.cpp
