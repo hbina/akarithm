@@ -2,6 +2,7 @@
 
 #include <tuple>
 #include <iterator>
+#include <functional>
 
 namespace akarithm
 {

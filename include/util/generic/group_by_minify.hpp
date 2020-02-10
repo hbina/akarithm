@@ -18,6 +18,8 @@ group_by_minify(
 {
     using ValueTy =
         typename std::iterator_traits<IterTy>::value_type;
+    if (iter_begin == iter_end)
+        return {};
     return std::accumulate(
         std::next(iter_begin),
         iter_end,
