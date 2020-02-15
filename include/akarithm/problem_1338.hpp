@@ -27,10 +27,13 @@ minSetSize(
     std::copy(iter_begin, iter_end, std::back_inserter(arr));
     std::sort(std::begin(arr), std::end(arr));
     auto tmp =
-        akarithm::group_by_minify<std::vector<PairTy>>(
+        akarithm::group_by_minify(
             std::cbegin(arr),
             std::cend(arr),
-            std::equal_to{});
+            [](const ValueTy &lhs, const ValueTy &rhs)
+                -> bool {
+                return lhs == rhs;
+            });
     std::sort(
         std::begin(tmp),
         std::end(tmp),

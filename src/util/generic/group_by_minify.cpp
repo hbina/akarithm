@@ -16,24 +16,7 @@ TEST_CASE("akarithm::group_by_minify")
          {2, 3},
          {5, 2}};
     const auto result =
-        akarithm::group_by_minify<std::vector<std::pair<int, std::size_t>>>(
-            input.cbegin(),
-            input.cend(),
-            [](const int &lhs, const int &rhs) -> bool {
-                return (lhs % 2) == (rhs % 2);
-            });
-    CHECK(expected == result);
-}
-
-TEST_CASE("akarithm::group_by_minify")
-{
-    const std::list<int> input = {1, 1, 2, 4, 6, 5, 7};
-    const std::list<std::pair<int, std::size_t>> expected =
-        {{1, 2},
-         {2, 3},
-         {5, 2}};
-    const auto result =
-        akarithm::group_by_minify<std::list<std::pair<int, std::size_t>>>(
+        akarithm::group_by_minify(
             input.cbegin(),
             input.cend(),
             [](const int &lhs, const int &rhs) -> bool {
@@ -50,7 +33,7 @@ TEST_CASE("akarithm::group_by_minify")
          {2, 3},
          {5, 2}};
     const auto result =
-        akarithm::group_by_minify<std::vector<std::pair<int, std::size_t>>>(
+        akarithm::group_by_minify(
             input.cbegin(),
             input.cend(),
             [](const int &lhs, const int &rhs) -> bool {
@@ -68,7 +51,7 @@ TEST_CASE("akarithm::group_by_minify")
          {'3', 7},
          {'w', 5}};
     const auto result =
-        akarithm::group_by_minify<std::vector<std::pair<CharType, std::size_t>>>(
+        akarithm::group_by_minify(
             input.cbegin(),
             input.cend(),
             [](const CharType &lhs, const CharType &rhs) -> bool {
@@ -88,7 +71,7 @@ TEST_CASE("akarithm::group_by_minify")
         {'w', 5},
         {'3', 2}};
     const auto result =
-        akarithm::group_by_minify<std::vector<std::pair<CharType, std::size_t>>>(
+        akarithm::group_by_minify(
             input.cbegin(),
             input.cend(),
             [](const CharType &lhs, const CharType &rhs) -> bool {

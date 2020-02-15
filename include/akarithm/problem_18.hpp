@@ -2,7 +2,6 @@
 
 #include "util/generic/group_by_minify.hpp"
 #include "util/generic/sliding_window.hpp"
-#include "util/generic/n_sum.hpp"
 
 #include <vector>
 #include <algorithm>
