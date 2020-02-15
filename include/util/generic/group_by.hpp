@@ -13,6 +13,9 @@ template <
     typename BinaryPredicate,
     typename ValueTy =
         typename std::iterator_traits<IterTy>::value_type,
+    typename ReturnTy =
+        typename std::vector<
+            typename GroupTy>,
     typename = std::enable_if_t<
         std::is_same_v<ValueTy,
                        typename GroupTy::value_type>>>
@@ -21,19 +24,17 @@ group_by(
     IterTy iter_begin,
     IterTy iter_end,
     const BinaryPredicate &pred)
-    -> std::vector<GroupTy>
+    -> ReturnTy
 {
     if (iter_begin == iter_end)
         return {};
-    std::vector<GroupTy> result;
-    result.push_back(GroupTy{*iter_begin});
     return std::move(std::accumulate(
         std::next(iter_begin),
         iter_end,
-        result,
-        [&](std::vector<GroupTy> &acc,
+        ReturnTy{GroupTy{*iter_begin}},
+        [&](ReturnTy &acc,
             const ValueTy &rhs)
-            -> std::vector<GroupTy> {
+            -> ReturnTy {
             if (pred(acc.back(), rhs))
             {
                 acc.back().push_back(rhs);

@@ -20,13 +20,13 @@ levelOrderBottom(const akarithm::TreeNode<ValueTy> *root)
         std::vector<const akarithm::TreeNode<ValueTy> *> next_layers;
         for (const akarithm::TreeNode<ValueTy> *x : layers)
         {
-            tmp.push_back(x->val);
+            tmp.emplace_back(x->val);
             if (x->left)
-                next_layers.push_back(x->left);
+                next_layers.emplace_back(x->left);
             if (x->right)
-                next_layers.push_back(x->right);
+                next_layers.emplace_back(x->right);
         }
-        result.push_back(tmp);
+        result.emplace_back(tmp);
         layers = next_layers;
     }
     return result;

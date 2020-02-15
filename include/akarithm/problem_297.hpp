@@ -58,7 +58,7 @@ public:
 
                 if (node->left)
                 {
-                    next_layers.push_back(node->left);
+                    next_layers.emplace_back(node->left);
                 }
                 else
                 {
@@ -67,7 +67,7 @@ public:
 
                 if (node->right)
                 {
-                    next_layers.push_back(node->right);
+                    next_layers.emplace_back(node->right);
                 }
                 else
                 {

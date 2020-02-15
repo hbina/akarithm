@@ -17,14 +17,14 @@ static constexpr std::vector<ValueTy> sortArrayByParity(
     {
         if (!(value % 2))
         {
-            result.push_back(value);
+            result.emplace_back(value);
         }
     }
     for (const ValueTy &value : A)
     {
         if (value % 2)
         {
-            result.push_back(value);
+            result.emplace_back(value);
         }
     }
     return result;

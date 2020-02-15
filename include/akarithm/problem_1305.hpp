@@ -31,14 +31,14 @@ getAllElements_If(
     {
         //  Can be replaced with a Comp
         if (pred(lhs_iterator.peek()->val, rhs_iterator.peek()->val))
-            result.push_back(lhs_iterator.next()->val);
+            result.emplace_back(lhs_iterator.next()->val);
         else
-            result.push_back(rhs_iterator.next()->val);
+            result.emplace_back(rhs_iterator.next()->val);
     }
     while (lhs_iterator.hasNext())
-        result.push_back(lhs_iterator.next()->val);
+        result.emplace_back(lhs_iterator.next()->val);
     while (rhs_iterator.hasNext())
-        result.push_back(rhs_iterator.next()->val);
+        result.emplace_back(rhs_iterator.next()->val);
 
     return result;
 }

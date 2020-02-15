@@ -16,7 +16,7 @@ std::string reverseWords(const std::string &input)
         {
             if (!tmp.empty())
             {
-                collector.push_back(tmp);
+                collector.emplace_back(tmp);
                 tmp.clear();
             }
         }
@@ -27,7 +27,7 @@ std::string reverseWords(const std::string &input)
     }
     if (!tmp.empty())
     {
-        collector.push_back(tmp);
+        collector.emplace_back(tmp);
     }
     for (auto riter = collector.rbegin(); riter != collector.rend(); riter++)
     {

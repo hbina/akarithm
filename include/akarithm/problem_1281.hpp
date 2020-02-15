@@ -15,7 +15,7 @@ static constexpr ValueTy subtractProductAndSum(const ValueTy &input)
     while (n)
     {
         ValueTy tmp = n % 10;
-        collection.push_back(tmp);
+        collection.emplace_back(tmp);
         n /= 10;
     }
 

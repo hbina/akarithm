@@ -26,7 +26,7 @@ static constexpr std::vector<ValueTy> postorderTraversal(const akarithm::TreeNod
         AB.reserve(A.size() + B.size() + 1);
         AB.insert(AB.end(), A.begin(), A.end());
         AB.insert(AB.end(), B.begin(), B.end());
-        AB.push_back(root->val);
+        AB.emplace_back(root->val);
     }
     return AB;
 }

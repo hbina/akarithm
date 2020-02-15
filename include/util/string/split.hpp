@@ -26,7 +26,7 @@ OutputIterator split(
     while (find != std::string::npos)
     {
         std::string token = input.substr(iter_begin, find - iter_begin);
-        result.push_back(std::move(token));
+        result.emplace_back(std::move(token));
 
         iter_begin = find + delimiter.length();
         find = input.find(delimiter, iter_begin);
@@ -34,7 +34,7 @@ OutputIterator split(
     if (iter_begin != input.length())
     {
         std::string token = input.substr(iter_begin, input.length());
-        result.push_back(std::move(token));
+        result.emplace_back(std::move(token));
     }
     return result;
 }
