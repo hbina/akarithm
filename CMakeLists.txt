@@ -99,6 +99,7 @@ add_executable(
     src/akarithm/problem_965.cpp
     src/akarithm/problem_977.cpp
     src/akarithm/problem_1010.cpp
+    src/akarithm/problem_1029.cpp
     src/akarithm/problem_1051.cpp
     src/akarithm/problem_1281.cpp
     src/akarithm/problem_1221.cpp

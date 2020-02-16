@@ -14,8 +14,7 @@ template <
     typename ValueTy =
         typename std::iterator_traits<IterTy>::value_type,
     typename ReturnTy =
-        typename std::vector<
-            typename GroupTy>,
+        typename std::vector<GroupTy>,
     typename = std::enable_if_t<
         std::is_same_v<ValueTy,
                        typename GroupTy::value_type>>>
