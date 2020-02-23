@@ -49,9 +49,10 @@ nthUglyNumber(const IntTy &n)
     };
 
     DpTy dp;
-    dp.emplace(std::make_pair(
-        evaluate_tuple({0, 0, 0}),
-        TupleTy{0, 0, 0}));
+    dp.emplace(
+        std::make_pair(
+            evaluate_tuple({0, 0, 0}),
+            TupleTy{0, 0, 0}));
     for (DpIndexTy iter = 1; iter != static_cast<DpIndexTy>(n); iter++)
     {
         // Find the lowest evaluation

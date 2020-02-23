@@ -8,7 +8,11 @@ namespace akarithm
 {
 
 template <typename ValueTy>
-static constexpr akarithm::ListNode<ValueTy> *getIntersectionNode(ListNode<ValueTy> *headA, akarithm::ListNode<ValueTy> *headB)
+static constexpr auto
+getIntersectionNode(
+    akarithm::ListNode<ValueTy> *headA,
+    akarithm::ListNode<ValueTy> *headB)
+    -> akarithm::ListNode<ValueTy> *
 {
     if (!headA || !headB)
     {
