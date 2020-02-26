@@ -16,7 +16,7 @@ expand_around_center(
     -> SizeTy
 {
     SizeTy L = left + 1, R = right;
-    while (L > 0u && R < s.size() && s[L - 1] == s[R])
+    while (L > SizeTy{} && R < s.size() && s[L - 1] == s[R])
     {
         L--;
         R++;
