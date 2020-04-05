@@ -12,7 +12,7 @@ static constexpr ValueTy
 romanToInt(const Iterable &s)
 {
     ValueTy sum = 0;
-    static std::map<char, ValueTy> nums;
+    std::map<char, ValueTy> nums;
 
     nums['I'] = 1;
     nums['V'] = 5;
@@ -34,7 +34,6 @@ romanToInt(const Iterable &s)
             iter++;
         }
     }
-
     return sum;
 }
 

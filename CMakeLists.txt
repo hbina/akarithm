@@ -25,6 +25,8 @@ add_executable(
     
     src/util/string/split.cpp
 
+    src/util/integer/digit_fold.cpp
+
     src/util/generic/bst_iterator.cpp
     src/util/generic/is_palindrome.cpp
     src/util/generic/zip_accumulate.cpp
