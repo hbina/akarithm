@@ -15,11 +15,11 @@ TEST_CASE("sliding window 1 -- sum pair")
         akarithm::sliding_window(
             std::cbegin(input_1),
             std::cend(input_1),
-            [&](const int &lhs, const int &rhs)
+            [&](const int lhs, const int rhs)
                 -> bool {
                 return lhs + rhs < input_2;
             },
-            [&](const int &lhs, const int &rhs)
+            [&](const int lhs, const int rhs)
                 -> bool {
                 return lhs + rhs == input_2;
             });

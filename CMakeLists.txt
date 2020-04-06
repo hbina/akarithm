@@ -29,7 +29,7 @@ add_executable(
 
     src/util/generic/bst_iterator.cpp
     src/util/generic/is_palindrome.cpp
-    src/util/generic/zip_accumulate.cpp
+    src/util/generic/zip_fold.cpp
     src/util/generic/preorder_iterator.cpp
     src/util/generic/inorder_iterator.cpp
     src/util/generic/reverse_if.cpp
