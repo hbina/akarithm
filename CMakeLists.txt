@@ -22,6 +22,7 @@ add_executable(
   akarithm
   test/main.cpp
   test/util/string/split.cpp
+  test/util/string/group_by.cpp
   test/util/integer/digit_fold.cpp
   test/util/generic/bst_iterator.cpp
   test/util/generic/is_palindrome.cpp
