@@ -6,12 +6,14 @@
 namespace util {
 namespace string {
 
-template <typename OutputIterator = std::vector<std::string>,
-          typename = std::enable_if<
-              std::is_same_v<typename std::iterator_traits<
-                                 typename OutputIterator::iterator>::value_type,
-                             std::string>>>
-OutputIterator split(const std::string &input, const std::string &delimiter) {
+template<typename OutputIterator = std::vector<std::string>,
+         typename = std::enable_if<
+           std::is_same_v<typename std::iterator_traits<
+                            typename OutputIterator::iterator>::value_type,
+                          std::string>>>
+OutputIterator
+split(const std::string& input, const std::string& delimiter)
+{
   OutputIterator result;
   std::size_t iter_begin = 0;
   auto find = input.find(delimiter, 0);
@@ -30,10 +32,11 @@ OutputIterator split(const std::string &input, const std::string &delimiter) {
   return result;
 }
 
-template <typename OutputIterator = std::vector<std::string>,
-          typename UnaryPredicate>
-OutputIterator split_if(const std::string &input,
-                        const UnaryPredicate &delimiter) {
+template<typename OutputIterator = std::vector<std::string>,
+         typename UnaryPredicate>
+OutputIterator
+split_if(const std::string& input, const UnaryPredicate& delimiter)
+{
   return {};
 }
 

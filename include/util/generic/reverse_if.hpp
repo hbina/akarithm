@@ -4,9 +4,10 @@
 
 namespace akarithm {
 
-template <typename IterTy, typename UnaryPredicate>
-static constexpr void reverse_if(IterTy iter_begin, IterTy iter_end,
-                                 const UnaryPredicate &pred) {
+template<typename IterTy, typename UnaryPredicate>
+static constexpr void
+reverse_if(IterTy iter_begin, IterTy iter_end, const UnaryPredicate& pred)
+{
   auto length = std::distance(iter_begin, iter_end);
   if (length == 0)
     return;

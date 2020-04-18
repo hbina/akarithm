@@ -1,5 +1,5 @@
-cmake_minimum_required (VERSION 3.1)
-project (akarithm)
+cmake_minimum_required(VERSION 3.1)
+project(akarithm)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,29 +19,24 @@ endif()
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
 add_executable(
-    akarithm
-    
-    test/main.cpp
-    
-    test/util/string/split.cpp
-
-    test/util/integer/digit_fold.cpp
-
-    test/util/generic/bst_iterator.cpp
-    test/util/generic/is_palindrome.cpp
-    test/util/generic/zip_fold.cpp
-    test/util/generic/preorder_iterator.cpp
-    test/util/generic/inorder_iterator.cpp
-    test/util/generic/reverse_if.cpp
-    test/util/generic/is_number.cpp
-    test/util/generic/find_range.cpp
-    test/util/generic/set_equality.cpp
-    test/util/generic/group_by.cpp
-    test/util/generic/group_by_minify.cpp
-    test/util/generic/split.cpp
-    test/util/generic/zip.cpp
-    test/util/generic/sliding_window.cpp
-    test/util/generic/bst_search.cpp
-)
+  akarithm
+  test/main.cpp
+  test/util/string/split.cpp
+  test/util/integer/digit_fold.cpp
+  test/util/generic/bst_iterator.cpp
+  test/util/generic/is_palindrome.cpp
+  test/util/generic/zip_fold.cpp
+  test/util/generic/preorder_iterator.cpp
+  test/util/generic/inorder_iterator.cpp
+  test/util/generic/reverse_if.cpp
+  test/util/generic/is_number.cpp
+  test/util/generic/find_range.cpp
+  test/util/generic/set_equality.cpp
+  test/util/generic/group_by.cpp
+  test/util/generic/group_by_minify.cpp
+  test/util/generic/split.cpp
+  test/util/generic/zip.cpp
+  test/util/generic/sliding_window.cpp
+  test/util/generic/bst_search.cpp)
 
 target_include_directories(akarithm PRIVATE ${CMAKE_SOURCE_DIR}/doctest)

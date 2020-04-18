@@ -4,10 +4,11 @@
 
 namespace akarithm {
 
-template <typename IterTy,
-          typename ValueTy = typename std::iterator_traits<IterTy>::value_type>
-static constexpr auto is_palindrome_UnCheckedOdd(IterTy iter_begin,
-                                                 IterTy iter_end) -> bool {
+template<typename IterTy,
+         typename ValueTy = typename std::iterator_traits<IterTy>::value_type>
+static constexpr auto
+is_palindrome_UnCheckedOdd(IterTy iter_begin, IterTy iter_end) -> bool
+{
   while (iter_begin != --iter_end) {
     if (*(iter_begin++) != *(iter_end))
       return false;
@@ -15,10 +16,11 @@ static constexpr auto is_palindrome_UnCheckedOdd(IterTy iter_begin,
   return *iter_begin == *iter_end;
 }
 
-template <typename IterTy,
-          typename ValueTy = typename std::iterator_traits<IterTy>::value_type>
-static constexpr auto is_palindrome_UnCheckedEven(IterTy iter_begin,
-                                                  IterTy iter_end) -> bool {
+template<typename IterTy,
+         typename ValueTy = typename std::iterator_traits<IterTy>::value_type>
+static constexpr auto
+is_palindrome_UnCheckedEven(IterTy iter_begin, IterTy iter_end) -> bool
+{
   while (iter_begin != iter_end) {
     if (*(iter_begin++) != *(--iter_end))
       return false;
@@ -26,10 +28,11 @@ static constexpr auto is_palindrome_UnCheckedEven(IterTy iter_begin,
   return true;
 }
 
-template <typename IterTy,
-          typename ValueTy = typename std::iterator_traits<IterTy>::value_type>
-static constexpr auto is_palindrome(IterTy iter_begin, IterTy iter_end)
-    -> bool {
+template<typename IterTy,
+         typename ValueTy = typename std::iterator_traits<IterTy>::value_type>
+static constexpr auto
+is_palindrome(IterTy iter_begin, IterTy iter_end) -> bool
+{
   if (std::distance(iter_begin, iter_end) % 2)
     return akarithm::is_palindrome_UnCheckedOdd(iter_begin, iter_end);
   else

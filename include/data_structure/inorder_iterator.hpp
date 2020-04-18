@@ -5,12 +5,14 @@
 
 namespace akarithm {
 
-template <typename TreeType, typename ValueTy = typename TreeType::value_type>
-class InorderIterator {
+template<typename TreeType, typename ValueTy = typename TreeType::value_type>
+class InorderIterator
+{
 private:
-  std::stack<TreeType *> stack;
+  std::stack<TreeType*> stack;
 
-  constexpr void parse_node(TreeType *input) {
+  constexpr void parse_node(TreeType* input)
+  {
     if (!input)
       return;
     if (input->right)
@@ -21,17 +23,18 @@ private:
   }
 
 public:
-  constexpr InorderIterator(TreeType *root) { stack.push(root); }
+  constexpr InorderIterator(TreeType* root) { stack.push(root); }
 
-  constexpr auto next() -> TreeType * {
-    TreeType *result = stack.top();
+  constexpr auto next() -> TreeType*
+  {
+    TreeType* result = stack.top();
     stack.pop();
     parse_node(result);
     stack.pop();
     return result;
   }
 
-  constexpr auto peek() const -> TreeType * { return stack.top(); }
+  constexpr auto peek() const -> TreeType* { return stack.top(); }
 
   constexpr auto hasNext() const -> bool { return !stack.empty(); }
 };

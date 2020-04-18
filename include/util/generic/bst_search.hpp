@@ -6,12 +6,14 @@
 
 namespace akarithm {
 
-template <typename ValueTy, typename EqualFunction,
-          typename SearchFunction = std::less<>>
-static constexpr auto bst_search(const akarithm::TreeNode<ValueTy> *root,
-                                 const EqualFunction &equal,
-                                 const SearchFunction &search)
-    -> const akarithm::TreeNode<ValueTy> * {
+template<typename ValueTy,
+         typename EqualFunction,
+         typename SearchFunction = std::less<>>
+static constexpr auto
+bst_search(const akarithm::TreeNode<ValueTy>* root,
+           const EqualFunction& equal,
+           const SearchFunction& search) -> const akarithm::TreeNode<ValueTy>*
+{
   if (!root)
     return nullptr;
   else if (equal(root->val))

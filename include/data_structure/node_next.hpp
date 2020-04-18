@@ -4,29 +4,43 @@
 
 namespace akarithm {
 
-template <typename ValueTy = int> class NodeNext {
+template<typename ValueTy = int>
+class NodeNext
+{
 public:
   ValueTy val;
-  NodeNext *left;
-  NodeNext *right;
-  NodeNext *next;
+  NodeNext* left;
+  NodeNext* right;
+  NodeNext* next;
 
   constexpr NodeNext() = delete;
 
-  constexpr NodeNext(const ValueTy &val)
-      : val(val), left(nullptr), right(nullptr), next(nullptr) {}
+  constexpr NodeNext(const ValueTy& val)
+    : val(val)
+    , left(nullptr)
+    , right(nullptr)
+    , next(nullptr)
+  {}
 
-  constexpr NodeNext(const ValueTy &val, NodeNext<ValueTy> *left,
-                     NodeNext<ValueTy> *right, NodeNext<ValueTy> *next)
-      : val(val), left(left), right(right), next(next) {}
+  constexpr NodeNext(const ValueTy& val,
+                     NodeNext<ValueTy>* left,
+                     NodeNext<ValueTy>* right,
+                     NodeNext<ValueTy>* next)
+    : val(val)
+    , left(left)
+    , right(right)
+    , next(next)
+  {}
 
-  ~NodeNext() {
+  ~NodeNext()
+  {
     delete left;
     delete right;
   }
 
-  friend std::ostream &operator<<(std::ostream &os,
-                                  const NodeNext<ValueTy> &rhs) {
+  friend std::ostream& operator<<(std::ostream& os,
+                                  const NodeNext<ValueTy>& rhs)
+  {
     os << rhs.val << " ";
     if (rhs.left)
       os << *rhs.left << " ";
@@ -43,8 +57,9 @@ public:
     return os;
   };
 
-  constexpr friend bool operator==(const NodeNext<ValueTy> &lhs,
-                                   const NodeNext<ValueTy> &rhs) {
+  constexpr friend bool operator==(const NodeNext<ValueTy>& lhs,
+                                   const NodeNext<ValueTy>& rhs)
+  {
     bool value_equal = lhs.val == rhs.val;
     bool left_equal = false;
     if (lhs.left && rhs.left) {
