@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-using CharType = typename std::string::value_type;
+using CharTy = typename std::string::value_type;
 
 TEST_CASE("akarithm::group_by_minify")
 {
@@ -37,29 +37,29 @@ TEST_CASE("akarithm::group_by_minify")
 TEST_CASE("akarithm::group_by_minify")
 {
   const std::string input = "123123hello3213213world";
-  const std::vector<std::pair<CharType, std::size_t>> expected = {
+  const std::vector<std::pair<CharTy, std::size_t>> expected = {
     { '1', 6 }, { 'h', 5 }, { '3', 7 }, { 'w', 5 }
   };
-  const auto result = akarithm::group_by_minify(
-    input.cbegin(),
-    input.cend(),
-    [](const CharType& lhs, const CharType& rhs) -> bool {
-      return std::isalpha(lhs) == std::isalpha(rhs);
-    });
+  const auto result =
+    akarithm::group_by_minify(input.cbegin(),
+                              input.cend(),
+                              [](const CharTy& lhs, const CharTy& rhs) -> bool {
+                                return std::isalpha(lhs) == std::isalpha(rhs);
+                              });
   CHECK(expected == result);
 }
 
 TEST_CASE("akarithm::group_by_minify")
 {
   const std::string input = "hh123123hello3213213world33";
-  const std::vector<std::pair<CharType, std::size_t>> expected = {
+  const std::vector<std::pair<CharTy, std::size_t>> expected = {
     { 'h', 2 }, { '1', 6 }, { 'h', 5 }, { '3', 7 }, { 'w', 5 }, { '3', 2 }
   };
-  const auto result = akarithm::group_by_minify(
-    input.cbegin(),
-    input.cend(),
-    [](const CharType& lhs, const CharType& rhs) -> bool {
-      return std::isalpha(lhs) == std::isalpha(rhs);
-    });
+  const auto result =
+    akarithm::group_by_minify(input.cbegin(),
+                              input.cend(),
+                              [](const CharTy& lhs, const CharTy& rhs) -> bool {
+                                return std::isalpha(lhs) == std::isalpha(rhs);
+                              });
   CHECK(expected == result);
 }
