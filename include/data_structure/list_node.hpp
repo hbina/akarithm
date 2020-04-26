@@ -26,7 +26,7 @@ struct ListNode
       delete next;
   }
 
-  friend std::ostream& operator<<(std::ostream& os,
+  constexpr friend std::ostream& operator<<(std::ostream& os,
                                   const ListNode<ValueTy>& rhs)
   {
     os << "ListNode val:" << rhs.val;
