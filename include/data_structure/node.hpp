@@ -23,7 +23,7 @@ public:
     , children(p_children)
   {}
 
-   ~Node()
+  ~Node()
   {
     for (Node<ValueTy>* x : children) {
       delete x;
