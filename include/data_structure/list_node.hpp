@@ -27,7 +27,7 @@ struct ListNode
   }
 
   constexpr friend std::ostream& operator<<(std::ostream& os,
-                                  const ListNode<ValueTy>& rhs)
+                                            const ListNode<ValueTy>& rhs)
   {
     os << "ListNode val:" << rhs.val;
     return os;

@@ -32,7 +32,7 @@ public:
     , next(next)
   {}
 
-  constexpr ~NodeNext()
+  ~NodeNext()
   {
     delete left;
     delete right;
