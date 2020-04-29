@@ -18,7 +18,7 @@ endif()
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
-add_executable(
+add_library(
   akarithm
   test/main.cpp
   test/util/string/split.cpp
@@ -38,6 +38,7 @@ add_executable(
   test/util/generic/split.cpp
   test/util/generic/zip.cpp
   test/util/generic/sliding_window.cpp
-  test/util/generic/bst_search.cpp)
+  test/util/generic/bst_search.cpp
+  test/util/generic/quicksort.cpp)
 
 target_include_directories(akarithm PRIVATE ${CMAKE_SOURCE_DIR}/doctest)
