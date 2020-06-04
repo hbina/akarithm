@@ -11,9 +11,8 @@ if(MSVC)
   else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
   endif()
-elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
-  # Update if necessary
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-long-long -pedantic")
+else()
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 endif()
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
@@ -24,6 +23,7 @@ add_executable(
   test/util/string/split.cpp
   test/util/string/group_by.cpp
   test/util/integer/digit_fold.cpp
+  test/util/generic/fold.cpp
   test/util/generic/bst_iterator.cpp
   test/util/generic/is_palindrome.cpp
   test/util/generic/zip_fold.cpp
