@@ -1,5 +1,7 @@
 #pragma once
 
+#include "util/generic/group_fold.hpp"
+
 #include <iterator>
 #include <numeric>
 #include <vector>
@@ -19,18 +21,15 @@ static constexpr auto
 group_by_minify(IterTy iter_begin, IterTy iter_end, const BinaryPredicate& pred)
   -> ReturnTy
 {
-  if (iter_begin == iter_end)
-    return {};
-  return std::accumulate(std::next(iter_begin),
-                         iter_end,
-                         ReturnTy{ std::pair{ *iter_begin, 1 } },
-                         [&](ReturnTy& acc, const ValueTy& rhs) -> ReturnTy {
-                           if (pred(acc.back().first, rhs))
-                             acc.back().second++;
-                           else
-                             acc.emplace_back(rhs, 1);
-                           return acc;
-                         });
+  return akarithm::group_fold(
+    iter_begin,
+    iter_end,
+    [&](const ValueTy& lhs, const ValueTy& rhs) -> bool {
+      return pred(lhs, rhs);
+    },
+    [](const std::vector<ValueTy>& group) -> std::pair<ValueTy, std::size_t> {
+      return std::make_pair(group.front(), std::size(group));
+    });
 }
 
 } // namespace akarithm

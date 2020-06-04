@@ -8,7 +8,7 @@
 
 using CharTy = typename std::string::value_type;
 
-TEST_CASE("akarithm::group_by_minify")
+TEST_CASE("akarithm::group_by_minify 1")
 {
   const std::vector<int> input = { 1, 1, 2, 4, 6, 5, 7 };
   const std::vector<std::pair<int, std::size_t>> expected = { { 1, 2 },
@@ -21,7 +21,7 @@ TEST_CASE("akarithm::group_by_minify")
   CHECK(expected == result);
 }
 
-TEST_CASE("akarithm::group_by_minify")
+TEST_CASE("akarithm::group_by_minify 2")
 {
   const std::list<int> input = { 1, 1, 2, 4, 6, 5, 7 };
   const std::vector<std::pair<int, std::size_t>> expected = { { 1, 2 },
@@ -34,7 +34,7 @@ TEST_CASE("akarithm::group_by_minify")
   CHECK(expected == result);
 }
 
-TEST_CASE("akarithm::group_by_minify")
+TEST_CASE("akarithm::group_by_minify 3")
 {
   const std::string input = "123123hello3213213world";
   const std::vector<std::pair<CharTy, std::size_t>> expected = {
