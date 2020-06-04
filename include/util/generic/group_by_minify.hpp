@@ -6,6 +6,9 @@
 
 namespace akarithm {
 
+// NOTE: This is actually just a special case of `group_fold`.
+// FIXME: Reimplement this to not use accumulate.
+// This shit is too much.
 template<typename CounterTy = std::size_t,
          typename IterTy,
          typename BinaryPredicate,

@@ -12,11 +12,9 @@ TEST_CASE("akarithm::group_by 1")
   const std::vector<std::vector<int>> expected = { { 1, 1 },
                                                    { 2, 4, 6 },
                                                    { 5, 7 } };
-  const auto result =
-    akarithm::group_by(input.cbegin(),
-                       input.cend(),
-                       [](const std::vector<int>& lhs, const int& rhs) -> bool {
-                         return (lhs.back() % 2) == (rhs % 2);
-                       });
+  const auto result = akarithm::group_by(
+    input.cbegin(), input.cend(), [](const int& lhs, const int& rhs) -> bool {
+      return (lhs % 2) == (rhs % 2);
+    });
   CHECK(expected == result);
 }

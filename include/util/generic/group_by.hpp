@@ -6,28 +6,38 @@
 
 namespace akarithm {
 
-template<
-  typename IterTy,
-  typename BinaryPredicate,
-  typename ValueTy = typename std::iterator_traits<IterTy>::value_type,
-  typename ReturnTy = typename std::vector<typename std::vector<ValueTy>>>
+template<typename IterTy,
+         typename BinaryPredicate,
+         typename ValueTy = typename std::iterator_traits<IterTy>::value_type,
+         typename GroupTy = typename std::vector<ValueTy>,
+         typename ReturnTy = typename std::vector<GroupTy>>
 static constexpr auto
 group_by(IterTy iter_begin, IterTy iter_end, const BinaryPredicate& pred)
   -> ReturnTy
 {
-  if (iter_begin == iter_end)
+  if (iter_begin == iter_end) {
     return {};
-  return std::accumulate(std::next(iter_begin),
-                         iter_end,
-                         ReturnTy{ std::vector{ *iter_begin } },
-                         [&](ReturnTy& acc, const ValueTy& rhs) -> ReturnTy {
-                           if (pred(acc.back(), rhs)) {
-                             acc.back().push_back(rhs);
-                           } else {
-                             acc.push_back(std::vector{ rhs });
-                           }
-                           return acc;
-                         });
+  }
+
+  ReturnTy result{};
+
+  GroupTy group{};
+  group.emplace_back(*iter_begin);
+
+  result.emplace_back(group);
+  iter_begin = std::next(iter_begin);
+
+  while (iter_begin != iter_end) {
+    if (pred(result.back().back(), *iter_begin)) {
+      result.back().emplace_back(*iter_begin);
+    } else {
+      GroupTy group{};
+      group.emplace_back(*iter_begin);
+      result.emplace_back(group);
+    }
+    iter_begin = std::next(iter_begin);
+  }
+  return result;
 }
 
 } // namespace akarithm
