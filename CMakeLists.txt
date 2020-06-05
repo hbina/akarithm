@@ -20,6 +20,7 @@ include_directories("${CMAKE_SOURCE_DIR}/include")
 add_executable(
   akarithm
   test/main.cpp
+  test/data_structure/vector.cpp
   test/util/string/split.cpp
   test/util/string/group_by.cpp
   test/util/integer/digit_fold.cpp
