@@ -2,6 +2,8 @@
 
 #include "util/generic/is_palindrome.hpp"
 
+#include <string>
+
 TEST_CASE("is palindrome 1")
 {
   const std::string input = "hello";

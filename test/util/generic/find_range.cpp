@@ -3,6 +3,7 @@
 #include "util/generic/find_range.hpp"
 
 #include <vector>
+#include <string>
 
 TEST_CASE("find_range 1")
 {

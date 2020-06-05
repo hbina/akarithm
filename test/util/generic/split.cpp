@@ -4,6 +4,7 @@
 
 #include <cctype>
 #include <vector>
+#include <string>
 
 TEST_CASE("akarithm::split test -- vector<int> --> vector<vector<int>> "
           "delimited by value 2")
