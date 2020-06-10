@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <iterator>
 #include <numeric>
 #include <vector>
@@ -18,17 +19,17 @@ group_by(IterTy iter_begin, IterTy iter_end, const BinaryPredicate& pred)
 {
   if (iter_begin == iter_end)
     return {};
-  return std::accumulate(std::next(iter_begin),
-                         iter_end,
-                         ReturnTy{ std::string{ *iter_begin } },
-                         [&](ReturnTy& acc, const ValueTy& rhs) -> ReturnTy {
-                           if (pred(acc.back(), rhs)) {
-                             acc.back().push_back(rhs);
-                           } else {
-                             acc.push_back(std::string{ rhs });
-                           }
-                           return acc;
-                         });
+
+  ReturnTy result = { std::string{ *iter_begin } };
+  std::for_each(std::next(iter_begin), iter_end, [&](const ValueTy& x) {
+    if (pred(result.back(), x)) {
+      result.back().push_back(x);
+    } else {
+      result.push_back(std::string{ x });
+    }
+  });
+
+  return result;
 }
 }
 } // namespace akarithm
