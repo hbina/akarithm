@@ -2,7 +2,7 @@
 
 #include <utility>
 
-namespace akarithm {
+namespace aka {
 
 template<typename F, typename AccTy, typename Iter, std::size_t... Is>
 static constexpr auto

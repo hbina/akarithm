@@ -1,16 +1,16 @@
-#include "doctest/doctest.h"
+#include <doctest/doctest.h>
 
 #include "data_structure/bst_iterator.hpp"
 #include "data_structure/tree_node.hpp"
 
 TEST_CASE("bst iterator")
 {
-  const akarithm::TreeNode<>* input = new akarithm::TreeNode<>(
+  const aka::TreeNode<>* input = new aka::TreeNode<>(
     7,
-    new akarithm::TreeNode<>(3),
-    new akarithm::TreeNode<>(
-      15, new akarithm::TreeNode<>(9), new akarithm::TreeNode<>(20)));
-  akarithm::BSTIterator iterator = akarithm::BSTIterator(input);
+    new aka::TreeNode<>(3),
+    new aka::TreeNode<>(
+      15, new aka::TreeNode<>(9), new aka::TreeNode<>(20)));
+  aka::BSTIterator iterator = aka::BSTIterator(input);
   CHECK(3 == iterator.next()->val);
   CHECK(7 == iterator.next()->val);
   CHECK(true == iterator.hasNext());

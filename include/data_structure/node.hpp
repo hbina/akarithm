@@ -2,7 +2,7 @@
 
 #include <vector>
 
-namespace akarithm {
+namespace aka {
 
 template<typename ValueTy = int>
 class Node

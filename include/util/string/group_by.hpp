@@ -5,7 +5,7 @@
 #include <numeric>
 #include <vector>
 
-namespace akarithm {
+namespace aka {
 
 namespace string {
 

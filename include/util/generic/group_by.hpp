@@ -4,7 +4,7 @@
 #include <numeric>
 #include <vector>
 
-namespace akarithm {
+namespace aka {
 
 template<typename IterTy,
          typename BinaryPredicate,
@@ -19,9 +19,9 @@ group_by(IterTy iter_begin, IterTy iter_end, const BinaryPredicate& pred)
     return {};
   }
 
-  ReturnTy result{};
+  ReturnTy result = {};
 
-  GroupTy group{};
+  GroupTy group = {};
   group.emplace_back(*iter_begin);
 
   result.emplace_back(group);
@@ -31,7 +31,7 @@ group_by(IterTy iter_begin, IterTy iter_end, const BinaryPredicate& pred)
     if (pred(result.back().back(), *iter_begin)) {
       result.back().emplace_back(*iter_begin);
     } else {
-      GroupTy group{};
+      GroupTy group = {};
       group.emplace_back(*iter_begin);
       result.emplace_back(group);
     }

@@ -2,7 +2,7 @@
 
 #include <type_traits>
 
-namespace akarithm {
+namespace aka {
 
 template<typename F,
          typename IntTy = int,

@@ -4,7 +4,7 @@
 #include <iterator>
 #include <tuple>
 
-namespace akarithm {
+namespace aka {
 
 template<typename IterTy,
          typename DecisionFunction,

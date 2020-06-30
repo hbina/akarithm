@@ -4,7 +4,7 @@
 
 #include <iterator>
 
-namespace akarithm {
+namespace aka {
 
 template<typename OutputType,
          typename IterTyLhs,

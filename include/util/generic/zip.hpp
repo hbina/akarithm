@@ -2,7 +2,7 @@
 
 #include <iterator>
 
-namespace akarithm {
+namespace aka {
 
 template<typename IterTyLhs, typename IterTyRhs, typename BinaryFunction>
 static constexpr void

@@ -2,7 +2,7 @@
 
 #include <iterator>
 
-namespace akarithm {
+namespace aka {
 
 template<typename IterTy,
          typename ValueTy = typename std::iterator_traits<IterTy>::value_type>
@@ -34,9 +34,9 @@ static constexpr auto
 is_palindrome(IterTy iter_begin, IterTy iter_end) -> bool
 {
   if (std::distance(iter_begin, iter_end) % 2)
-    return akarithm::is_palindrome_UnCheckedOdd(iter_begin, iter_end);
+    return aka::is_palindrome_UnCheckedOdd(iter_begin, iter_end);
   else
-    return akarithm::is_palindrome_UnCheckedEven(iter_begin, iter_end);
+    return aka::is_palindrome_UnCheckedEven(iter_begin, iter_end);
 }
 
-} // namespace akarithm
+} // namespace aka

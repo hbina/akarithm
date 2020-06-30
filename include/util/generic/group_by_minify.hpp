@@ -6,7 +6,7 @@
 #include <numeric>
 #include <vector>
 
-namespace akarithm {
+namespace aka {
 
 // NOTE: This is actually just a special case of `group_fold`.
 // FIXME: Reimplement this to not use accumulate.
@@ -21,7 +21,7 @@ static constexpr auto
 group_by_minify(IterTy iter_begin, IterTy iter_end, const BinaryPredicate& pred)
   -> ReturnTy
 {
-  return akarithm::group_fold(
+  return aka::group_fold(
     iter_begin,
     iter_end,
     [&](const ValueTy& lhs, const ValueTy& rhs) -> bool {
@@ -32,4 +32,4 @@ group_by_minify(IterTy iter_begin, IterTy iter_end, const BinaryPredicate& pred)
     });
 }
 
-} // namespace akarithm
+} // namespace aka

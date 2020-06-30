@@ -1,4 +1,4 @@
-#include "doctest/doctest.h"
+#include <doctest/doctest.h>
 
 #include "util/string/group_by.hpp"
 
@@ -6,13 +6,13 @@
 #include <string>
 #include <vector>
 
-TEST_CASE("akarithm::group_by 4")
+TEST_CASE("aka::group_by 4")
 {
   const std::string input = "123123hello3213213world";
   const std::vector<std::string> expected = {
     "123123", "hello", "3213213", "world"
   };
-  const auto result = akarithm::string::group_by(
+  const auto result = aka::string::group_by(
     input.cbegin(),
     input.cend(),
     [](const std::string& lhs, const auto& rhs) -> bool {
@@ -21,12 +21,12 @@ TEST_CASE("akarithm::group_by 4")
   CHECK(expected == result);
 }
 
-TEST_CASE("akarithm::group_by 5")
+TEST_CASE("aka::group_by 5")
 {
   const std::string input = "hh123123hello3213213world33";
   const std::vector<std::string> expected = { "hh",      "123123", "hello",
                                               "3213213", "world",  "33" };
-  const auto result = akarithm::string::group_by(
+  const auto result = aka::string::group_by(
     input.cbegin(),
     input.cend(),
     [](const std::string& lhs, const auto& rhs) -> bool {

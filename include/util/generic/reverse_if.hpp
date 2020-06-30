@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-namespace akarithm {
+namespace aka {
 
 template<typename IterTy, typename UnaryPredicate>
 static constexpr void

@@ -8,7 +8,7 @@ TEST_CASE("fold_each_n 1")
 {
   const std::vector<int> input = { 1, 1, 2, 2, 3, 3, 4, 4 };
   const std::vector<int> expected = { 2, 4, 6, 8 };
-  const std::vector<int> result = akarithm::fold_each_n<2>(
+  const std::vector<int> result = aka::fold_each_n<2>(
     std::cbegin(input),
     std::cend(input),
     std::vector<int>{},
@@ -23,7 +23,7 @@ TEST_CASE("fold_each_n 2")
 {
   const std::vector<int> input = { 1, 1, 2, 2, 3, 3, 4, 4 };
   const std::vector<int> expected = { 1, 2, 2, 3, 3, 3, 4, 4, 4, 4 };
-  const std::vector<int> result = akarithm::fold_each_n<2>(
+  const std::vector<int> result = aka::fold_each_n<2>(
     std::cbegin(input),
     std::cend(input),
     std::vector<int>{},

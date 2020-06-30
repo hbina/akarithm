@@ -3,7 +3,7 @@
 #include <functional>
 #include <type_traits>
 
-namespace akarithm {
+namespace aka {
 
 template<typename OutputType, typename IterTy, typename AddFunction>
 static constexpr auto

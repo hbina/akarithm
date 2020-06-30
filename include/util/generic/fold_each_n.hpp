@@ -5,7 +5,7 @@
 #include <cassert>
 #include <iterator>
 
-namespace akarithm {
+namespace aka {
 
 template<unsigned int N,
          typename IterTy,

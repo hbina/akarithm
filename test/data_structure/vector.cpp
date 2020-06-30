@@ -4,9 +4,9 @@
 
 #include <iostream>
 
-TEST_CASE("akarithm::vector")
+TEST_CASE("aka::vector")
 {
-  akarithm::vector<int> result = akarithm::vector<int>::from({ 1, 2, 3, 4, 5 })
+  aka::vector<int> result = aka::vector<int>::from({ 1, 2, 3, 4, 5 })
                                    .map([](const int& x) { return x * 2; })
                                    .filter([](const int& x) { return x > 6; });
   for (const int& x : result) {

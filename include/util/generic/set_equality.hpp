@@ -2,7 +2,7 @@
 #include <unordered_set>
 
 //  TODO    ::  Implement set_equality_If
-namespace akarithm {
+namespace aka {
 
 template<typename IterTyLhs,
          typename IterTyRhs,

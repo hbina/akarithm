@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <vector>
 
-namespace akarithm {
+namespace aka {
 
 template<typename T>
 class vector
@@ -13,15 +13,15 @@ class vector
 
 public:
   template<typename T2>
-  static auto from(std::initializer_list<T2> list) -> akarithm::vector<T>
+  static auto from(std::initializer_list<T2> list) -> aka::vector<T>
   {
-    akarithm::vector<T> result;
+    aka::vector<T> result;
     result.data = list;
     return result;
   }
 
   template<typename F>
-  auto map(const F& f) -> akarithm::vector<T>
+  auto map(const F& f) -> aka::vector<T>
   {
     for (T& x : data) {
       x = f(x);
@@ -58,4 +58,4 @@ public:
   }
 };
 
-} // namespace akarithm
+} // namespace aka

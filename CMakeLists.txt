@@ -42,6 +42,7 @@ add_executable(
   test/util/generic/sliding_window.cpp
   test/util/generic/bst_search.cpp
   test/util/generic/fold_each_n.cpp
+  test/util/generic/map.cpp
   test/math/series/harmonic_series.cpp)
 
 target_include_directories(akarithm PRIVATE ${CMAKE_SOURCE_DIR}/doctest)

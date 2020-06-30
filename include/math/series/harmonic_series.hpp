@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-namespace akarithm {
+namespace aka {
 
 template<typename IntTy = std::size_t, typename ResultTy = double>
 static constexpr auto

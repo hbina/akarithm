@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-namespace akarithm {
+namespace aka {
 
 template<typename ValueTy = int>
 struct ListNode

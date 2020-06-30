@@ -4,7 +4,7 @@
 #include <iterator>
 #include <type_traits>
 
-namespace akarithm {
+namespace aka {
 
 //  TODO    ::  Verify templates
 //  TODO    ::  Rewrite using std::find_if, where the predicate

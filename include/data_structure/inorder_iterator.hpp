@@ -3,7 +3,7 @@
 
 #include <stack>
 
-namespace akarithm {
+namespace aka {
 
 template<typename TreeType, typename ValueTy = typename TreeType::value_type>
 class InorderIterator

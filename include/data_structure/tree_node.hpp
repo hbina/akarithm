@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace akarithm {
+namespace aka {
 
 template<typename ValueTy = int>
 struct TreeNode

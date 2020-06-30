@@ -4,15 +4,15 @@
 
 #include <functional>
 
-namespace akarithm {
+namespace aka {
 
 template<typename ValueTy,
          typename EqualFunction,
          typename SearchFunction = std::less<>>
 static constexpr auto
-bst_search(const akarithm::TreeNode<ValueTy>* root,
+bst_search(const aka::TreeNode<ValueTy>* root,
            const EqualFunction& equal,
-           const SearchFunction& search) -> const akarithm::TreeNode<ValueTy>*
+           const SearchFunction& search) -> const aka::TreeNode<ValueTy>*
 {
   if (!root)
     return nullptr;
@@ -24,4 +24,4 @@ bst_search(const akarithm::TreeNode<ValueTy>* root,
     return bst_search(root->left, equal, search);
 }
 
-} // namespace akarithm
+} // namespace aka

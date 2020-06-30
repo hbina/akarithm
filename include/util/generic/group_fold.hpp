@@ -5,7 +5,7 @@
 #include <type_traits>
 #include <vector>
 
-namespace akarithm {
+namespace aka {
 
 template<typename IterTy,
          typename BinaryPredicate,

@@ -1,25 +1,25 @@
-#include "doctest/doctest.h"
+#include <doctest/doctest.h>
 
 #include "data_structure/postorder_iterator.hpp"
 #include "data_structure/tree_node.hpp"
 
 TEST_CASE("preorder iterator")
 {
-  const akarithm::TreeNode<>* input = new akarithm::TreeNode<>(
+  const aka::TreeNode<>* input = new aka::TreeNode<>(
     1,
-    new akarithm::TreeNode<>(
+    new aka::TreeNode<>(
       2,
-      new akarithm::TreeNode<>(
-        4, new akarithm::TreeNode<>(8), new akarithm::TreeNode<>(9)),
-      new akarithm::TreeNode<>(
-        5, new akarithm::TreeNode<>(10), new akarithm::TreeNode<>(11))),
-    new akarithm::TreeNode<>(
+      new aka::TreeNode<>(
+        4, new aka::TreeNode<>(8), new aka::TreeNode<>(9)),
+      new aka::TreeNode<>(
+        5, new aka::TreeNode<>(10), new aka::TreeNode<>(11))),
+    new aka::TreeNode<>(
       3,
-      new akarithm::TreeNode<>(
-        6, new akarithm::TreeNode<>(12), new akarithm::TreeNode<>(13)),
-      new akarithm::TreeNode<>(
-        7, new akarithm::TreeNode<>(14), new akarithm::TreeNode<>(15))));
-  akarithm::PostorderIterator iterator = akarithm::PostorderIterator(input);
+      new aka::TreeNode<>(
+        6, new aka::TreeNode<>(12), new aka::TreeNode<>(13)),
+      new aka::TreeNode<>(
+        7, new aka::TreeNode<>(14), new aka::TreeNode<>(15))));
+  aka::PostorderIterator iterator = aka::PostorderIterator(input);
   CHECK(15 == iterator.next()->val);
   CHECK(7 == iterator.next()->val);
   CHECK(14 == iterator.next()->val);
