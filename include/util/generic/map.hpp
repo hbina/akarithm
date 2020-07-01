@@ -17,8 +17,9 @@ map(IterTy iter_begin, IterTy iter_end, const MapFun& map)
   ResultTy result;
   result.reserve(std::distance(iter_begin, iter_end));
 
-  for (auto iter = iter_begin; iter_begin != iter_end; iter++) {
-    result.emplace_back(map(*iter));
+  while (iter_begin != iter_end) {
+    result.emplace_back(map(*iter_begin));
+    iter_begin = std::next(iter_begin);
   }
 
   return result;

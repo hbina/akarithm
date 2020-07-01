@@ -33,8 +33,8 @@ struct ListNode
     return os;
   }
 
-  constexpr friend bool operator==(const akarithm::ListNode<ValueTy>& lhs,
-                                   const akarithm::ListNode<ValueTy>& rhs)
+  constexpr friend bool operator==(const aka::ListNode<ValueTy>& lhs,
+                                   const aka::ListNode<ValueTy>& rhs)
   {
     bool value_equal = (lhs.val == rhs.val);
     if (lhs.next && rhs.next) {
