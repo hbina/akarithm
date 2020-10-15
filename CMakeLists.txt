@@ -12,7 +12,7 @@ if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
   endif()
 else()
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -lpthread")
 endif()
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
@@ -21,6 +21,7 @@ add_executable(
   akarithm
   test/main.cpp
   test/data_structure/vector.cpp
+  test/data_structure/variable_guard.cpp
   test/util/string/split.cpp
   test/util/string/group_by.cpp
   test/util/integer/digit_fold.cpp
